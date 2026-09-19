@@ -22,7 +22,7 @@
     <p id="kitFeedbackAbout" style="margin:0 0 12px;font-size:12px;color:#8e97a3;line-height:1.5;">Goes straight to Ian. Needs an internet connection.</p>
     <textarea id="kitFeedbackMsg" rows="4" placeholder="What's on your mind?" style="width:100%;box-sizing:border-box;background:#0c1117;border:1px solid rgba(255,255,255,.14);border-radius:8px;color:#e8edf2;padding:8px 10px;font-size:13px;font-family:inherit;resize:vertical;margin-bottom:8px;"></textarea>
     <input type="email" id="kitFeedbackEmail" placeholder="Email (required, so Ian can reply)" required style="width:100%;box-sizing:border-box;background:#0c1117;border:1px solid rgba(255,255,255,.14);border-radius:8px;color:#e8edf2;padding:8px 10px;font-size:13px;font-family:inherit;margin-bottom:8px;">
-    <div class="cf-turnstile" id="kitFeedbackTurnstile" data-sitekey="0x4AAAAAAEPZa3KTPJEb-bbv" style="margin-bottom:8px;"></div>
+    <div class="cf-turnstile" id="kitFeedbackTurnstile" data-sitekey="0x4AAAAAAEPZa3KTPJEb-bbv" data-theme="dark" style="margin-bottom:8px;"></div>
     <div id="kitFeedbackStatus" style="font-size:12px;min-height:16px;margin-bottom:8px;"></div>
     <button type="button" id="kitFeedbackSend" style="width:100%;background:#2563eb;color:#fff;border:none;border-radius:8px;padding:9px 12px;font-weight:650;font-size:13px;cursor:pointer;">Send feedback</button>
   </div>
@@ -2162,7 +2162,7 @@ body {
         <div class="field">
           <label for="whitelistTerms">Whitelist / Exclude (Do Not Redact):<\/label>
           <input type="text" id="whitelistTerms" placeholder="e.g., 255.255.255.0, 255.255.255.252, GigabitEthernet, Vlan" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" oninput="requestSanitize()">
-          <div class="field-hint">Common system accounts and structural hostnames across Windows, Linux/Ubuntu, macOS, VMware, Kubernetes, and Cisco/Dell (root, Administrator, SYSTEM, ubuntu, vpxuser, kube-system, localhost, Router, etc.) are already excluded automatically. Use this field only for terms specific to your own environment.<\/div>
+          <div class="field-hint">Common system accounts and structural hostnames across Windows, Linux/Ubuntu, macOS, VMware, Kubernetes, and Cisco/Dell (root, Administrator, SYSTEM, ubuntu, vpxuser, kube-system, localhost, Router, etc.) are already excluded automatically. Every standard subnet mask (255.255.255.0, 255.255.254.0, etc.) and 0.0.0.0/0 are pre-filled below too, since a mask describes network size, not identity, and a /23 is meaningfully different from a /24. Add anything else specific to your own environment.<\/div>
         <\/div>
       <\/div>
     <\/details>
@@ -5714,6 +5714,26 @@ function updateDetectionRuleCount() {
    matter which one was clicked, so the buttons never represented a real
    choice and just looked like a broken control. Removed the buttons; this
    is what's left, the actual default-state setup they all shared. */
+
+/* Every standard CIDR-derived subnet mask (/0-/32) plus the CIDR
+   default-route notation. These describe network SIZE, not identity --
+   a /23 (255.255.254.0) is meaningfully different from a /24
+   (255.255.255.0), and redacting either into an unrelated fake IP
+   destroys that distinction without protecting anything, since a bare
+   mask or 0.0.0.0/0 can't identify anyone's network on its own. Safe to
+   whitelist by default; an operator can still remove any of these from
+   the field below. */
+var DEFAULT_SAFE_WHITELIST = [
+  '0.0.0.0', '128.0.0.0', '192.0.0.0', '224.0.0.0', '240.0.0.0', '248.0.0.0',
+  '252.0.0.0', '254.0.0.0', '255.0.0.0', '255.128.0.0', '255.192.0.0',
+  '255.224.0.0', '255.240.0.0', '255.248.0.0', '255.252.0.0', '255.254.0.0',
+  '255.255.0.0', '255.255.128.0', '255.255.192.0', '255.255.224.0',
+  '255.255.240.0', '255.255.248.0', '255.255.252.0', '255.255.254.0',
+  '255.255.255.0', '255.255.255.128', '255.255.255.192', '255.255.255.224',
+  '255.255.255.240', '255.255.255.248', '255.255.255.252', '255.255.255.254',
+  '255.255.255.255', '0.0.0.0/0'
+];
+
 function initializeDetectionRules() {
   SANITIZATION_RULES.forEach(function(rule) {
     var el = $('chk-' + rule.id);
@@ -5723,7 +5743,7 @@ function initializeDetectionRules() {
     el.title = rule.always === true ? 'Core rule: always on' : '';
   });
   updateDetectionRuleCount();
-  $('whitelistTerms').value = '';
+  $('whitelistTerms').value = DEFAULT_SAFE_WHITELIST.join(', ');
   requestSanitize();
 }
 
