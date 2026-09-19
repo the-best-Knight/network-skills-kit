@@ -469,6 +469,7 @@
 (function(){
   var MAP = {"networking_tools_hub.html": "hub", "log_sanitizer.html": "log-sanitizer", "command_translator.html": "command-translator", "network_cyber_toolkit_v1.3.html": "toolkit", "practice_reference.html": "practice-ref", "cheat_sheet.html": "practice-ref", "dns_lab.html": "dns-lab", "routing_lab.html": "routing-lab", "firewall_rules_lab.html": "firewall-lab", "network_fault_lab.html": "fault-lab", "vsphere_sandbox.html": "vsphere-sandbox"};
   document.addEventListener('click', function(e){
+    if (window.parent === window) return;
     var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
     var href = a ? a.getAttribute('href') : null;
     if (!href) {
@@ -7433,6 +7434,7 @@ window.addEventListener('DOMContentLoaded', function () {
 (function(){
   var MAP = {"networking_tools_hub.html": "hub", "log_sanitizer.html": "log-sanitizer", "command_translator.html": "command-translator", "network_cyber_toolkit_v1.3.html": "toolkit", "practice_reference.html": "practice-ref", "cheat_sheet.html": "practice-ref", "dns_lab.html": "dns-lab", "routing_lab.html": "routing-lab", "firewall_rules_lab.html": "firewall-lab", "network_fault_lab.html": "fault-lab", "vsphere_sandbox.html": "vsphere-sandbox"};
   document.addEventListener('click', function(e){
+    if (window.parent === window) return;
     var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
     var href = a ? a.getAttribute('href') : null;
     if (!href) {
@@ -9060,6 +9062,7 @@ window.addEventListener('DOMContentLoaded', function () {
 (function(){
   var MAP = {"networking_tools_hub.html": "hub", "log_sanitizer.html": "log-sanitizer", "command_translator.html": "command-translator", "network_cyber_toolkit_v1.3.html": "toolkit", "practice_reference.html": "practice-ref", "cheat_sheet.html": "practice-ref", "dns_lab.html": "dns-lab", "routing_lab.html": "routing-lab", "firewall_rules_lab.html": "firewall-lab", "network_fault_lab.html": "fault-lab", "vsphere_sandbox.html": "vsphere-sandbox"};
   document.addEventListener('click', function(e){
+    if (window.parent === window) return;
     var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
     var href = a ? a.getAttribute('href') : null;
     if (!href) {
@@ -12196,6 +12199,7 @@ window.addEventListener('DOMContentLoaded', function () {
 (function(){
   var MAP = {"networking_tools_hub.html": "hub", "log_sanitizer.html": "log-sanitizer", "command_translator.html": "command-translator", "network_cyber_toolkit_v1.3.html": "toolkit", "practice_reference.html": "practice-ref", "cheat_sheet.html": "practice-ref", "dns_lab.html": "dns-lab", "routing_lab.html": "routing-lab", "firewall_rules_lab.html": "firewall-lab", "network_fault_lab.html": "fault-lab", "vsphere_sandbox.html": "vsphere-sandbox"};
   document.addEventListener('click', function(e){
+    if (window.parent === window) return;
     var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
     var href = a ? a.getAttribute('href') : null;
     if (!href) {
@@ -13154,6 +13158,7 @@ document.addEventListener('DOMContentLoaded', function () {
 (function(){
   var MAP = {"networking_tools_hub.html":"hub","log_sanitizer.html":"log-sanitizer","command_translator.html":"command-translator","network_cyber_toolkit_v1.3.html":"toolkit","practice_reference.html":"practice-ref","cheat_sheet.html":"practice-ref","dns_lab.html":"dns-lab","routing_lab.html":"routing-lab","firewall_rules_lab.html":"firewall-lab","network_fault_lab.html":"fault-lab","vsphere_sandbox.html":"vsphere-sandbox"};
   document.addEventListener('click', function(e){
+    if (window.parent === window) return;
     var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
     var href = a ? a.getAttribute('href') : null;
     if (!href) return;
@@ -13198,7 +13203,20 @@ input:focus,select:focus,textarea:focus{outline:1px solid var(--accent);border-c
 .row{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px}
 .row3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:8px}
 .btn{background:var(--accent);color:#041018;border:none;border-radius:6px;padding:8px 14px;font-weight:700;font-size:13px;cursor:pointer}
+.btn:disabled{opacity:.45;cursor:not-allowed}
 .btn:hover{filter:brightness(1.08)}
+.tour-spotlight{position:fixed;z-index:9000;pointer-events:none;border-radius:10px;box-shadow:0 0 0 9999px rgba(0,0,0,.6),0 0 0 3px var(--accent);transition:top .22s ease,left .22s ease,width .22s ease,height .22s ease}
+.tour-callout{position:fixed;z-index:9001;width:280px;max-width:calc(100vw - 24px);background:var(--panel2);border:1px solid var(--border);border-radius:12px;padding:14px 16px;box-shadow:0 16px 40px rgba(0,0,0,.5);font-family:var(--sans);color:var(--text)}
+.tour-callout .tour-step{font-size:10px;font-weight:750;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);margin-bottom:6px}
+.tour-callout .tour-body{font-size:13px;line-height:1.5;color:var(--text);margin-bottom:12px}
+.tour-callout .tour-body b{color:var(--accent)}
+.tour-callout .tour-foot{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.tour-skip{background:none;border:none;color:var(--mut);font-family:var(--sans);font-size:11.5px;cursor:pointer;text-decoration:underline;padding:2px 0}
+.tour-skip:hover{color:var(--sec)}
+.tour-waiting{font-size:11px;color:var(--mut);display:flex;align-items:center;gap:6px}
+.tour-waiting .tour-dot{width:6px;height:6px;border-radius:50%;background:var(--accent);animation:tourDotPulse 1.1s ease-in-out infinite}
+@keyframes tourDotPulse{0%,100%{opacity:.35}50%{opacity:1}}
+.tour-next{min-height:auto;padding:6px 12px;font-size:12px}
 .btn.ghost{background:transparent;border:1px solid var(--border);color:var(--text)}
 .btn-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
 .out{background:#0a0e13;border:1px solid var(--border);border-radius:8px;padding:12px;font-family:var(--mono);font-size:12.5px;line-height:1.55;white-space:pre-wrap;min-height:180px;max-height:360px;overflow:auto}
@@ -13255,12 +13273,15 @@ input:focus,select:focus,textarea:focus{outline:1px solid var(--accent);border-c
     <h1>DNS Lab<\/h1>
     <div class="sub">Offline zone · dig-style queries · resolution path · broken scenarios<\/div>
   <\/div>
+  <button class="btn ghost" id="btnTakeTour" type="button">Take the tour<\/button>
 <\/div>
 <div class="tabs">
   <button class="tab on" data-tab="query">Query (dig)<\/button>
   <button class="tab" data-tab="zone">Zone database<\/button>
   <button class="tab" data-tab="path">Resolution path<\/button>
   <button class="tab" data-tab="scenarios">Scenarios<\/button>
+  <button class="tab" data-tab="walk">Walkthrough<\/button>
+  <button class="tab" data-tab="quiz">Record quiz<\/button>
 <\/div>
 
 <div id="tab-query" class="wrap">
@@ -13339,6 +13360,32 @@ SOA     Start of authority<\/div>
   <div class="card">
     <h2>Scenario status<\/h2>
     <div class="out" id="scOut"><span class="mut">No scenario loaded.<\/span><\/div>
+    <div class="btn-row"><button class="btn ghost" id="btnHint" disabled>Show hint<\/button><\/div>
+  <\/div>
+<\/div>
+
+<div id="tab-quiz" class="wrap hidden">
+  <div class="card">
+    <h2>Record type quiz <span id="quizScore" class="mut" style="font-size:12px;font-weight:400"><\/span><\/h2>
+    <p class="hint">Quick checks on what each record type does and how resolution behaves.<\/p>
+    <div id="quizQ"><\/div>
+    <div class="btn-row" id="quizChoices"><\/div>
+    <div class="btn-row">
+      <button class="btn ghost" id="btnQuizNext">Next question<\/button>
+      <button class="btn ghost" id="btnQuizReset">Reset score<\/button>
+    <\/div>
+  <\/div>
+  <div class="card">
+    <h2>Feedback<\/h2>
+    <div class="out" id="quizOut"><span class="mut">Choose an answer.<\/span><\/div>
+  <\/div>
+<\/div>
+
+<div id="tab-walk" class="wrap hidden">
+  <div class="card full">
+    <h2>Guided walkthrough <span id="walkProgress" class="mut" style="font-size:12px;font-weight:400"><\/span><\/h2>
+    <p class="hint">Four failures, worked in order. Each one loads the broken zone for you, but you have to actually run the diagnostic query yourself before "Check my diagnosis" will accept it — and you have to answer why before it counts as solved.<\/p>
+    <div id="walkBody"><\/div>
   <\/div>
 <\/div>
 
@@ -13363,15 +13410,20 @@ const BASE_ZONE = [
 ];
 let zone = JSON.parse(JSON.stringify(BASE_ZONE));
 let lastPath = [];
+let queryLog = [];
 
 const SCENARIOS = [
   {id:'cname-loop', title:'CNAME loop', body:'www points at app, app points back at www. Lookups never finish cleanly.',
+    hint:'Query www.lab.local and open the Zone database tab. Follow the CNAME chain by hand — does it ever reach a record with an actual A/AAAA answer, or does it point back to something you already visited?',
     apply(){ zone=zone.filter(r=>!(r.name==='app.lab.local.'&&r.type==='A')); zone.push({name:'app.lab.local.',ttl:300,type:'CNAME',data:'www.lab.local.'}); }},
   {id:'missing-a', title:'Missing A for API', body:'api.lab.local has no A record. Clients fail to connect.',
+    hint:'Query api.lab.local with type A. The response will tell you what DNS returns when a name has no record of the requested type at all — that response code is the tell.',
     apply(){ zone=zone.filter(r=>!(r.name==='api.lab.local.'&&r.type==='A')); }},
   {id:'wrong-mx', title:'Wrong MX target', body:'MX points at a name with no A/AAAA. Mail breaks.',
+    hint:'Query lab.local with type MX to see what hostname mail is being routed to. Then query that exact hostname for A — does it resolve to anything?',
     apply(){ zone=zone.map(r=>r.type==='MX'?Object.assign({},r,{data:'10 missing-mail.lab.local.'}):r); }},
   {id:'bad-ns', title:'NS without glue', body:'NS records exist but ns2 has no A record (glue missing in this lab zone).',
+    hint:'Check the Zone database tab for the NS records on lab.local, then look for an A record for each nameserver name. A resolver can’t contact a nameserver it can’t get an address for — that’s "glue".',
     apply(){ zone=zone.filter(r=>!(r.name==='ns2.lab.local.'&&r.type==='A')); }},
 ];
 
@@ -13440,6 +13492,7 @@ function runQuery(){
   const mode=document.getElementById('qMode').value;
   const follow=document.getElementById('qFollow').value==='1';
   const res=query(name,type,mode,follow);
+  queryLog.push(res);
   const lines=[];
   lines.push('; <<>> dig-style lab output <<>>');
   lines.push('; (1 server found)');
@@ -13470,15 +13523,18 @@ document.querySelectorAll('.tabs .tab').forEach(t=>{
   t.onclick=()=>{
     document.querySelectorAll('.tabs .tab').forEach(x=>x.classList.remove('on'));
     t.classList.add('on');
-    ['query','zone','path','scenarios'].forEach(id=>{
+    ['query','zone','path','scenarios','quiz','walk'].forEach(id=>{
       document.getElementById('tab-'+id).classList.toggle('hidden', t.dataset.tab!==id);
     });
     if(t.dataset.tab==='zone') renderZone();
     if(t.dataset.tab==='path') renderPath();
+    if(t.dataset.tab==='walk') showWalkStep();
   };
 });
 
 const list=document.getElementById('scenarioList');
+let currentScenario=null;
+const btnHint=document.getElementById('btnHint');
 SCENARIOS.forEach(sc=>{
   const d=document.createElement('div');
   d.className='scenario';
@@ -13487,17 +13543,213 @@ SCENARIOS.forEach(sc=>{
     zone=JSON.parse(JSON.stringify(BASE_ZONE));
     sc.apply();
     renderZone();
+    currentScenario=sc;
+    btnHint.disabled=false;
     document.getElementById('scOut').innerHTML=`<span class="warn">Loaded: ${sc.title}<\/span>\n${sc.body}\n\nUse Query tab to diagnose.`;
   };
   list.appendChild(d);
 });
+btnHint.onclick=()=>{
+  if(!currentScenario) return;
+  document.getElementById('scOut').innerHTML=`<span class="warn">Loaded: ${currentScenario.title}<\/span>\n${currentScenario.body}\n\n<span class="ok">Hint:<\/span> ${currentScenario.hint}`;
+};
+document.getElementById('btnResetZone').addEventListener('click',()=>{ currentScenario=null; btnHint.disabled=true; });
 renderZone();
+
+const QUIZ_Q=[
+  {q:'Which record type maps a hostname to an IPv4 address?', choices:['A','AAAA','CNAME','PTR'], ans:'A'},
+  {q:'www.lab.local is a CNAME to app.lab.local. Which record actually supplies the IP address returned to the client?', choices:["www's CNAME record","app's A record","www's own A record","The NS record"], ans:"app's A record"},
+  {q:'Which record type specifies where email for a domain should be delivered?', choices:['A','TXT','MX','SOA'], ans:'MX'},
+  {q:'A PTR record does a reverse lookup. Given an IP address, what does it return?', choices:['A hostname','An IPv6 address','A CNAME chain','Nothing, PTR is authoritative-only'], ans:'A hostname'},
+  {q:'A query returns NXDOMAIN. What does that mean?', choices:['The server is down','The name doesn’t exist in the zone','The record expired (TTL 0)','Permission denied'], ans:'The name doesn’t exist in the zone'},
+  {q:'Which record type commonly holds an SPF policy for email anti-spoofing?', choices:['MX','TXT','SOA','NS'], ans:'TXT'},
+];
+let quizIdx=0, quizCorrect=0, quizAnswered=0, quizLocked=false;
+function renderQuizScore(){
+  document.getElementById('quizScore').textContent = quizAnswered ? `— ${quizCorrect}/${quizAnswered} correct` : '';
+}
+function showQuiz(){
+  const q=QUIZ_Q[quizIdx%QUIZ_Q.length];
+  quizLocked=false;
+  document.getElementById('quizQ').innerHTML=`<p class="hint"><b>Q${(quizIdx%QUIZ_Q.length)+1}.<\/b> ${q.q}<\/p>`;
+  document.getElementById('quizOut').innerHTML='<span class="mut">Choose an answer.<\/span>';
+  const cc=document.getElementById('quizChoices');
+  cc.innerHTML='';
+  q.choices.forEach(choice=>{
+    const b=document.createElement('button');
+    b.className='btn ghost';
+    b.textContent=choice;
+    b.onclick=()=>{
+      if(quizLocked) return;
+      quizLocked=true;
+      cc.querySelectorAll('button').forEach(x=>x.disabled=true);
+      const ok=choice===q.ans;
+      quizAnswered++;
+      if(ok) quizCorrect++;
+      document.getElementById('quizOut').innerHTML=(ok?'<span class="ok">Correct.<\/span>':'<span class="bad">Not quite — the answer is '+q.ans+'.<\/span>');
+      renderQuizScore();
+    };
+    cc.appendChild(b);
+  });
+}
+document.getElementById('btnQuizNext').onclick=()=>{quizIdx++; showQuiz();};
+document.getElementById('btnQuizReset').onclick=()=>{quizCorrect=0; quizAnswered=0; renderQuizScore();};
+showQuiz();
+
+/* ---------- Guided walkthrough: gated on a real diagnosis, not self-reported ---------- */
+const WALK_DATA = {
+  'cname-loop': {
+    diagnose(log){ return log.some(r => (r.path||[]).some(p => p.cls==='bad' && /CNAME loop/.test(p.text))); },
+    question: 'What actually breaks name resolution here?',
+    choices: ['The A record is missing', 'Two CNAMEs point at each other', 'The TTL is zero', 'The nameserver is unreachable'],
+    answer: 'Two CNAMEs point at each other',
+  },
+  'missing-a': {
+    diagnose(log){ return log.some(r => r.name==='api.lab.local.' && (r.path||[]).some(p=>p.cls==='bad' && /NXDOMAIN/.test(p.text))); },
+    question: 'What does that NXDOMAIN response actually mean?',
+    choices: ['The record exists but expired', 'The name has no record of that type at all', 'The server refused the query', 'The zone transfer failed'],
+    answer: 'The name has no record of that type at all',
+  },
+  'wrong-mx': {
+    diagnose(log){ return log.some(r => r.name==='missing-mail.lab.local.' && (r.path||[]).some(p=>p.cls==='bad' && /NXDOMAIN/.test(p.text))); },
+    question: 'Mail is failing because...',
+    choices: ['The MX record is missing entirely', 'The MX priority is wrong', 'The MX points at a host with no A/AAAA record', 'The TXT/SPF record is missing'],
+    answer: 'The MX points at a host with no A/AAAA record',
+  },
+  'bad-ns': {
+    diagnose(log){ return log.some(r => r.name==='ns2.lab.local.' && (r.path||[]).some(p=>p.cls==='bad' && /NXDOMAIN/.test(p.text))); },
+    question: 'What is "glue" in this context?',
+    choices: ['A backup nameserver', 'An A record for a nameserver name, so resolvers can reach it', 'A TTL override', 'A DNSSEC signature'],
+    answer: 'An A record for a nameserver name, so resolvers can reach it',
+  },
+};
+let walkIdx=0, walkPhase='diagnose', walkInited=-1;
+function walkScenario(){ return SCENARIOS[walkIdx]; }
+function loadWalkScenario(){
+  if(walkInited===walkIdx) return;
+  const sc=walkScenario();
+  if(sc){ zone=JSON.parse(JSON.stringify(BASE_ZONE)); sc.apply(); queryLog=[]; }
+  walkInited=walkIdx;
+}
+function renderWalkStep(){
+  const body=document.getElementById('walkBody');
+  if(walkIdx>=SCENARIOS.length){
+    document.getElementById('walkProgress').textContent=`— ${SCENARIOS.length}/${SCENARIOS.length} complete`;
+    body.innerHTML='<div class="out"><span class="ok">Walkthrough complete — all four failures diagnosed and explained correctly.<\/span><\/div>';
+    return;
+  }
+  document.getElementById('walkProgress').textContent = walkIdx ? `— ${walkIdx}/${SCENARIOS.length} complete` : '';
+  const sc=walkScenario(), data=WALK_DATA[sc.id];
+  if(walkPhase==='diagnose'){
+    body.innerHTML=`<div class="out"><b>Step ${walkIdx+1} of ${SCENARIOS.length}: ${sc.title}<\/b><br>${sc.body}<br><br>Go to the <b>Query (dig)<\/b> tab and run whatever queries you need to see the actual failure. Come back here when you think you've found it.<\/div>
+      <div class="btn-row" style="margin-top:10px"><button class="btn" id="btnWalkCheck">Check my diagnosis<\/button><\/div>
+      <div class="out" id="walkFeedback" style="margin-top:10px"><span class="mut">Waiting on a query…<\/span><\/div>`;
+    document.getElementById('btnWalkCheck').onclick=()=>{
+      if(data.diagnose(queryLog)){ walkPhase='question'; renderWalkStep(); }
+      else document.getElementById('walkFeedback').innerHTML='<span class="bad">Not yet — go run a query against the actual broken name from the Query tab first.<\/span>';
+    };
+  } else {
+    body.innerHTML=`<div class="out"><span class="ok">Symptom confirmed.<\/span> Now explain it.<\/div>
+      <div style="margin:10px 0"><b>${data.question}<\/b><\/div>
+      <div class="btn-row" id="walkChoices"><\/div>
+      <div class="out" id="walkFeedback" style="margin-top:10px"><span class="mut">Choose an answer.<\/span><\/div>`;
+    const cc=document.getElementById('walkChoices');
+    data.choices.forEach(choice=>{
+      const b=document.createElement('button'); b.className='btn ghost'; b.textContent=choice;
+      b.onclick=()=>{
+        if(choice===data.answer){
+          cc.querySelectorAll('button').forEach(x=>x.disabled=true);
+          document.getElementById('walkFeedback').innerHTML='<span class="ok">Correct. Step complete.<\/span>';
+          setTimeout(()=>{ walkIdx++; walkPhase='diagnose'; showWalkStep(); }, 900);
+        } else {
+          document.getElementById('walkFeedback').innerHTML='<span class="bad">Not quite — look again at what actually changed in the zone.<\/span>';
+        }
+      };
+      cc.appendChild(b);
+    });
+  }
+}
+function showWalkStep(){ loadWalkScenario(); renderWalkStep(); }
+
+/* ---------- Guided tour (tutorial): gated on the real action, not "Next" ---------- */
+const TOUR_KEY='dnsLabTourSeen';
+let tourStep=0, tourCleanupFns=[], tourWatchdog=null;
+const TOUR_STEPS=[
+  { tab:'query', target:()=>document.getElementById('qName'), gates:[{event:'input'}],
+    body:'Type a name to look up here, like <b>app.lab.local<\/b>.' },
+  { tab:'query', target:()=>document.getElementById('btnQuery'), gates:[{event:'click'}],
+    body:'Click <b>Run query<\/b> to see the dig-style response.' },
+  { target:()=>document.querySelector('[data-tab="scenarios"]'), gates:[{event:'click'}],
+    body:'Scenarios load a broken zone — use Query to work out what\'s wrong.' },
+  { target:()=>document.querySelector('[data-tab="walk"]'), gates:[{event:'click'}],
+    body:'The Walkthrough tab is the hands-on version — it makes you diagnose and explain each failure before it lets you move on.' },
+  { target:null, manual:true, finish:true, body:'That\'s the lab. Good luck.' },
+];
+function clearTourCleanup(){ tourCleanupFns.forEach(fn=>fn()); tourCleanupFns=[]; if(tourWatchdog){ clearInterval(tourWatchdog); tourWatchdog=null; } }
+function endTour(){ clearTourCleanup(); document.querySelectorAll('.tour-spotlight,.tour-callout').forEach(el=>el.remove()); try{ localStorage.setItem(TOUR_KEY,'1'); }catch(e){} }
+function startTour(){ tourStep=0; try{ localStorage.removeItem(TOUR_KEY); }catch(e){} showTourStep(); }
+function positionTour(target,calloutEl,spotEl){
+  function place(){
+    if(!target){ spotEl.style.display='none'; calloutEl.style.transform='translate(-50%,-50%)'; calloutEl.style.top='50%'; calloutEl.style.left='50%'; return; }
+    const r=target.getBoundingClientRect(), pad=6;
+    spotEl.style.display=''; spotEl.style.top=(r.top-pad)+'px'; spotEl.style.left=(r.left-pad)+'px';
+    spotEl.style.width=(r.width+pad*2)+'px'; spotEl.style.height=(r.height+pad*2)+'px';
+    const cr=calloutEl.getBoundingClientRect();
+    let top=r.bottom+14;
+    if(top+cr.height>window.innerHeight-12) top=Math.max(12,r.top-cr.height-14);
+    const left=Math.min(Math.max(12,r.left),window.innerWidth-cr.width-12);
+    calloutEl.style.transform='none'; calloutEl.style.top=top+'px'; calloutEl.style.left=left+'px';
+  }
+  place();
+  window.addEventListener('resize',place); window.addEventListener('scroll',place,true);
+  tourCleanupFns.push(()=>{ window.removeEventListener('resize',place); window.removeEventListener('scroll',place,true); });
+}
+function showTourStep(){
+  clearTourCleanup();
+  document.querySelectorAll('.tour-spotlight,.tour-callout').forEach(el=>el.remove());
+  const step=TOUR_STEPS[tourStep];
+  if(!step){ endTour(); return; }
+  if(step.tab){ const tabBtn=document.querySelector('[data-tab="'+step.tab+'"]'); if(tabBtn && !tabBtn.classList.contains('on')) tabBtn.click(); }
+  const target=step.target?step.target():null;
+  if(step.target && !target){ tourStep++; showTourStep(); return; }
+  if(target && target.scrollIntoView) target.scrollIntoView({block:'center',behavior:'smooth'});
+  const spot=document.createElement('div'); spot.className='tour-spotlight';
+  const callout=document.createElement('div'); callout.className='tour-callout';
+  callout.innerHTML=`<div class="tour-step">Step ${tourStep+1} of ${TOUR_STEPS.length}<\/div>
+    <div class="tour-body">${step.body}<\/div>
+    <div class="tour-foot">
+      <button class="tour-skip" type="button">Skip walkthrough<\/button>
+      ${step.manual?`<button class="btn tour-next" type="button" id="tourNext">${step.finish?'Start exploring':'Got it'}<\/button>`:`<span class="tour-waiting"><span class="tour-dot"><\/span>Waiting for you…<\/span>`}
+    <\/div>`;
+  document.body.appendChild(spot); document.body.appendChild(callout);
+  positionTour(target,callout,spot);
+  callout.querySelector('.tour-skip').addEventListener('click',endTour);
+  if(step.manual){
+    callout.querySelector('#tourNext').addEventListener('click',()=>{ if(step.finish){ endTour(); return; } tourStep++; showTourStep(); });
+  } else {
+    const advance=()=>{ tourStep++; setTimeout(showTourStep,0); };
+    (step.gates||[]).forEach(g=>{
+      const gTarget=g.targetOverride?g.targetOverride():target;
+      if(!gTarget) return;
+      const handler=e=>{ if(g.filter && !g.filter(e)) return; advance(); };
+      gTarget.addEventListener(g.event,handler);
+      tourCleanupFns.push(()=>gTarget.removeEventListener(g.event,handler));
+    });
+    tourWatchdog=setInterval(()=>{
+      if(!target.isConnected){ endTour(); return; }
+      const r=target.getBoundingClientRect();
+      if(r.width===0 && r.height===0) endTour();
+    },500);
+  }
+}
+document.getElementById('btnTakeTour').addEventListener('click',e=>{ e.preventDefault(); startTour(); });
 <\/script>
 
 <script>
 (function(){
   var MAP = {"networking_tools_hub.html": "hub", "log_sanitizer.html": "log-sanitizer", "command_translator.html": "command-translator", "network_cyber_toolkit_v1.3.html": "toolkit", "practice_reference.html": "practice-ref", "cheat_sheet.html": "practice-ref", "dns_lab.html": "dns-lab", "routing_lab.html": "routing-lab", "firewall_rules_lab.html": "firewall-lab", "network_fault_lab.html": "fault-lab", "vsphere_sandbox.html": "vsphere-sandbox"};
   document.addEventListener('click', function(e){
+    if (window.parent === window) return;
     var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
     var href = a ? a.getAttribute('href') : null;
     if (!href) {
@@ -13530,11 +13782,23 @@ renderZone();
 <style>
 :root{color-scheme:dark;--bg:#0b0f14;--panel:#141a22;--panel2:#1a222c;--border:#2a3542;--text:#e8eef4;--sec:#9aa8b6;--mut:#6b7a8a;--accent:#4ea1ff;--ok:#3ecf8e;--bad:#f07178;--warn:#e6b84d;--mono:ui-monospace,Consolas,monospace;--sans:system-ui,Segoe UI,sans-serif}
 *{box-sizing:border-box}body{margin:0;font-family:var(--sans);background:var(--bg);color:var(--text)}
-.top{padding:12px 18px;border-bottom:1px solid var(--border);background:#0e1319}
+.top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 18px;border-bottom:1px solid var(--border);background:#0e1319}
 .top h1{margin:0;font-size:16px}.top .sub{color:var(--mut);font-size:12px}
 .tabs{display:flex;gap:4px;padding:10px 18px;border-bottom:1px solid var(--border);flex-wrap:wrap;background:#0e1319}
 .tab{background:transparent;border:1px solid transparent;color:var(--sec);padding:7px 12px;border-radius:6px;cursor:pointer;font-size:13px}
 .tab.on{background:var(--panel2);border-color:var(--border);color:var(--text);font-weight:600}
+.tour-spotlight{position:fixed;z-index:9000;pointer-events:none;border-radius:10px;box-shadow:0 0 0 9999px rgba(0,0,0,.6),0 0 0 3px var(--accent);transition:top .22s ease,left .22s ease,width .22s ease,height .22s ease}
+.tour-callout{position:fixed;z-index:9001;width:280px;max-width:calc(100vw - 24px);background:var(--panel2);border:1px solid var(--border);border-radius:12px;padding:14px 16px;box-shadow:0 16px 40px rgba(0,0,0,.5);font-family:var(--sans);color:var(--text)}
+.tour-callout .tour-step{font-size:10px;font-weight:750;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);margin-bottom:6px}
+.tour-callout .tour-body{font-size:13px;line-height:1.5;color:var(--text);margin-bottom:12px}
+.tour-callout .tour-body b{color:var(--accent)}
+.tour-callout .tour-foot{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.tour-skip{background:none;border:none;color:var(--mut);font-family:var(--sans);font-size:11.5px;cursor:pointer;text-decoration:underline;padding:2px 0}
+.tour-skip:hover{color:var(--sec)}
+.tour-waiting{font-size:11px;color:var(--mut);display:flex;align-items:center;gap:6px}
+.tour-waiting .tour-dot{width:6px;height:6px;border-radius:50%;background:var(--accent);animation:tourDotPulse 1.1s ease-in-out infinite}
+@keyframes tourDotPulse{0%,100%{opacity:.35}50%{opacity:1}}
+.tour-next{min-height:auto;padding:6px 12px;font-size:12px}
 .wrap{display:grid;grid-template-columns:1fr 1fr;gap:14px;padding:14px 18px;max-width:1200px;margin:0 auto}
 @media(max-width:900px){.wrap{grid-template-columns:1fr}}
 .card{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:14px}
@@ -13544,6 +13808,7 @@ label{display:block;font-size:11px;font-weight:650;color:var(--mut);margin:0 0 4
 input,select{width:100%;background:#0c1117;border:1px solid var(--border);color:var(--text);border-radius:6px;padding:8px 10px;font-size:13px;font-family:var(--mono)}
 .row{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px}
 .btn{background:var(--accent);color:#041018;border:none;border-radius:6px;padding:8px 14px;font-weight:700;font-size:13px;cursor:pointer}
+.btn:disabled{opacity:.45;cursor:not-allowed}
 .btn.ghost{background:transparent;border:1px solid var(--border);color:var(--text)}
 .btn-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
 .out{background:#0a0e13;border:1px solid var(--border);border-radius:8px;padding:12px;font-family:var(--mono);font-size:12.5px;line-height:1.5;white-space:pre-wrap;min-height:160px;max-height:340px;overflow:auto}
@@ -13591,8 +13856,11 @@ th{color:var(--mut);font-size:11px}
   <\/details>
 <\/div>
 <div class="top">
-  <h1>Routing Lab<\/h1>
-  <div class="sub">Longest-prefix match · administrative distance · path simulation · BGP decision quiz<\/div>
+  <div>
+    <h1>Routing Lab<\/h1>
+    <div class="sub">Longest-prefix match · administrative distance · path simulation · BGP decision quiz<\/div>
+  <\/div>
+  <button class="btn ghost" id="btnTakeTour" type="button">Take the tour<\/button>
 <\/div>
 <div class="tabs">
   <button class="tab on" data-tab="lpm">Longest prefix<\/button>
@@ -13600,6 +13868,7 @@ th{color:var(--mut);font-size:11px}
   <button class="tab" data-tab="path">Packet path<\/button>
   <button class="tab" data-tab="bgp">BGP path quiz<\/button>
   <button class="tab" data-tab="scenarios">Scenarios<\/button>
+  <button class="tab" data-tab="walk">Walkthrough<\/button>
 <\/div>
 
 <div id="tab-lpm" class="wrap">
@@ -13651,13 +13920,14 @@ th{color:var(--mut);font-size:11px}
 
 <div id="tab-bgp" class="wrap hidden">
   <div class="card">
-    <h2>BGP best-path (simplified)<\/h2>
+    <h2>BGP best-path (simplified) <span id="bgpScore" class="mut" style="font-size:12px;font-weight:400"><\/span><\/h2>
     <p class="hint">Pick which path BGP would prefer. Lab order: highest weight → local pref → shortest AS path → lowest MED → eBGP over iBGP → lowest IGP cost to next hop.<\/p>
     <div id="bgpQ"><\/div>
     <div class="btn-row">
       <button class="btn" data-bgp="A">Path A<\/button>
       <button class="btn" data-bgp="B">Path B<\/button>
       <button class="btn ghost" id="btnBgpNext">Next question<\/button>
+      <button class="btn ghost" id="btnBgpResetScore">Reset score<\/button>
     <\/div>
   <\/div>
   <div class="card">
@@ -13675,6 +13945,14 @@ th{color:var(--mut);font-size:11px}
   <div class="card">
     <h2>Status<\/h2>
     <div class="out" id="scOut"><span class="mut">Healthy baseline loaded.<\/span><\/div>
+  <\/div>
+<\/div>
+
+<div id="tab-walk" class="wrap hidden">
+  <div class="card full">
+    <h2>Guided walkthrough <span id="walkProgress" class="mut" style="font-size:12px;font-weight:400"><\/span><\/h2>
+    <p class="hint">Three routing decisions, worked in order. Each one sets up the routing tables for you, but you have to actually run the lookup yourself before "Check my diagnosis" will accept it — and you have to answer why before it counts as solved.<\/p>
+    <div id="walkBody"><\/div>
   <\/div>
 <\/div>
 
@@ -13741,11 +14019,13 @@ function renderTables(){
   }).join('');
 }
 
+let lpmLog=[];
 document.getElementById('btnLpm').onclick=()=>{
   const dest=document.getElementById('destIp').value.trim();
   const r=document.getElementById('routerSel').value;
   if(ipToInt(dest)===null){ document.getElementById('lpmOut').innerHTML='<span class="bad">Invalid IPv4<\/span>'; return; }
   const {matches,best}=bestRoute(r,dest);
+  lpmLog.push({router:r, dest, matches, best});
   let out=`Router ${r} lookup for ${dest}\n\nCandidates (${matches.length}):\n`;
   matches.forEach(m=>{
     const bits=m.net.split('/')[1];
@@ -13783,28 +14063,40 @@ const BGP_Q=[
   {q:'Path A: eBGP. Path B: iBGP. Same AS path length. Prefer?', ans:'A', why:'eBGP is preferred over iBGP.'},
   {q:'Path A: MED 50. Path B: MED 20. From same AS neighbor. Prefer?', ans:'B', why:'Lower MED is preferred.'},
 ];
-let bgpIdx=0;
+let bgpIdx=0, bgpCorrect=0, bgpAnswered=0, bgpLocked=false;
+function renderBgpScore(){
+  document.getElementById('bgpScore').textContent = bgpAnswered ? `— ${bgpCorrect}/${bgpAnswered} correct` : '';
+}
 function showBgp(){
   const q=BGP_Q[bgpIdx%BGP_Q.length];
+  bgpLocked=false;
+  document.querySelectorAll('[data-bgp]').forEach(b=>b.disabled=false);
   document.getElementById('bgpQ').innerHTML=`<p class="hint"><b>Q${(bgpIdx%BGP_Q.length)+1}.<\/b> ${q.q}<\/p>`;
   document.getElementById('bgpOut').innerHTML='<span class="mut">Choose Path A or Path B.<\/span>';
 }
 document.querySelectorAll('[data-bgp]').forEach(btn=>{
   btn.onclick=()=>{
+    if(bgpLocked) return;
+    bgpLocked=true;
+    document.querySelectorAll('[data-bgp]').forEach(b=>b.disabled=true);
     const q=BGP_Q[bgpIdx%BGP_Q.length];
     const ok=btn.dataset.bgp===q.ans;
+    bgpAnswered++;
+    if(ok) bgpCorrect++;
     document.getElementById('bgpOut').innerHTML=(ok?'<span class="ok">Correct.<\/span> ':'<span class="bad">Not quite.<\/span> ')+q.why;
+    renderBgpScore();
   };
 });
 document.getElementById('btnBgpNext').onclick=()=>{bgpIdx++; showBgp();};
+document.getElementById('btnBgpResetScore').onclick=()=>{bgpCorrect=0; bgpAnswered=0; renderBgpScore();};
 showBgp();
 
 const SCENARIOS=[
-  {title:'More specific wins', body:'Add 10.1.5.0/24 static on R1. A host in 10.1.5.0 uses the /24, not the /16.',
+  {id:'more-specific', title:'More specific wins', body:'Add 10.1.5.0/24 static on R1. A host in 10.1.5.0 uses the /24, not the /16.',
     apply(){ tables.R1.push({net:'10.1.5.0/24', via:'10.0.0.2', ad:1, metric:0, iface:'Gi0/1', note:'S'}); }},
-  {title:'AD prefers static', body:'OSPF and static both reach 10.2.0.0/16 on R1. Static AD 1 wins.',
+  {id:'ad-static', title:'AD prefers static', body:'OSPF and static both reach 10.2.0.0/16 on R1. Static AD 1 wins.',
     apply(){ tables.R1.push({net:'10.2.0.0/16', via:'203.0.113.1', ad:1, metric:0, iface:'Gi0/2', note:'S'}); }},
-  {title:'Remove default', body:'R1 loses 0.0.0.0/0. Unknown destinations fail.',
+  {id:'remove-default', title:'Remove default', body:'R1 loses 0.0.0.0/0. Unknown destinations fail.',
     apply(){ tables.R1=tables.R1.filter(r=>r.net!=='0.0.0.0/0'); }},
 ];
 const scList=document.getElementById('scList');
@@ -13821,19 +14113,161 @@ document.querySelectorAll('.tabs .tab').forEach(t=>{
   t.onclick=()=>{
     document.querySelectorAll('.tabs .tab').forEach(x=>x.classList.remove('on'));
     t.classList.add('on');
-    ['lpm','table','path','bgp','scenarios'].forEach(id=>{
+    ['lpm','table','path','bgp','scenarios','walk'].forEach(id=>{
       document.getElementById('tab-'+id).classList.toggle('hidden', t.dataset.tab!==id);
     });
     if(t.dataset.tab==='table') renderTables();
+    if(t.dataset.tab==='walk') showWalkStep();
   };
 });
 renderTables();
+
+const WALK_DATA = {
+  'more-specific': {
+    diagnose(log){ return log.some(e => e.router==='R1' && e.best && e.best.net==='10.1.5.0/24'); },
+    question: 'Why did the /24 route win over the /16 route to the same destination?',
+    choices: ['It was added most recently', 'A longer (more specific) prefix always wins over a shorter one when both match', 'Its administrative distance was lower', 'It is a directly connected network'],
+    answer: 'A longer (more specific) prefix always wins over a shorter one when both match',
+  },
+  'ad-static': {
+    diagnose(log){ return log.some(e => e.router==='R1' && e.best && e.best.net==='10.2.0.0/16' && e.best.ad===1); },
+    question: 'OSPF and static both matched the same /16 prefix. Why did static win?',
+    choices: ['Static routes are always preferred alphabetically', 'Lower administrative distance wins when prefix length ties', 'It has a lower metric', 'It was configured more recently'],
+    answer: 'Lower administrative distance wins when prefix length ties',
+  },
+  'remove-default': {
+    diagnose(log){ return log.some(e => e.router==='R1' && !e.best); },
+    question: 'Why does this lookup fail now?',
+    choices: ['The interface is administratively down', 'There is no matching route left in the table — no default route to catch it', 'The administrative distance is too high', 'The destination IP is invalid'],
+    answer: 'There is no matching route left in the table — no default route to catch it',
+  },
+};
+let walkIdx=0, walkPhase='diagnose', walkInited=-1;
+function walkScenario(){ return SCENARIOS[walkIdx]; }
+function loadWalkScenario(){
+  if(walkInited===walkIdx) return;
+  const sc=walkScenario();
+  if(sc){ tables=JSON.parse(JSON.stringify(BASE)); sc.apply(); lpmLog=[]; }
+  walkInited=walkIdx;
+}
+function renderWalkStep(){
+  const body=document.getElementById('walkBody');
+  if(walkIdx>=SCENARIOS.length){
+    document.getElementById('walkProgress').textContent=`— ${SCENARIOS.length}/${SCENARIOS.length} complete`;
+    body.innerHTML='<div class="out"><span class="ok">Walkthrough complete — all three routing decisions diagnosed and explained correctly.<\/span><\/div>';
+    return;
+  }
+  document.getElementById('walkProgress').textContent = walkIdx ? `— ${walkIdx}/${SCENARIOS.length} complete` : '';
+  const sc=walkScenario(), data=WALK_DATA[sc.id];
+  if(walkPhase==='diagnose'){
+    body.innerHTML=`<div class="out"><b>Step ${walkIdx+1} of ${SCENARIOS.length}: ${sc.title}<\/b><br>${sc.body}<br><br>Go to the <b>Longest prefix<\/b> tab and run whatever lookups you need to see the actual result. Come back here when you think you've found it.<\/div>
+      <div class="btn-row" style="margin-top:10px"><button class="btn" id="btnWalkCheck">Check my diagnosis<\/button><\/div>
+      <div class="out" id="walkFeedback" style="margin-top:10px"><span class="mut">Waiting on a lookup…<\/span><\/div>`;
+    document.getElementById('btnWalkCheck').onclick=()=>{
+      if(data.diagnose(lpmLog)){ walkPhase='question'; renderWalkStep(); }
+      else document.getElementById('walkFeedback').innerHTML='<span class="bad">Not yet — go run a lookup that actually shows the result described above.<\/span>';
+    };
+  } else {
+    body.innerHTML=`<div class="out"><span class="ok">Result confirmed.<\/span> Now explain it.<\/div>
+      <div style="margin:10px 0"><b>${data.question}<\/b><\/div>
+      <div class="btn-row" id="walkChoices"><\/div>
+      <div class="out" id="walkFeedback" style="margin-top:10px"><span class="mut">Choose an answer.<\/span><\/div>`;
+    const cc=document.getElementById('walkChoices');
+    data.choices.forEach(choice=>{
+      const b=document.createElement('button'); b.className='btn ghost'; b.textContent=choice;
+      b.onclick=()=>{
+        if(choice===data.answer){
+          cc.querySelectorAll('button').forEach(x=>x.disabled=true);
+          document.getElementById('walkFeedback').innerHTML='<span class="ok">Correct. Step complete.<\/span>';
+          setTimeout(()=>{ walkIdx++; walkPhase='diagnose'; showWalkStep(); }, 900);
+        } else {
+          document.getElementById('walkFeedback').innerHTML='<span class="bad">Not quite — look again at what actually changed in the routing table.<\/span>';
+        }
+      };
+      cc.appendChild(b);
+    });
+  }
+}
+function showWalkStep(){ loadWalkScenario(); renderWalkStep(); }
+
+const TOUR_KEY='routingLabTourSeen';
+let tourStep=0, tourCleanupFns=[], tourWatchdog=null;
+const TOUR_STEPS=[
+  { tab:'lpm', target:()=>document.getElementById('destIp'), gates:[{event:'input'}],
+    body:'Type a destination IP to look up here, like <b>10.1.5.44<\/b>.' },
+  { tab:'lpm', target:()=>document.getElementById('btnLpm'), gates:[{event:'click'}],
+    body:'Click <b>Lookup<\/b> to see which route wins and why.' },
+  { target:()=>document.querySelector('[data-tab="scenarios"]'), gates:[{event:'click'}],
+    body:'Scenarios change the routing tables — use Lookup to see which route wins now.' },
+  { target:()=>document.querySelector('[data-tab="walk"]'), gates:[{event:'click'}],
+    body:'The Walkthrough tab is the hands-on version — it makes you diagnose and explain each routing decision before it lets you move on.' },
+  { target:null, manual:true, finish:true, body:'That\'s the lab. Good luck.' },
+];
+function clearTourCleanup(){ tourCleanupFns.forEach(fn=>fn()); tourCleanupFns=[]; if(tourWatchdog){ clearInterval(tourWatchdog); tourWatchdog=null; } }
+function endTour(){ clearTourCleanup(); document.querySelectorAll('.tour-spotlight,.tour-callout').forEach(el=>el.remove()); try{ localStorage.setItem(TOUR_KEY,'1'); }catch(e){} }
+function startTour(){ tourStep=0; try{ localStorage.removeItem(TOUR_KEY); }catch(e){} showTourStep(); }
+function positionTour(target,calloutEl,spotEl){
+  function place(){
+    if(!target){ spotEl.style.display='none'; calloutEl.style.transform='translate(-50%,-50%)'; calloutEl.style.top='50%'; calloutEl.style.left='50%'; return; }
+    const r=target.getBoundingClientRect(), pad=6;
+    spotEl.style.display=''; spotEl.style.top=(r.top-pad)+'px'; spotEl.style.left=(r.left-pad)+'px';
+    spotEl.style.width=(r.width+pad*2)+'px'; spotEl.style.height=(r.height+pad*2)+'px';
+    const cr=calloutEl.getBoundingClientRect();
+    let top=r.bottom+14;
+    if(top+cr.height>window.innerHeight-12) top=Math.max(12,r.top-cr.height-14);
+    const left=Math.min(Math.max(12,r.left),window.innerWidth-cr.width-12);
+    calloutEl.style.transform='none'; calloutEl.style.top=top+'px'; calloutEl.style.left=left+'px';
+  }
+  place();
+  window.addEventListener('resize',place); window.addEventListener('scroll',place,true);
+  tourCleanupFns.push(()=>{ window.removeEventListener('resize',place); window.removeEventListener('scroll',place,true); });
+}
+function showTourStep(){
+  clearTourCleanup();
+  document.querySelectorAll('.tour-spotlight,.tour-callout').forEach(el=>el.remove());
+  const step=TOUR_STEPS[tourStep];
+  if(!step){ endTour(); return; }
+  if(step.tab){ const tabBtn=document.querySelector('[data-tab="'+step.tab+'"]'); if(tabBtn && !tabBtn.classList.contains('on')) tabBtn.click(); }
+  const target=step.target?step.target():null;
+  if(step.target && !target){ tourStep++; showTourStep(); return; }
+  if(target && target.scrollIntoView) target.scrollIntoView({block:'center',behavior:'smooth'});
+  const spot=document.createElement('div'); spot.className='tour-spotlight';
+  const callout=document.createElement('div'); callout.className='tour-callout';
+  callout.innerHTML=`<div class="tour-step">Step ${tourStep+1} of ${TOUR_STEPS.length}<\/div>
+    <div class="tour-body">${step.body}<\/div>
+    <div class="tour-foot">
+      <button class="tour-skip" type="button">Skip walkthrough<\/button>
+      ${step.manual?`<button class="btn tour-next" type="button" id="tourNext">${step.finish?'Start exploring':'Got it'}<\/button>`:`<span class="tour-waiting"><span class="tour-dot"><\/span>Waiting for you…<\/span>`}
+    <\/div>`;
+  document.body.appendChild(spot); document.body.appendChild(callout);
+  positionTour(target,callout,spot);
+  callout.querySelector('.tour-skip').addEventListener('click',endTour);
+  if(step.manual){
+    callout.querySelector('#tourNext').addEventListener('click',()=>{ if(step.finish){ endTour(); return; } tourStep++; showTourStep(); });
+  } else {
+    const advance=()=>{ tourStep++; setTimeout(showTourStep,0); };
+    (step.gates||[]).forEach(g=>{
+      const gTarget=g.targetOverride?g.targetOverride():target;
+      if(!gTarget) return;
+      const handler=e=>{ if(g.filter && !g.filter(e)) return; advance(); };
+      gTarget.addEventListener(g.event,handler);
+      tourCleanupFns.push(()=>gTarget.removeEventListener(g.event,handler));
+    });
+    tourWatchdog=setInterval(()=>{
+      if(!target.isConnected){ endTour(); return; }
+      const r=target.getBoundingClientRect();
+      if(r.width===0 && r.height===0) endTour();
+    },500);
+  }
+}
+document.getElementById('btnTakeTour').addEventListener('click',e=>{ e.preventDefault(); startTour(); });
 <\/script>
 
 <script>
 (function(){
   var MAP = {"networking_tools_hub.html": "hub", "log_sanitizer.html": "log-sanitizer", "command_translator.html": "command-translator", "network_cyber_toolkit_v1.3.html": "toolkit", "practice_reference.html": "practice-ref", "cheat_sheet.html": "practice-ref", "dns_lab.html": "dns-lab", "routing_lab.html": "routing-lab", "firewall_rules_lab.html": "firewall-lab", "network_fault_lab.html": "fault-lab", "vsphere_sandbox.html": "vsphere-sandbox"};
   document.addEventListener('click', function(e){
+    if (window.parent === window) return;
     var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
     var href = a ? a.getAttribute('href') : null;
     if (!href) {
@@ -13866,11 +14300,23 @@ renderTables();
 <style>
 :root{color-scheme:dark;--bg:#0b0f14;--panel:#141a22;--panel2:#1a222c;--border:#2a3542;--text:#e8eef4;--sec:#9aa8b6;--mut:#6b7a8a;--accent:#4ea1ff;--ok:#3ecf8e;--bad:#f07178;--warn:#e6b84d;--mono:ui-monospace,Consolas,monospace;--sans:system-ui,Segoe UI,sans-serif}
 *{box-sizing:border-box}body{margin:0;font-family:var(--sans);background:var(--bg);color:var(--text)}
-.top{padding:12px 18px;border-bottom:1px solid var(--border);background:#0e1319}
+.top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 18px;border-bottom:1px solid var(--border);background:#0e1319}
 .top h1{margin:0;font-size:16px}.top .sub{color:var(--mut);font-size:12px}
 .tabs{display:flex;gap:4px;padding:10px 18px;border-bottom:1px solid var(--border);flex-wrap:wrap;background:#0e1319}
 .tab{background:transparent;border:1px solid transparent;color:var(--sec);padding:7px 12px;border-radius:6px;cursor:pointer;font-size:13px}
 .tab.on{background:var(--panel2);border-color:var(--border);color:var(--text);font-weight:600}
+.tour-spotlight{position:fixed;z-index:9000;pointer-events:none;border-radius:10px;box-shadow:0 0 0 9999px rgba(0,0,0,.6),0 0 0 3px var(--accent);transition:top .22s ease,left .22s ease,width .22s ease,height .22s ease}
+.tour-callout{position:fixed;z-index:9001;width:280px;max-width:calc(100vw - 24px);background:var(--panel2);border:1px solid var(--border);border-radius:12px;padding:14px 16px;box-shadow:0 16px 40px rgba(0,0,0,.5);font-family:var(--sans);color:var(--text)}
+.tour-callout .tour-step{font-size:10px;font-weight:750;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);margin-bottom:6px}
+.tour-callout .tour-body{font-size:13px;line-height:1.5;color:var(--text);margin-bottom:12px}
+.tour-callout .tour-body b{color:var(--accent)}
+.tour-callout .tour-foot{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.tour-skip{background:none;border:none;color:var(--mut);font-family:var(--sans);font-size:11.5px;cursor:pointer;text-decoration:underline;padding:2px 0}
+.tour-skip:hover{color:var(--sec)}
+.tour-waiting{font-size:11px;color:var(--mut);display:flex;align-items:center;gap:6px}
+.tour-waiting .tour-dot{width:6px;height:6px;border-radius:50%;background:var(--accent);animation:tourDotPulse 1.1s ease-in-out infinite}
+@keyframes tourDotPulse{0%,100%{opacity:.35}50%{opacity:1}}
+.tour-next{min-height:auto;padding:6px 12px;font-size:12px}
 .wrap{display:grid;grid-template-columns:1fr 1fr;gap:14px;padding:14px 18px;max-width:1200px;margin:0 auto}
 @media(max-width:900px){.wrap{grid-template-columns:1fr}}
 .card{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:14px}
@@ -13925,13 +14371,17 @@ input,select{width:100%;background:#0c1117;border:1px solid var(--border);color:
   <\/details>
 <\/div>
 <div class="top">
-  <h1>Firewall Rules Lab<\/h1>
-  <div class="sub">Ordered ACL simulation · first match wins · implicit deny · packet tester<\/div>
+  <div>
+    <h1>Firewall Rules Lab<\/h1>
+    <div class="sub">Ordered ACL simulation · first match wins · implicit deny · packet tester<\/div>
+  <\/div>
+  <button class="btn ghost" id="btnTakeTour" type="button">Take the tour<\/button>
 <\/div>
 <div class="tabs">
   <button class="tab on" data-tab="rules">Rule set<\/button>
   <button class="tab" data-tab="packet">Packet tester<\/button>
   <button class="tab" data-tab="scenarios">Scenarios<\/button>
+  <button class="tab" data-tab="walk">Walkthrough<\/button>
   <button class="tab" data-tab="learn">How it works<\/button>
 <\/div>
 
@@ -13991,6 +14441,14 @@ input,select{width:100%;background:#0c1117;border:1px solid var(--border);color:
   <div class="card">
     <h2>Status<\/h2>
     <div class="out" id="scOut"><span class="mut">Default policy loaded.<\/span><\/div>
+  <\/div>
+<\/div>
+
+<div id="tab-walk" class="wrap hidden">
+  <div class="card full">
+    <h2>Guided walkthrough <span id="walkProgress" class="mut" style="font-size:12px;font-weight:400"><\/span><\/h2>
+    <p class="hint">Six broken policies, worked in order. Each one loads the bad rule set for you, but you have to actually test the right packet yourself before "Check my diagnosis" will accept it — and you have to answer why before it counts as solved.<\/p>
+    <div id="walkBody"><\/div>
   <\/div>
 <\/div>
 
@@ -14063,6 +14521,7 @@ function renderRules(hitIdx){
 }
 
 function evaluate(pkt){
+  const trace=[];
   for(let i=0;i<rules.length;i++){
     const r=rules[i];
     const protoOk=r.proto==='any'||r.proto===pkt.proto;
@@ -14070,9 +14529,17 @@ function evaluate(pkt){
     const dstOk=inCidr(pkt.dst,r.dst);
     const spOk=portMatch(r.sp,pkt.sp,pkt.proto);
     const dpOk=portMatch(r.dp,pkt.dp,pkt.proto);
-    if(protoOk&&srcOk&&dstOk&&spOk&&dpOk) return {i, rule:r, act:r.act};
+    const matched=protoOk&&srcOk&&dstOk&&spOk&&dpOk;
+    const reasons=[];
+    if(!protoOk) reasons.push('proto '+pkt.proto+' ≠ '+r.proto);
+    if(!srcOk) reasons.push('src '+pkt.src+' not in '+r.src);
+    if(!dstOk) reasons.push('dst '+pkt.dst+' not in '+r.dst);
+    if(!spOk) reasons.push('src port '+pkt.sp+' ≠ '+r.sp);
+    if(!dpOk) reasons.push('dst port '+pkt.dp+' ≠ '+r.dp);
+    trace.push({i, rule:r, matched, reasons});
+    if(matched) return {i, rule:r, act:r.act, trace};
   }
-  return {i:-1, rule:null, act:'deny', implicit:true};
+  return {i:-1, rule:null, act:'deny', implicit:true, trace};
 }
 
 document.getElementById('btnAdd').onclick=()=>{
@@ -14088,6 +14555,7 @@ document.getElementById('btnAdd').onclick=()=>{
   renderRules();
 };
 
+let pktLog=[];
 document.getElementById('btnTest').onclick=()=>{
   const pkt={
     src:document.getElementById('pSrc').value.trim(),
@@ -14100,8 +14568,18 @@ document.getElementById('btnTest').onclick=()=>{
     document.getElementById('pktOut').innerHTML='<span class="bad">Invalid IPv4 in src/dst<\/span>'; return;
   }
   const res=evaluate(pkt);
+  pktLog.push({pkt, res});
   renderRules(res.i);
   let out=`Packet ${pkt.proto.toUpperCase()} ${pkt.src}:${pkt.sp} → ${pkt.dst}:${pkt.dp}\n\n`;
+  res.trace.forEach(t=>{
+    if(t.matched){
+      out+='Rule '+(t.i+1)+' ('+(t.rule.note||t.rule.act)+'): MATCH → '+t.rule.act.toUpperCase()+'\n';
+    } else {
+      out+='Rule '+(t.i+1)+' ('+(t.rule.note||t.rule.act)+'): no match — '+t.reasons.join(', ')+'\n';
+    }
+  });
+  if(res.implicit) out+='(no rule matched — falls through to implicit deny)\n';
+  out+='\n';
   if(res.implicit){
     out+='No rule matched.\nResult: DENY (implicit)\n';
   } else {
@@ -14123,21 +14601,35 @@ document.querySelectorAll('[data-sample]').forEach(b=>{
 
 const DEFAULT=JSON.parse(JSON.stringify(rules));
 const SCENARIOS=[
-  {title:'Allow SSH by mistake (order)', body:'An allow SSH rule is placed above the deny SSH rule — SSH out becomes allowed.',
+  {id:'ssh-order', title:'Allow SSH by mistake (order)', body:'An allow SSH rule is placed above the deny SSH rule — SSH out becomes allowed.',
     apply(){ rules=[
       {act:'allow',proto:'tcp',src:'10.1.0.0/16',dst:'0.0.0.0/0',sp:'any',dp:'22',note:'SSH out allowed'},
       {act:'deny',proto:'tcp',src:'10.1.0.0/16',dst:'0.0.0.0/0',sp:'any',dp:'22',note:'Block SSH (never hit)'},
       {act:'allow',proto:'tcp',src:'10.1.0.0/16',dst:'0.0.0.0/0',sp:'any',dp:'443',note:'HTTPS out'},
     ]; }},
-  {title:'Shadowed HTTPS', body:'A broad deny any sits above HTTPS allow — web breaks.',
+  {id:'shadowed-https', title:'Shadowed HTTPS', body:'A broad deny any sits above HTTPS allow — web breaks.',
     apply(){ rules=[
       {act:'deny',proto:'any',src:'10.1.0.0/16',dst:'0.0.0.0/0',sp:'any',dp:'any',note:'Deny all out'},
       {act:'allow',proto:'tcp',src:'10.1.0.0/16',dst:'0.0.0.0/0',sp:'any',dp:'443',note:'HTTPS (shadowed)'},
     ]; }},
-  {title:'Open inbound', body:'Missing inbound deny. Internet can reach 10.0.0.0/8.',
+  {id:'open-inbound', title:'Open inbound', body:'Missing inbound deny. Internet can reach 10.0.0.0/8.',
     apply(){ rules=[
       {act:'allow',proto:'tcp',src:'10.1.0.0/16',dst:'0.0.0.0/0',sp:'any',dp:'443',note:'HTTPS out'},
       {act:'allow',proto:'any',src:'0.0.0.0/0',dst:'10.0.0.0/8',sp:'any',dp:'any',note:'Allow inbound (bad)'},
+    ]; }},
+  {id:'specific-shadowed', title:'Specific rule shadowed by a broad one', body:'A subnet-wide allow sits above a deny meant for one risky host — the deny never gets checked, no matter how specific it is. Try the SSH sample.',
+    apply(){ rules=[
+      {act:'allow',proto:'any',src:'10.1.0.0/16',dst:'0.0.0.0/0',sp:'any',dp:'any',note:'Allow all internal traffic out'},
+      {act:'deny',proto:'tcp',src:'10.1.5.20',dst:'0.0.0.0/0',sp:'any',dp:'22',note:'Block this compromised host (never hit)'},
+    ]; }},
+  {id:'proto-narrow', title:'Protocol too narrow', body:'The DNS rule only allows UDP. Craft a TCP packet to 10.0.0.53:53 (a zone transfer, say) and it falls through to implicit deny instead.',
+    apply(){ rules=[
+      {act:'allow',proto:'udp',src:'10.1.0.0/16',dst:'10.0.0.53/32',sp:'any',dp:'53',note:'DNS out (UDP only)'},
+    ]; }},
+  {id:'forgotten-allow', title:'Forgotten temporary allow-any', body:'A rule added to test connectivity used any/any and was never removed — it invisibly allows everything below it, including inbound. Try the internet-to-internal sample.',
+    apply(){ rules=[
+      {act:'allow',proto:'any',src:'0.0.0.0/0',dst:'0.0.0.0/0',sp:'any',dp:'any',note:'TEMP - remove after testing (forgotten)'},
+      {act:'deny',proto:'any',src:'0.0.0.0/0',dst:'10.0.0.0/8',sp:'any',dp:'any',note:'No inbound from internet (shadowed)'},
     ]; }},
 ];
 const scList=document.getElementById('scList');
@@ -14154,18 +14646,178 @@ document.querySelectorAll('.tabs .tab').forEach(t=>{
   t.onclick=()=>{
     document.querySelectorAll('.tabs .tab').forEach(x=>x.classList.remove('on'));
     t.classList.add('on');
-    ['rules','packet','scenarios','learn'].forEach(id=>{
+    ['rules','packet','scenarios','walk','learn'].forEach(id=>{
       document.getElementById('tab-'+id).classList.toggle('hidden', t.dataset.tab!==id);
     });
+    if(t.dataset.tab==='walk') showWalkStep();
   };
 });
 renderRules();
+
+const WALK_DATA = {
+  'ssh-order': {
+    diagnose(log){ return log.some(e => e.pkt.dp==='22' && e.res.act==='allow'); },
+    question: 'Why did SSH get allowed even though there\'s a deny-SSH rule right below it?',
+    choices: ['The allow rule is now first — first match wins, later rules never get checked', 'There\'s a typo in the deny rule', 'SSH ignores ACLs', 'The port number is wrong'],
+    answer: 'The allow rule is now first — first match wins, later rules never get checked',
+  },
+  'shadowed-https': {
+    diagnose(log){ return log.some(e => e.pkt.dp==='443' && e.res.act==='deny'); },
+    question: 'Why does HTTPS get denied even though there\'s an explicit allow rule for it?',
+    choices: ['The allow rule has a typo', 'A broader deny-any rule sits above it and matches first', 'Port 443 is blocked by default', 'HTTPS needs a certificate to pass the firewall'],
+    answer: 'A broader deny-any rule sits above it and matches first',
+  },
+  'open-inbound': {
+    diagnose(log){ return log.some(e => e.pkt.src==='198.51.100.10' && e.res.act==='allow'); },
+    question: 'Why can the internet now reach an internal host?',
+    choices: ['NAT is misconfigured', 'An inbound allow rule now matches before any deny does', 'The internal host has a public IP', 'ICMP is disabled'],
+    answer: 'An inbound allow rule now matches before any deny does',
+  },
+  'specific-shadowed': {
+    diagnose(log){ return log.some(e => e.pkt.src==='10.1.5.20' && e.pkt.dp==='22' && e.res.act==='allow'); },
+    question: 'The specific deny rule for this host still exists — why doesn\'t it fire?',
+    choices: ['It\'s below a broader rule that already matched everything', 'The IP address in the rule is wrong', 'Deny rules need two matches to trigger', 'TCP traffic bypasses ACLs'],
+    answer: 'It\'s below a broader rule that already matched everything',
+  },
+  'proto-narrow': {
+    diagnose(log){ return log.some(e => e.pkt.proto==='tcp' && e.pkt.dst==='10.0.0.53' && e.pkt.dp==='53' && e.res.implicit); },
+    question: 'Why does this TCP packet fall through to implicit deny?',
+    choices: ['The DNS server is down', 'The only DNS rule matches UDP, not TCP — protocol has to match too', 'Port 53 is reserved and always blocked', 'TCP requires a handshake the firewall can\'t simulate'],
+    answer: 'The only DNS rule matches UDP, not TCP — protocol has to match too',
+  },
+  'forgotten-allow': {
+    diagnose(log){ return log.some(e => e.pkt.src==='198.51.100.10' && e.res.act==='allow' && e.res.rule && /TEMP/.test(e.res.rule.note||'')); },
+    question: 'Why does inbound traffic get through even though there\'s a deny rule for it right below?',
+    choices: ['The deny rule has a syntax error', 'A forgotten temporary allow-any rule above it matches first', 'The internet has routing priority', 'Deny rules only apply to TCP'],
+    answer: 'A forgotten temporary allow-any rule above it matches first',
+  },
+};
+let walkIdx=0, walkPhase='diagnose', walkInited=-1;
+function walkScenario(){ return SCENARIOS[walkIdx]; }
+function loadWalkScenario(){
+  if(walkInited===walkIdx) return;
+  const sc=walkScenario();
+  if(sc){ sc.apply(); renderRules(); pktLog=[]; }
+  walkInited=walkIdx;
+}
+function renderWalkStep(){
+  const body=document.getElementById('walkBody');
+  if(walkIdx>=SCENARIOS.length){
+    document.getElementById('walkProgress').textContent=`— ${SCENARIOS.length}/${SCENARIOS.length} complete`;
+    body.innerHTML='<div class="out"><span class="ok">Walkthrough complete — all six broken policies diagnosed and explained correctly.<\/span><\/div>';
+    return;
+  }
+  document.getElementById('walkProgress').textContent = walkIdx ? `— ${walkIdx}/${SCENARIOS.length} complete` : '';
+  const sc=walkScenario(), data=WALK_DATA[sc.id];
+  if(walkPhase==='diagnose'){
+    body.innerHTML=`<div class="out"><b>Step ${walkIdx+1} of ${SCENARIOS.length}: ${sc.title}<\/b><br>${sc.body}<br><br>Go to the <b>Packet tester<\/b> tab and test whatever packet you need to see the actual result. Come back here when you think you've found it.<\/div>
+      <div class="btn-row" style="margin-top:10px"><button class="btn" id="btnWalkCheck">Check my diagnosis<\/button><\/div>
+      <div class="out" id="walkFeedback" style="margin-top:10px"><span class="mut">Waiting on a packet test…<\/span><\/div>`;
+    document.getElementById('btnWalkCheck').onclick=()=>{
+      if(data.diagnose(pktLog)){ walkPhase='question'; renderWalkStep(); }
+      else document.getElementById('walkFeedback').innerHTML='<span class="bad">Not yet — go test a packet that actually shows the result described above.<\/span>';
+    };
+  } else {
+    body.innerHTML=`<div class="out"><span class="ok">Result confirmed.<\/span> Now explain it.<\/div>
+      <div style="margin:10px 0"><b>${data.question}<\/b><\/div>
+      <div class="btn-row" id="walkChoices"><\/div>
+      <div class="out" id="walkFeedback" style="margin-top:10px"><span class="mut">Choose an answer.<\/span><\/div>`;
+    const cc=document.getElementById('walkChoices');
+    data.choices.forEach(choice=>{
+      const b=document.createElement('button'); b.className='btn ghost'; b.textContent=choice;
+      b.onclick=()=>{
+        if(choice===data.answer){
+          cc.querySelectorAll('button').forEach(x=>x.disabled=true);
+          document.getElementById('walkFeedback').innerHTML='<span class="ok">Correct. Step complete.<\/span>';
+          setTimeout(()=>{ walkIdx++; walkPhase='diagnose'; showWalkStep(); }, 900);
+        } else {
+          document.getElementById('walkFeedback').innerHTML='<span class="bad">Not quite — look again at which rule actually matched first.<\/span>';
+        }
+      };
+      cc.appendChild(b);
+    });
+  }
+}
+function showWalkStep(){ loadWalkScenario(); renderWalkStep(); }
+
+const TOUR_KEY='firewallLabTourSeen';
+let tourStep=0, tourCleanupFns=[], tourWatchdog=null;
+const TOUR_STEPS=[
+  { tab:'packet', target:()=>document.getElementById('pDst'), gates:[{event:'input'}],
+    body:'Type a destination IP to test here, like <b>203.0.113.50<\/b>.' },
+  { tab:'packet', target:()=>document.getElementById('btnTest'), gates:[{event:'click'}],
+    body:'Click <b>Test packet<\/b> to see which rule matches first.' },
+  { target:()=>document.querySelector('[data-tab="scenarios"]'), gates:[{event:'click'}],
+    body:'Scenarios swap in a broken rule set — test a packet to see what changed.' },
+  { target:()=>document.querySelector('[data-tab="walk"]'), gates:[{event:'click'}],
+    body:'The Walkthrough tab is the hands-on version — it makes you diagnose and explain each broken policy before it lets you move on.' },
+  { target:null, manual:true, finish:true, body:'That\'s the lab. Good luck.' },
+];
+function clearTourCleanup(){ tourCleanupFns.forEach(fn=>fn()); tourCleanupFns=[]; if(tourWatchdog){ clearInterval(tourWatchdog); tourWatchdog=null; } }
+function endTour(){ clearTourCleanup(); document.querySelectorAll('.tour-spotlight,.tour-callout').forEach(el=>el.remove()); try{ localStorage.setItem(TOUR_KEY,'1'); }catch(e){} }
+function startTour(){ tourStep=0; try{ localStorage.removeItem(TOUR_KEY); }catch(e){} showTourStep(); }
+function positionTour(target,calloutEl,spotEl){
+  function place(){
+    if(!target){ spotEl.style.display='none'; calloutEl.style.transform='translate(-50%,-50%)'; calloutEl.style.top='50%'; calloutEl.style.left='50%'; return; }
+    const r=target.getBoundingClientRect(), pad=6;
+    spotEl.style.display=''; spotEl.style.top=(r.top-pad)+'px'; spotEl.style.left=(r.left-pad)+'px';
+    spotEl.style.width=(r.width+pad*2)+'px'; spotEl.style.height=(r.height+pad*2)+'px';
+    const cr=calloutEl.getBoundingClientRect();
+    let top=r.bottom+14;
+    if(top+cr.height>window.innerHeight-12) top=Math.max(12,r.top-cr.height-14);
+    const left=Math.min(Math.max(12,r.left),window.innerWidth-cr.width-12);
+    calloutEl.style.transform='none'; calloutEl.style.top=top+'px'; calloutEl.style.left=left+'px';
+  }
+  place();
+  window.addEventListener('resize',place); window.addEventListener('scroll',place,true);
+  tourCleanupFns.push(()=>{ window.removeEventListener('resize',place); window.removeEventListener('scroll',place,true); });
+}
+function showTourStep(){
+  clearTourCleanup();
+  document.querySelectorAll('.tour-spotlight,.tour-callout').forEach(el=>el.remove());
+  const step=TOUR_STEPS[tourStep];
+  if(!step){ endTour(); return; }
+  if(step.tab){ const tabBtn=document.querySelector('[data-tab="'+step.tab+'"]'); if(tabBtn && !tabBtn.classList.contains('on')) tabBtn.click(); }
+  const target=step.target?step.target():null;
+  if(step.target && !target){ tourStep++; showTourStep(); return; }
+  if(target && target.scrollIntoView) target.scrollIntoView({block:'center',behavior:'smooth'});
+  const spot=document.createElement('div'); spot.className='tour-spotlight';
+  const callout=document.createElement('div'); callout.className='tour-callout';
+  callout.innerHTML=`<div class="tour-step">Step ${tourStep+1} of ${TOUR_STEPS.length}<\/div>
+    <div class="tour-body">${step.body}<\/div>
+    <div class="tour-foot">
+      <button class="tour-skip" type="button">Skip walkthrough<\/button>
+      ${step.manual?`<button class="btn tour-next" type="button" id="tourNext">${step.finish?'Start exploring':'Got it'}<\/button>`:`<span class="tour-waiting"><span class="tour-dot"><\/span>Waiting for you…<\/span>`}
+    <\/div>`;
+  document.body.appendChild(spot); document.body.appendChild(callout);
+  positionTour(target,callout,spot);
+  callout.querySelector('.tour-skip').addEventListener('click',endTour);
+  if(step.manual){
+    callout.querySelector('#tourNext').addEventListener('click',()=>{ if(step.finish){ endTour(); return; } tourStep++; showTourStep(); });
+  } else {
+    const advance=()=>{ tourStep++; setTimeout(showTourStep,0); };
+    (step.gates||[]).forEach(g=>{
+      const gTarget=g.targetOverride?g.targetOverride():target;
+      if(!gTarget) return;
+      const handler=e=>{ if(g.filter && !g.filter(e)) return; advance(); };
+      gTarget.addEventListener(g.event,handler);
+      tourCleanupFns.push(()=>gTarget.removeEventListener(g.event,handler));
+    });
+    tourWatchdog=setInterval(()=>{
+      if(!target.isConnected){ endTour(); return; }
+      const r=target.getBoundingClientRect();
+      if(r.width===0 && r.height===0) endTour();
+    },500);
+  }
+}
+document.getElementById('btnTakeTour').addEventListener('click',e=>{ e.preventDefault(); startTour(); });
 <\/script>
 
 <script>
 (function(){
   var MAP = {"networking_tools_hub.html": "hub", "log_sanitizer.html": "log-sanitizer", "command_translator.html": "command-translator", "network_cyber_toolkit_v1.3.html": "toolkit", "practice_reference.html": "practice-ref", "cheat_sheet.html": "practice-ref", "dns_lab.html": "dns-lab", "routing_lab.html": "routing-lab", "firewall_rules_lab.html": "firewall-lab", "network_fault_lab.html": "fault-lab", "vsphere_sandbox.html": "vsphere-sandbox"};
   document.addEventListener('click', function(e){
+    if (window.parent === window) return;
     var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
     var href = a ? a.getAttribute('href') : null;
     if (!href) {
@@ -14844,6 +15496,16 @@ html { overscroll-behavior-y: none; }
   <\/div>
 <\/div>
 
+<!-- Comprehension-check modal (gates completion on explaining the fix, not just applying it) -->
+<div class="modal-overlay" id="quizModal">
+  <div class="modal-box">
+    <h2>Explain the fix<\/h2>
+    <p id="quizMsg">Connectivity is restored. Before this counts as solved, explain what was actually wrong.<\/p>
+    <div id="quizChoices" style="display:flex;flex-direction:column;gap:8px;margin:4px 0 12px"><\/div>
+    <div id="quizFeedback" style="font-size:13px;min-height:18px"><\/div>
+  <\/div>
+<\/div>
+
 <div id="toast-container"><\/div>
 
 <script>
@@ -14928,6 +15590,9 @@ SW1    (no IP – pure L2)`,
     issue: 'PC-A cannot reach PC-B',
     goal: 'PC-A must be able to ping 192.168.10.20',
     teach: 'An interface in the administratively down state (shutdown) will not pass any traffic. The fix is simply "no shutdown" (or enabling the port). Always verify with "show interfaces status" or "show ip interface brief".',
+    question: 'Why did bringing the port up with "no shutdown" fix this?',
+    choices: ['The port was in the wrong VLAN', 'An administratively down interface passes no traffic at all, regardless of cabling', 'The IP address was wrong', 'The switch needed a reboot'],
+    answer: 'An administratively down interface passes no traffic at all, regardless of cabling',
     hints: [
       'Check the status of the switch ports connected to the PCs.',
       'One of the access ports is in the shutdown state.',
@@ -14970,6 +15635,9 @@ Both should be in VLAN 10`,
     issue: 'PC-A cannot reach PC-B',
     goal: 'PC-A must ping 192.168.10.20 successfully',
     teach: 'Access ports belong to exactly one VLAN. If two hosts are in different VLANs they are in different broadcast domains and cannot communicate without a router. Verify with "show vlan brief" and "show interfaces switchport".',
+    question: 'Why couldn\'t PC-A and PC-B talk before the VLAN was fixed?',
+    choices: ['They were on different access VLANs — different broadcast domains without a router between them', 'The trunk link was down', 'PC-A had no default gateway', 'The switch port was shut down'],
+    answer: 'They were on different access VLANs — different broadcast domains without a router between them',
     hints: [
       'Both PCs have correct IP addresses in the same subnet.',
       'Check which VLAN each access port is assigned to.',
@@ -15014,6 +15682,9 @@ SW1     L2 only`,
     issue: 'PC-A cannot reach Server-1',
     goal: 'PC-A must ping 192.168.10.50',
     teach: 'Hosts must share the same network portion of the address (determined by the subnet mask) to communicate without a router. A wrong IP places the host in a different logical network.',
+    question: 'Why did the wrong IP address break connectivity to the server?',
+    choices: ['It put PC-A in a different logical network than the server, so they couldn\'t talk directly', 'The subnet mask on the server was wrong', 'The switch port was in the wrong VLAN', 'DNS couldn\'t resolve the server name'],
+    answer: 'It put PC-A in a different logical network than the server, so they couldn\'t talk directly',
     hints: [
       'Look at the IP address configured on PC-A.',
       'Compare it with the server\'s address and the expected subnet.',
@@ -15057,6 +15728,9 @@ Server     192.168.20.50 /24`,
     issue: 'PC-A cannot reach Server-1 on 192.168.20.50',
     goal: 'PC-A must successfully ping 192.168.20.50',
     teach: 'When a host needs to reach a destination outside its own subnet it sends the frame to its default gateway. Without a gateway the host can only communicate locally.',
+    question: 'Why could PC-A reach local hosts but not the remote server?',
+    choices: ['Without a default gateway, a host can only reach destinations on its own subnet', 'The server\'s IP address was wrong', 'VLAN 10 was misconfigured', 'The router\'s interface was shut down'],
+    answer: 'Without a default gateway, a host can only reach destinations on its own subnet',
     hints: [
       'PC-A can ping other hosts in 192.168.10.0/24 but not the remote server.',
       'Check whether PC-A has a default gateway configured.',
@@ -15115,6 +15789,9 @@ Both switches need a trunk between them`,
     issue: 'PC-B cannot reach its gateway or other VLAN 20 devices across the switches',
     goal: 'Restore trunking so VLAN 20 can pass between SW1 and SW2. PC-A should also still work.',
     teach: 'A trunk carries multiple VLANs. If a link that should be a trunk is left as an access port, only the native/access VLAN will cross. Use "switchport mode trunk" and verify with "show interfaces trunk".',
+    question: 'Why did VLAN 20 traffic stop crossing between the switches?',
+    choices: ['The inter-switch link was set to access mode, so only one VLAN could cross it instead of all of them', 'PC-B had the wrong IP address', 'The switch\'s default gateway was missing', 'VLAN 20 didn\'t exist on SW1'],
+    answer: 'The inter-switch link was set to access mode, so only one VLAN could cross it instead of all of them',
     hints: [
       'PC-A in VLAN 10 works, but VLAN 20 does not cross the inter-switch link.',
       'Inspect the port mode on the link between SW1 and SW2.',
@@ -15176,6 +15853,9 @@ L3-SW           needs SVIs for both VLANs`,
     issue: 'PC-A cannot reach PC-B (different VLANs)',
     goal: 'Enable inter-VLAN routing so PC-A can ping 192.168.20.20',
     teach: 'A Layer-3 switch routes between VLANs using Switched Virtual Interfaces (SVIs). Each VLAN that needs routing must have an SVI with an IP address, and IP routing must be enabled.',
+    question: 'Why couldn\'t PC-A in VLAN 10 reach PC-B in VLAN 20?',
+    choices: ['The Layer-3 switch had no SVI for VLAN 20, so it had no interface to route that VLAN\'s traffic through', 'The trunk link between the switches was down', 'PC-B\'s default gateway pointed to the wrong IP', 'Both PCs were in the same VLAN'],
+    answer: 'The Layer-3 switch had no SVI for VLAN 20, so it had no interface to route that VLAN\'s traffic through',
     hints: [
       'Both PCs have correct gateways configured.',
       'The switch is missing one of the VLAN interfaces (SVIs).',
@@ -15227,6 +15907,9 @@ Server   10.1.3.50 /24    GW 10.1.3.1`,
     issue: 'PC-A cannot reach Server-1 at 10.1.3.50',
     goal: 'Add the missing static route so PC-A can ping the server',
     teach: 'Routers only forward packets to networks they know. Connected routes appear automatically; remote networks require a static route (or a routing protocol). The command is "ip route <network> <mask> <next-hop>".',
+    question: 'Why couldn\'t R1 forward packets to the server\'s subnet?',
+    choices: ['R1 had no route to that remote network — connected routes are automatic, but remote ones need to be added', 'R1\'s interface to R2 was shut down', 'The server had the wrong gateway configured', 'R2 didn\'t have a connected route to its own subnet'],
+    answer: 'R1 had no route to that remote network — connected routes are automatic, but remote ones need to be added',
     hints: [
       'R1 can reach R2 but has no knowledge of 10.1.3.0/24.',
       'Examine the routing table on R1.',
@@ -15278,6 +15961,9 @@ Server   192.168.20.50 /24`,
     issue: 'PC-A cannot reach Server-1',
     goal: 'Restore end-to-end connectivity (two faults are present)',
     teach: 'Real networks often have multiple simultaneous issues. Work methodically: verify Layer 1/2 first, then addressing, then routing. Use ping and traceroute to isolate the break point.',
+    question: 'This lab had two independent faults. What\'s the right approach when multiple things are broken at once?',
+    choices: ['Work outward from the source systematically — Layer 1/2 first, then addressing, then routing — rather than guessing', 'Reset the whole lab and hope it fixes itself', 'Only fix the first problem you notice and stop there', 'Faults always cancel each other out, so you only need to fix one'],
+    answer: 'Work outward from the source systematically — Layer 1/2 first, then addressing, then routing — rather than guessing',
     hints: [
       'Start at PC-A and work outward. Check its gateway and the first-hop switch port.',
       'One fault is a shutdown port; the other is a missing static route or wrong gateway.',
@@ -16660,18 +17346,45 @@ function switchTab(name) {
 function checkGoal() {
   if (!currentLevel || !net) return;
   if (currentLevel.check(net)) {
-    // Success
-    progress[currentLevel.id] = { completed: true, changes: changeCount, hints: hintCount };
-    saveProgress();
-    $('problemBanner').classList.add('solved');
-    $('successMsg').textContent = currentLevel.issue.replace('cannot', 'can now') + '.';
-    $('successTeach').textContent = currentLevel.teach;
-    $('successModal').classList.add('show');
-    showToast('Lab completed!', 'success');
+    showQuiz();
   } else {
     showToast('Goal not yet met. Keep troubleshooting.', 'error');
     renderHealth();
   }
+}
+
+function showQuiz() {
+  const cc = $('quizChoices');
+  cc.innerHTML = '';
+  $('quizFeedback').textContent = '';
+  (currentLevel.choices || []).forEach(choice => {
+    const b = document.createElement('button');
+    b.className = 'btn sm';
+    b.style.textAlign = 'left';
+    b.textContent = choice;
+    b.addEventListener('click', () => {
+      if (choice === currentLevel.answer) {
+        cc.querySelectorAll('button').forEach(x => x.disabled = true);
+        $('quizFeedback').innerHTML = '<span style="color:var(--ok)">Correct.<\/span>';
+        setTimeout(() => { $('quizModal').classList.remove('show'); finishLevel(); }, 700);
+      } else {
+        $('quizFeedback').innerHTML = '<span style="color:var(--warn)">Not quite — review what you actually changed to fix it.<\/span>';
+      }
+    });
+    cc.appendChild(b);
+  });
+  $('quizMsg').textContent = currentLevel.question || 'Connectivity is restored. Explain what was actually wrong.';
+  $('quizModal').classList.add('show');
+}
+
+function finishLevel() {
+  progress[currentLevel.id] = { completed: true, changes: changeCount, hints: hintCount };
+  saveProgress();
+  $('problemBanner').classList.add('solved');
+  $('successMsg').textContent = currentLevel.issue.replace('cannot', 'can now') + '.';
+  $('successTeach').textContent = currentLevel.teach;
+  $('successModal').classList.add('show');
+  showToast('Lab completed!', 'success');
 }
 
 function giveHint() {
@@ -16914,6 +17627,7 @@ renderLabManager();
 (function(){
   var MAP = {"networking_tools_hub.html": "hub", "log_sanitizer.html": "log-sanitizer", "command_translator.html": "command-translator", "network_cyber_toolkit_v1.3.html": "toolkit", "dns_lab.html": "dns-lab", "routing_lab.html": "routing-lab", "firewall_rules_lab.html": "firewall-lab", "network_fault_lab.html": "fault-lab", "vsphere_sandbox.html": "vsphere-sandbox"};
   document.addEventListener('click', function(e){
+    if (window.parent === window) return;
     var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
     var href = a ? a.getAttribute('href') : null;
     if (!href) {
@@ -17717,9 +18431,19 @@ body {
 .hol-manual .hm-foot .row{display:flex;gap:8px}
 .hol-manual .hm-foot button{flex:1;border-radius:7px;padding:8px 10px;font-weight:650;font-size:12.5px;cursor:pointer;border:1px solid #c5ced8;background:#fff;color:#1a2330}
 .hol-manual .hm-foot button.primary{background:#2563eb;color:#fff;border-color:#2563eb}
+.hol-manual .hm-foot button:disabled{opacity:.4;cursor:not-allowed}
 .hol-manual .hm-status{font-size:12px;min-height:18px}
 .hol-manual .hm-status.ok{color:#15803d}
 .hol-manual .hm-status.bad{color:#b91c1c}
+.hol-manual .hm-quiz{padding:10px 14px;border-top:1px solid #dbe1e8;background:#f8fafc}
+.hol-manual .hm-quiz.hidden{display:none}
+.hol-manual .hm-quiz .hq-q{font-size:12.5px;font-weight:650;color:#1a2330;margin-bottom:8px}
+.hol-manual .hm-quiz .hq-choices{display:flex;flex-direction:column;gap:6px;margin-bottom:8px}
+.hol-manual .hm-quiz .hq-choices button{width:100%;text-align:left;border-radius:7px;padding:7px 10px;font-size:12px;cursor:pointer;border:1px solid #c5ced8;background:#fff;color:#1a2330}
+.hol-manual .hm-quiz .hq-choices button:disabled{opacity:.5;cursor:not-allowed}
+.hol-manual .hm-quiz .hq-feedback{font-size:12px;min-height:16px}
+.hol-manual .hm-quiz .hq-feedback.ok{color:#15803d}
+.hol-manual .hm-quiz .hq-feedback.bad{color:#b91c1c}
 .hol-fab{position:fixed;right:16px;bottom:56px;z-index:14000;background:#1e3a5f;color:#fff;border:none;border-radius:99px;padding:10px 14px;font-weight:650;font-size:12.5px;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.25)}
 .hol-fab.hidden{display:none}
 .kit-nav-link{display:block;padding:8px;border-radius:8px;color:#e8edf2;text-decoration:none;font-size:13px;transition:background .12s,color .12s}
@@ -17961,11 +18685,12 @@ body {
     <div class="hm-timer" id="hmTimer">Session 00:00</div>
   </div>
   <div class="hm-body" id="hmBody"></div>
+  <div class="hm-quiz hidden" id="hmQuiz"></div>
   <div class="hm-foot">
     <div class="hm-status" id="hmStatus"></div>
     <div class="row">
       <button type="button" id="hmCheck">Check progress</button>
-      <button type="button" class="primary" id="hmComplete">Mark complete</button>
+      <button type="button" class="primary" id="hmComplete" disabled>Mark complete</button>
     </div>
     <div class="row">
       <button type="button" id="hmToggle">Hide manual</button>
@@ -18055,7 +18780,10 @@ const SCENARIOS = [
     objectives: ['Expand a cluster in Hosts and Clusters','Select a VM and review Summary','Power a VM off and on; watch Recent Tasks','Open Edit Settings on a VM'],
     steps: ['Expand Cluster 1, then Host 1.','Select VM 1. Open Summary and note host, datastore, and power state.','Power Off VM 1, wait for the task, then Power On again.','ACTIONS → Edit Settings on VM 1; review hardware, then close.'],
     apply(s) {},
-    check(s) { return { ok: true, detail: 'Orientation lab — mark complete when you have finished the steps.' }; }
+    check(s) { return { ok: true, detail: 'Orientation lab — mark complete when you have finished the steps.' }; },
+    question: 'Where do you go to see the result of a power operation like Power On/Off?',
+    choices: ['The Recent Tasks panel at the bottom', 'The Permissions tab', 'The Networks tab', 'The Snapshots tab'],
+    answer: 'The Recent Tasks panel at the bottom'
   },
   {
     id: 'host-disconnected', name: 'Host Disconnected', trouble: true,
@@ -18067,7 +18795,10 @@ const SCENARIOS = [
     check(s) {
       const ok = s.hosts.host3 && s.hosts.host3.connection === 'disconnected';
       return { ok, detail: ok ? 'Host 3 is disconnected — scenario state matches.' : 'Host 3 is not disconnected.' };
-    }
+    },
+    question: 'What does a disconnected host actually mean for vCenter?',
+    choices: ['vCenter has lost contact with that host — it can\'t manage it or report live status', 'The host has no VMs', 'The host is powered off', 'The host has no datastores'],
+    answer: 'vCenter has lost contact with that host — it can\'t manage it or report live status'
   },
   {
     id: 'datastore-full', name: 'Datastore Capacity Pressure', trouble: true,
@@ -18080,7 +18811,10 @@ const SCENARIOS = [
       const d = s.datastores['ds-prod02'];
       const ok = d && d.usedGB >= 2000;
       return { ok, detail: ok ? 'ds-prod02 still shows capacity pressure.' : 'Capacity pressure not present.' };
-    }
+    },
+    question: 'Why does a nearly-full datastore matter operationally?',
+    choices: ['It can block power-on and other operations that need to write to that datastore', 'It only affects backup jobs', 'It automatically deletes old VMs', 'It has no effect until it reaches 100%'],
+    answer: 'It can block power-on and other operations that need to write to that datastore'
   },
   {
     id: 'vm-wont-start', name: "VM Won't Power On", trouble: true,
@@ -18092,7 +18826,10 @@ const SCENARIOS = [
     check(s) {
       const ok = s.hosts.host1 && s.hosts.host1.memUsedGB >= 240;
       return { ok, detail: ok ? 'Host 1 memory pressure is present.' : 'Memory pressure not detected.' };
-    }
+    },
+    question: 'Why can host memory pressure prevent a VM from powering on?',
+    choices: ['The host may not have enough free memory left to reserve for the VM', 'The VM\'s virtual disk is corrupted', 'The VM is on the wrong network', 'Powered-off VMs always fail to power on regardless of memory'],
+    answer: 'The host may not have enough free memory left to reserve for the VM'
   },
   {
     id: 'network-lost', name: 'VM Network Isolation', trouble: true,
@@ -18104,7 +18841,10 @@ const SCENARIOS = [
     check(s) {
       const ok = s.vms.vm1 && s.vms.vm1.portGroup === 'pg-quarantine';
       return { ok, detail: ok ? 'VM 1 is on the quarantine port group.' : 'VM 1 network differs from scenario default.' };
-    }
+    },
+    question: 'Why is a VM on the quarantine port group considered isolated?',
+    choices: ['Its NIC is connected to a port group that isn\'t the production network it needs', 'The VM has no NIC at all', 'Port groups don\'t affect VM connectivity', 'The VM is powered off'],
+    answer: 'Its NIC is connected to a port group that isn\'t the production network it needs'
   },
   {
     id: 'vmotion-practice', name: 'vMotion Practice', trouble: false,
@@ -18113,7 +18853,10 @@ const SCENARIOS = [
     objectives: ['Use Migrate on a powered-on VM','Choose another host','Confirm task and new host'],
     steps: ['Select a powered-on VM (e.g. VM 4 or VM 5).','ACTIONS → Migrate… to a different host.','Watch Recent Tasks until complete.','Confirm Summary shows the new host.'],
     apply(s) {},
-    check(s) { return { ok: true, detail: 'Confirm the VM host changed after Migrate, then mark complete.' }; }
+    check(s) { return { ok: true, detail: 'Confirm the VM host changed after Migrate, then mark complete.' }; },
+    question: 'What does a successful vMotion actually move?',
+    choices: ['The running VM to a different host, with no downtime', 'Only the VM\'s disk files', 'The VM\'s port group', 'The datastore itself'],
+    answer: 'The running VM to a different host, with no downtime'
   }
 ];
 
@@ -18320,8 +19063,36 @@ function openHolManual(sc) {
     });
   }
   if ($('hmStatus')) { $('hmStatus').textContent = ''; $('hmStatus').className = 'hm-status'; }
+  if ($('hmQuiz')) { $('hmQuiz').innerHTML = ''; $('hmQuiz').classList.add('hidden'); }
+  if ($('hmComplete')) $('hmComplete').disabled = true;
   if ($('holManual')) $('holManual').classList.remove('hidden');
   if ($('holFab')) $('holFab').classList.add('hidden');
+}
+function renderHolQuiz(sc) {
+  const wrap = $('hmQuiz');
+  if (!wrap || !sc.question) { if ($('hmComplete')) $('hmComplete').disabled = false; return; }
+  wrap.innerHTML = '<div class="hq-q">' + escapeHtml(sc.question) + '</div>' +
+    '<div class="hq-choices"></div><div class="hq-feedback"></div>';
+  wrap.classList.remove('hidden');
+  const cc = wrap.querySelector('.hq-choices');
+  const fb = wrap.querySelector('.hq-feedback');
+  (sc.choices || []).forEach(function(choice) {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.textContent = choice;
+    b.addEventListener('click', function() {
+      if (choice === sc.answer) {
+        wrap.querySelectorAll('button').forEach(function(x) { x.disabled = true; });
+        fb.textContent = 'Correct.';
+        fb.className = 'hq-feedback ok';
+        if ($('hmComplete')) $('hmComplete').disabled = false;
+      } else {
+        fb.textContent = 'Not quite — think about what the scenario actually showed you.';
+        fb.className = 'hq-feedback bad';
+      }
+    });
+    cc.appendChild(b);
+  });
 }
 function launchHolLab(id) {
   loadScenario(id);
@@ -18352,11 +19123,19 @@ function wireHolUI() {
     if (!holActive) return;
     const res = typeof holActive.check === 'function' ? holActive.check(state) : { ok: true, detail: 'No automated checks.' };
     const el = $('hmStatus');
-    if (!el) return;
-    el.textContent = res.detail || '';
-    el.className = 'hm-status ' + (res.ok ? 'ok' : 'bad');
+    if (el) {
+      el.textContent = res.detail || '';
+      el.className = 'hm-status ' + (res.ok ? 'ok' : 'bad');
+    }
+    if (res.ok) {
+      renderHolQuiz(holActive);
+    } else {
+      if ($('hmQuiz')) { $('hmQuiz').innerHTML = ''; $('hmQuiz').classList.add('hidden'); }
+      if ($('hmComplete')) $('hmComplete').disabled = true;
+    }
   };
   if ($('hmComplete')) $('hmComplete').onclick = function() {
+    if ($('hmComplete').disabled) return;
     const el = $('hmStatus');
     if (el) { el.textContent = 'Lab marked complete. Exit to catalog when ready.'; el.className = 'hm-status ok'; }
     if (typeof logEvent === 'function') logEvent('HOL lab completed: ' + (holActive && holActive.name), 'ok');
@@ -20091,6 +20870,7 @@ try { seenIntro = localStorage.getItem('vsphereSandboxIntroSeen') === '1'; } cat
 (function(){
   var MAP = {"networking_tools_hub.html": "hub", "log_sanitizer.html": "log-sanitizer", "command_translator.html": "command-translator", "network_cyber_toolkit_v1.3.html": "toolkit", "practice_reference.html": "practice-ref", "cheat_sheet.html": "practice-ref", "dns_lab.html": "dns-lab", "routing_lab.html": "routing-lab", "firewall_rules_lab.html": "firewall-lab", "network_fault_lab.html": "fault-lab", "vsphere_sandbox.html": "vsphere-sandbox"};
   document.addEventListener('click', function(e){
+    if (window.parent === window) return;
     var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
     var href = a ? a.getAttribute('href') : null;
     if (!href) {
