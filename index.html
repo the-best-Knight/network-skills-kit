@@ -3,41 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Network Skills Kit — All-in-One</title>
+<title>IT Skills Kit</title>
 <style>
   html,body{height:100%;margin:0;background:#07090d;color:#f4f7fa;font-family:-apple-system,system-ui,"Segoe UI",sans-serif}
-  #wrapNav{display:flex;align-items:center;gap:6px;flex-wrap:wrap;padding:8px 10px;background:#0c0f14;border-bottom:1px solid rgba(255,255,255,.1);position:sticky;top:0;z-index:9999}
-  #wrapNav .brand{font-weight:700;font-size:13px;color:#8bc7ff;margin-right:8px;white-space:nowrap}
-  .nb{background:#151c23;color:#c7d0d9;border:1px solid rgba(255,255,255,.14);border-radius:8px;padding:7px 11px;font-size:12.5px;font-weight:600;cursor:pointer;font-family:inherit}
-  .nb:hover{background:#1b242d;color:#fff}
-  .nb.on{background:#5eb1ff;color:#071018;border-color:#5eb1ff}
-  #toolFrame{display:block;width:100%;border:0;height:calc(100vh - 46px)}
-  #wrapNav .note{margin-left:auto;font-size:11px;color:#6f7b88;white-space:nowrap}
-  body.hub-view #wrapNav{display:none}
-  body.hub-view #toolFrame{height:100vh}
-  @media (max-width:640px){
-    #wrapNav .note{display:none}
-    #wrapNav{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding-right:16px}
-    #wrapNav::-webkit-scrollbar{display:none}
-    #wrapNav .brand,.nb{flex:none}
-  }
+  #toolFrame{display:block;width:100%;border:0;height:100vh}
 </style>
 </head>
 <body>
-<nav id="wrapNav">
-  <span class="brand">Network Skills Kit</span>
-      <button type="button" class="nb" data-tool="hub">Tools Hub</button>
-      <button type="button" class="nb" data-tool="log-sanitizer">Log Sanitizer</button>
-      <button type="button" class="nb" data-tool="command-translator">Command Translator</button>
-      <button type="button" class="nb" data-tool="toolkit">Calculator Toolkit</button>
-      <button type="button" class="nb" data-tool="practice-ref">Cheat Sheet</button>
-      <button type="button" class="nb" data-tool="dns-lab">DNS Lab</button>
-      <button type="button" class="nb" data-tool="routing-lab">Routing Lab</button>
-      <button type="button" class="nb" data-tool="firewall-lab">Firewall Rules Lab</button>
-      <button type="button" class="nb" data-tool="fault-lab">Network Fault Lab</button>
-      <button type="button" class="nb" data-tool="vsphere-sandbox">vSphere Sandbox</button>
-  <span class="note">offline · all tools in one file</span>
-</nav>
 <iframe id="toolFrame" title="Tool content"></iframe>
 
 <script type="text/plain" id="src-hub"><!DOCTYPE html>
@@ -312,7 +284,7 @@
     <aside class="sidebar" id="sidebar">
       <div class="sidebar-logo">
         <div class="sidebar-avatar">IK<\/div>
-        <div class="site-name">Network Skills Kit<\/div>
+        <div class="site-name">IT Skills Kit<\/div>
       <\/div>
 
       <nav class="sidebar-nav" id="tabs">
@@ -333,17 +305,17 @@
         <button type="button" class="hamburger" id="navToggle" aria-label="Open menu" aria-expanded="false">
           <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M2 4.5h14M2 9h14M2 13.5h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><\/svg>
         <\/button>
-        <span class="site-name">Network Skills Kit<\/span>
+        <span class="site-name">IT Skills Kit<\/span>
       <\/div>
 
       <main class="shell">
         <header class="hero">
           <div class="eyebrow-row">
-            <p class="eyebrow">Offline kit · same folder<\/p>
+            <p class="eyebrow">Offline · single file · no install<\/p>
           <\/div>
-          <h1>Network Skills Kit<\/h1>
+          <h1>IT Skills Kit<\/h1>
           <p class="subhead">Offline networking tools for operators and students.<\/p>
-          <p class="desc">Open a tool from here. Keep this file next to the <strong>Tools<\/strong> folder so the links keep working. These pages do not talk to your production gear.<\/p>
+          <p class="desc">Everything below lives in this one file — nothing to install, nothing that calls home. Open a tool and go; none of it touches your production gear.<\/p>
           <div class="cta-row">
             <a class="btn-primary" href="#start-here">Start learning<\/a>
             <a class="btn-outline" href="#tools">Browse all tools<\/a>
@@ -370,7 +342,7 @@
           <div class="pair" id="cardGrid"><\/div>
         <\/section>
 
-        <footer class="footer">Network Skills Kit — built by Ian Knight<\/footer>
+        <footer class="footer">IT Skills Kit — built by Ian Knight<\/footer>
       <\/main>
     <\/div>
   <\/div>
@@ -1944,7 +1916,7 @@ body {
 <body>
 <div id="kit-back-bar" style="position:sticky;top:0;z-index:9999;display:flex;align-items:center;gap:12px;padding:10px 16px;background:rgba(10,14,20,.94);border-bottom:1px solid rgba(255,255,255,.1);backdrop-filter:blur(10px);font-family:system-ui,sans-serif;font-size:13px;">
   <a href="../Networking_Tools_Hub.html" style="color:#5eb1ff;text-decoration:none;font-weight:650;">← Tools Hub<\/a>
-  <span class="kit-nav-sitelabel" style="color:#6f7b88;">Network Skills Kit<\/span>
+  <span class="kit-nav-sitelabel" style="color:#6f7b88;">IT Skills Kit<\/span>
   <details id="kitNav" style="position:relative;margin-left:auto;">
     <summary style="display:flex;align-items:center;gap:6px;background:transparent;border:1px solid rgba(255,255,255,.16);border-radius:8px;padding:5px 11px;color:#c7d0d9;font-size:12.5px;font-weight:600;cursor:pointer;">
       Browse tools
@@ -1955,6 +1927,7 @@ body {
       <span class="kit-nav-current" aria-current="page">Log Sanitizer<\/span>
       <a class="kit-nav-link" href="Command_Translator.html">Command Translator<\/a>
       <a class="kit-nav-link" href="Network_Cyber_Toolkit_v1.3.html">Network Calculator Toolkit<\/a>
+      <a class="kit-nav-link" href="Cheat_Sheet.html">Cheat Sheet<\/a>
       <div style="padding:10px 8px 4px;font-size:10px;font-weight:750;letter-spacing:.08em;text-transform:uppercase;color:#6f7b88;">Learn<\/div>
       <a class="kit-nav-link" href="DNS_Lab.html">DNS Lab (Domain Name System)<\/a>
       <a class="kit-nav-link" href="Routing_Lab.html">Routing Lab<\/a>
@@ -3691,7 +3664,7 @@ function exportMappingData(session, customRules) {
     entries.push({ o: original, r: meta.replacement, t: meta.type });
   });
   return {
-    version: 4, tool: 'bk-log-sanitizer', created: new Date().toISOString(),
+    version: 4, tool: 'ik-log-sanitizer', created: new Date().toISOString(),
     counters: session.counters,
     manual: session.manual.map(function (m) { return { o: m.original, t: m.type, l: m.label || null }; }),
     kept: session.kept ? Array.from(session.kept.values()).map(function (m) { return { o: m.original, t: m.type }; }) : [],
@@ -3780,7 +3753,7 @@ function importMappingData(session, data) {
    The session map is the sensitive artifact and travels separately. */
 function buildProfileData(cfg) {
   return {
-    format: 'bk-sanitizer-profile',
+    format: 'ik-sanitizer-profile',
     version: 1,
     name: String(cfg.name || 'Unnamed profile'),
     revision: String(cfg.revision || '1.0'),
@@ -3796,8 +3769,8 @@ function buildProfileData(cfg) {
 
 function validateProfileData(d) {
   if (!d || typeof d !== 'object') return { ok: false, error: 'File is not a profile.' };
-  if (d.format !== 'bk-sanitizer-profile') {
-    if (d.entries || d.format === 'bk-sanitizer-encrypted') {
+  if (d.format !== 'ik-sanitizer-profile') {
+    if (d.entries || d.format === 'ik-sanitizer-encrypted') {
       return { ok: false, error: 'That is a session map, not a unit profile. Session maps contain original values and are imported from the map control instead.' };
     }
     return { ok: false, error: 'Not a unit profile file.' };
@@ -4218,7 +4191,7 @@ async function encryptData(plainText, passphrase, iterations) {
   const key = await deriveKey(passphrase, salt, iters);
   const cipherBuffer = await window.crypto.subtle.encrypt({ name: 'AES-GCM', iv: iv }, key, enc.encode(plainText));
   return JSON.stringify({
-    format: 'bk-sanitizer-encrypted',
+    format: 'ik-sanitizer-encrypted',
     version: 2,
     kdf: 'PBKDF2-SHA256',
     iterations: iters,   // recorded so decrypt uses the same cost that wrote the file
@@ -5373,7 +5346,7 @@ var RULE_GROUPS = {
    Ported from Log Sanitizer 3 finding-model + Improvement Backlog Phase 1
    ========================================================================= */
 var SENSITIVITY_MODE = 'strict';  // strict | standard | technical | audit
-var LS_KEY = 'bk-log-sanitizer-v126-settings';
+var LS_KEY = 'ik-log-sanitizer-v126-settings';
 
 /* Map profile groups → SANITIZATION_RULES ids (mirrors RULE_GROUPS + v3). */
 var PROFILE_GROUP_RULES = {
@@ -6369,7 +6342,7 @@ function importMapFile(inp) {
       // JSON: this-tool AES-GCM envelope or legacy plain map
       var textPayload = new TextDecoder().decode(bytes);
       var parsed = JSON.parse(textPayload);
-      if (parsed.format === 'bk-sanitizer-encrypted') {
+      if (parsed.format === 'ik-sanitizer-encrypted') {
         showCryptoPrompt('Decrypt Map File', 'This file is encrypted with AES-GCM-256. Enter the passphrase:', async function(passphrase) {
           try {
             var decryptedJson = await decryptData(parsed, passphrase);
@@ -6456,7 +6429,7 @@ function exportProfile() {
     ruleToggles: currentRuleToggles(),
     rules: customRules
   });
-  saveBlob('bk-profile-' + data.name.replace(/[^A-Za-z0-9]+/g, '-').toLowerCase() + '-' +
+  saveBlob('ik-profile-' + data.name.replace(/[^A-Za-z0-9]+/g, '-').toLowerCase() + '-' +
            data.revision.replace(/[^A-Za-z0-9.]+/g, '') + '.json',
            JSON.stringify(data, null, 2), 'application/json');
   showToast('Profile exported. Distribute this file; it holds no sensitive values.', 'success');
@@ -7066,7 +7039,7 @@ function runSelfTestCore() {
 async function cryptoSelfTest() {
   if (!(window.crypto && window.crypto.subtle)) return { name: 'AES-GCM-256 encrypt/decrypt roundtrip', pass: false, detail: 'WebCrypto unavailable in this context' };
   try {
-    var sample = JSON.stringify({ probe: 'bk-selftest', n: Math.random() });
+    var sample = JSON.stringify({ probe: 'ik-selftest', n: Math.random() });
     var blob = await encryptData(sample, 'self-test-passphrase');
     var back = await decryptData(JSON.parse(blob), 'self-test-passphrase');
     if (back !== sample) return { name: 'AES-GCM-256 encrypt/decrypt roundtrip', pass: false, detail: 'decrypted payload did not match' };
@@ -7621,7 +7594,7 @@ window.addEventListener('DOMContentLoaded', function () {
 <body>
 <div id="kit-back-bar" style="position:sticky;top:0;z-index:9999;display:flex;align-items:center;gap:12px;padding:10px 16px;background:rgba(10,14,20,.94);border-bottom:1px solid rgba(255,255,255,.1);backdrop-filter:blur(10px);font-family:system-ui,sans-serif;font-size:13px;">
   <a href="../Networking_Tools_Hub.html" style="color:#5eb1ff;text-decoration:none;font-weight:650;">← Tools Hub<\/a>
-  <span class="kit-nav-sitelabel" style="color:#6f7b88;">Network Skills Kit<\/span>
+  <span class="kit-nav-sitelabel" style="color:#6f7b88;">IT Skills Kit<\/span>
   <details id="kitNav" style="position:relative;margin-left:auto;">
     <summary style="display:flex;align-items:center;gap:6px;background:transparent;border:1px solid rgba(255,255,255,.16);border-radius:8px;padding:5px 11px;color:#c7d0d9;font-size:12.5px;font-weight:600;cursor:pointer;">
       Browse tools
@@ -7632,6 +7605,7 @@ window.addEventListener('DOMContentLoaded', function () {
       <a class="kit-nav-link" href="Log_Sanitizer.html">Log Sanitizer<\/a>
       <span class="kit-nav-current" aria-current="page">Command Translator<\/span>
       <a class="kit-nav-link" href="Network_Cyber_Toolkit_v1.3.html">Network Calculator Toolkit<\/a>
+      <a class="kit-nav-link" href="Cheat_Sheet.html">Cheat Sheet<\/a>
       <div style="padding:10px 8px 4px;font-size:10px;font-weight:750;letter-spacing:.08em;text-transform:uppercase;color:#6f7b88;">Learn<\/div>
       <a class="kit-nav-link" href="DNS_Lab.html">DNS Lab (Domain Name System)<\/a>
       <a class="kit-nav-link" href="Routing_Lab.html">Routing Lab<\/a>
@@ -9555,7 +9529,7 @@ body.idle-locked .idle-lock-overlay { display: flex; }
 <body>
 <div id="kit-back-bar" style="position:fixed;top:0;left:0;right:0;height:41px;box-sizing:border-box;z-index:9999;display:flex;align-items:center;gap:12px;padding:10px 16px;background:rgba(10,14,20,.94);border-bottom:1px solid rgba(255,255,255,.1);backdrop-filter:blur(10px);font-family:system-ui,sans-serif;font-size:13px;">
   <a href="../Networking_Tools_Hub.html" style="color:#5eb1ff;text-decoration:none;font-weight:650;">← Tools Hub<\/a>
-  <span class="kit-nav-sitelabel" style="color:#6f7b88;">Network Skills Kit<\/span>
+  <span class="kit-nav-sitelabel" style="color:#6f7b88;">IT Skills Kit<\/span>
   <details id="kitNav" style="position:relative;margin-left:auto;">
     <summary style="display:flex;align-items:center;gap:6px;background:transparent;border:1px solid rgba(255,255,255,.16);border-radius:8px;padding:5px 11px;color:#c7d0d9;font-size:12.5px;font-weight:600;cursor:pointer;">
       Browse tools
@@ -9566,6 +9540,7 @@ body.idle-locked .idle-lock-overlay { display: flex; }
       <a class="kit-nav-link" href="Log_Sanitizer.html">Log Sanitizer<\/a>
       <a class="kit-nav-link" href="Command_Translator.html">Command Translator<\/a>
       <span class="kit-nav-current" aria-current="page">Network Calculator Toolkit<\/span>
+      <a class="kit-nav-link" href="Cheat_Sheet.html">Cheat Sheet<\/a>
       <div style="padding:10px 8px 4px;font-size:10px;font-weight:750;letter-spacing:.08em;text-transform:uppercase;color:#6f7b88;">Learn<\/div>
       <a class="kit-nav-link" href="DNS_Lab.html">DNS Lab (Domain Name System)<\/a>
       <a class="kit-nav-link" href="Routing_Lab.html">Routing Lab<\/a>
@@ -12251,7 +12226,7 @@ window.addEventListener('DOMContentLoaded', function () {
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self' data:; style-src 'unsafe-inline'; script-src 'unsafe-inline'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none';">
-<title>Cheat Sheet — Network Skills Kit<\/title>
+<title>Cheat Sheet — IT Skills Kit<\/title>
 <style>
 :root {
   color-scheme: dark;
@@ -12654,9 +12629,36 @@ tr:hover .copy-hint { opacity: 1; }
 .sheet-cat {
   scroll-margin-top: 120px;
 }
+.kit-nav-link{display:block;padding:8px;border-radius:8px;color:#e8edf2;text-decoration:none;font-size:13px;transition:background .12s,color .12s}
+.kit-nav-link:hover,.kit-nav-link:focus-visible{background:rgba(30,102,245,.12);color:#5eb1ff}
+.kit-nav-current{display:block;padding:8px;border-radius:8px;color:#5eb1ff;background:rgba(30,102,245,.12);font-size:13px;font-weight:700}
+@media (max-width:480px){.kit-nav-sitelabel{display:none}}
 <\/style>
 <\/head>
 <body>
+<div id="kit-back-bar" style="position:sticky;top:0;z-index:9999;display:flex;align-items:center;gap:12px;padding:10px 16px;background:rgba(10,14,20,.94);border-bottom:1px solid rgba(255,255,255,.1);backdrop-filter:blur(10px);font-family:system-ui,sans-serif;font-size:13px;">
+  <a href="../Networking_Tools_Hub.html" style="color:#5eb1ff;text-decoration:none;font-weight:650;">← Tools Hub<\/a>
+  <span class="kit-nav-sitelabel" style="color:#6f7b88;">IT Skills Kit<\/span>
+  <details id="kitNav" style="position:relative;margin-left:auto;">
+    <summary style="display:flex;align-items:center;gap:6px;background:transparent;border:1px solid rgba(255,255,255,.16);border-radius:8px;padding:5px 11px;color:#c7d0d9;font-size:12.5px;font-weight:600;cursor:pointer;">
+      Browse tools
+      <svg width="9" height="9" viewBox="0 0 10 10" aria-hidden="true" style="flex:none;transition:transform .14s ease"><path d="M1 3l4 4 4-4" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/><\/svg>
+    <\/summary>
+    <div style="position:absolute;right:0;top:calc(100% + 8px);width:280px;max-width:calc(100vw - 24px);max-height:75vh;overflow:auto;background:#10151b;border:1px solid rgba(255,255,255,.14);border-radius:12px;box-shadow:0 16px 40px rgba(0,0,0,.5);padding:8px;">
+      <div style="padding:6px 8px 4px;font-size:10px;font-weight:750;letter-spacing:.08em;text-transform:uppercase;color:#6f7b88;">Work faster<\/div>
+      <a class="kit-nav-link" href="Log_Sanitizer.html">Log Sanitizer<\/a>
+      <a class="kit-nav-link" href="Command_Translator.html">Command Translator<\/a>
+      <a class="kit-nav-link" href="Network_Cyber_Toolkit_v1.3.html">Network Calculator Toolkit<\/a>
+      <span class="kit-nav-current" aria-current="page">Cheat Sheet<\/span>
+      <div style="padding:10px 8px 4px;font-size:10px;font-weight:750;letter-spacing:.08em;text-transform:uppercase;color:#6f7b88;">Learn<\/div>
+      <a class="kit-nav-link" href="DNS_Lab.html">DNS Lab (Domain Name System)<\/a>
+      <a class="kit-nav-link" href="Routing_Lab.html">Routing Lab<\/a>
+      <a class="kit-nav-link" href="Firewall_Rules_Lab.html">Firewall Rules Lab<\/a>
+      <a class="kit-nav-link" href="Network_Fault_Lab.html">Network Fault Lab<\/a>
+      <a class="kit-nav-link" href="VSphere_Sandbox.html">vSphere Sandbox<\/a>
+    <\/div>
+  <\/details>
+<\/div>
   <div class="shell">
     <header class="hero">
       <div class="eyebrow">Work faster · Offline<\/div>
@@ -13220,9 +13222,36 @@ input:focus,select:focus,textarea:focus{outline:1px solid var(--accent);border-c
 .scenario p{margin:0;font-size:12px;color:var(--sec)}
 .hidden{display:none}
 .full{grid-column:1/-1}
+.kit-nav-link{display:block;padding:8px;border-radius:8px;color:#e8edf2;text-decoration:none;font-size:13px;transition:background .12s,color .12s}
+.kit-nav-link:hover,.kit-nav-link:focus-visible{background:rgba(30,102,245,.12);color:#5eb1ff}
+.kit-nav-current{display:block;padding:8px;border-radius:8px;color:#5eb1ff;background:rgba(30,102,245,.12);font-size:13px;font-weight:700}
+@media (max-width:480px){.kit-nav-sitelabel{display:none}}
 <\/style>
 <\/head>
 <body>
+<div id="kit-back-bar" style="position:sticky;top:0;z-index:9999;display:flex;align-items:center;gap:12px;padding:10px 16px;background:rgba(10,14,20,.94);border-bottom:1px solid rgba(255,255,255,.1);backdrop-filter:blur(10px);font-family:system-ui,sans-serif;font-size:13px;">
+  <a href="../Networking_Tools_Hub.html" style="color:#5eb1ff;text-decoration:none;font-weight:650;">← Tools Hub<\/a>
+  <span class="kit-nav-sitelabel" style="color:#6f7b88;">IT Skills Kit<\/span>
+  <details id="kitNav" style="position:relative;margin-left:auto;">
+    <summary style="display:flex;align-items:center;gap:6px;background:transparent;border:1px solid rgba(255,255,255,.16);border-radius:8px;padding:5px 11px;color:#c7d0d9;font-size:12.5px;font-weight:600;cursor:pointer;">
+      Browse tools
+      <svg width="9" height="9" viewBox="0 0 10 10" aria-hidden="true" style="flex:none;transition:transform .14s ease"><path d="M1 3l4 4 4-4" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/><\/svg>
+    <\/summary>
+    <div style="position:absolute;right:0;top:calc(100% + 8px);width:280px;max-width:calc(100vw - 24px);max-height:75vh;overflow:auto;background:#10151b;border:1px solid rgba(255,255,255,.14);border-radius:12px;box-shadow:0 16px 40px rgba(0,0,0,.5);padding:8px;">
+      <div style="padding:6px 8px 4px;font-size:10px;font-weight:750;letter-spacing:.08em;text-transform:uppercase;color:#6f7b88;">Work faster<\/div>
+      <a class="kit-nav-link" href="Log_Sanitizer.html">Log Sanitizer<\/a>
+      <a class="kit-nav-link" href="Command_Translator.html">Command Translator<\/a>
+      <a class="kit-nav-link" href="Network_Cyber_Toolkit_v1.3.html">Network Calculator Toolkit<\/a>
+      <a class="kit-nav-link" href="Cheat_Sheet.html">Cheat Sheet<\/a>
+      <div style="padding:10px 8px 4px;font-size:10px;font-weight:750;letter-spacing:.08em;text-transform:uppercase;color:#6f7b88;">Learn<\/div>
+      <span class="kit-nav-current" aria-current="page">DNS Lab (Domain Name System)<\/span>
+      <a class="kit-nav-link" href="Routing_Lab.html">Routing Lab<\/a>
+      <a class="kit-nav-link" href="Firewall_Rules_Lab.html">Firewall Rules Lab<\/a>
+      <a class="kit-nav-link" href="Network_Fault_Lab.html">Network Fault Lab<\/a>
+      <a class="kit-nav-link" href="VSphere_Sandbox.html">vSphere Sandbox<\/a>
+    <\/div>
+  <\/details>
+<\/div>
 <div class="top">
   <div>
     <h1>DNS Lab<\/h1>
@@ -13533,9 +13562,36 @@ th{color:var(--mut);font-size:11px}
 .scenario{padding:10px;border:1px solid var(--border);border-radius:8px;margin-bottom:8px;cursor:pointer;background:var(--panel2)}
 .scenario:hover{border-color:var(--accent)}
 .scenario h3{margin:0 0 4px;font-size:13px}.scenario p{margin:0;font-size:12px;color:var(--sec)}
+.kit-nav-link{display:block;padding:8px;border-radius:8px;color:#e8edf2;text-decoration:none;font-size:13px;transition:background .12s,color .12s}
+.kit-nav-link:hover,.kit-nav-link:focus-visible{background:rgba(30,102,245,.12);color:#5eb1ff}
+.kit-nav-current{display:block;padding:8px;border-radius:8px;color:#5eb1ff;background:rgba(30,102,245,.12);font-size:13px;font-weight:700}
+@media (max-width:480px){.kit-nav-sitelabel{display:none}}
 <\/style>
 <\/head>
 <body>
+<div id="kit-back-bar" style="position:sticky;top:0;z-index:9999;display:flex;align-items:center;gap:12px;padding:10px 16px;background:rgba(10,14,20,.94);border-bottom:1px solid rgba(255,255,255,.1);backdrop-filter:blur(10px);font-family:system-ui,sans-serif;font-size:13px;">
+  <a href="../Networking_Tools_Hub.html" style="color:#5eb1ff;text-decoration:none;font-weight:650;">← Tools Hub<\/a>
+  <span class="kit-nav-sitelabel" style="color:#6f7b88;">IT Skills Kit<\/span>
+  <details id="kitNav" style="position:relative;margin-left:auto;">
+    <summary style="display:flex;align-items:center;gap:6px;background:transparent;border:1px solid rgba(255,255,255,.16);border-radius:8px;padding:5px 11px;color:#c7d0d9;font-size:12.5px;font-weight:600;cursor:pointer;">
+      Browse tools
+      <svg width="9" height="9" viewBox="0 0 10 10" aria-hidden="true" style="flex:none;transition:transform .14s ease"><path d="M1 3l4 4 4-4" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/><\/svg>
+    <\/summary>
+    <div style="position:absolute;right:0;top:calc(100% + 8px);width:280px;max-width:calc(100vw - 24px);max-height:75vh;overflow:auto;background:#10151b;border:1px solid rgba(255,255,255,.14);border-radius:12px;box-shadow:0 16px 40px rgba(0,0,0,.5);padding:8px;">
+      <div style="padding:6px 8px 4px;font-size:10px;font-weight:750;letter-spacing:.08em;text-transform:uppercase;color:#6f7b88;">Work faster<\/div>
+      <a class="kit-nav-link" href="Log_Sanitizer.html">Log Sanitizer<\/a>
+      <a class="kit-nav-link" href="Command_Translator.html">Command Translator<\/a>
+      <a class="kit-nav-link" href="Network_Cyber_Toolkit_v1.3.html">Network Calculator Toolkit<\/a>
+      <a class="kit-nav-link" href="Cheat_Sheet.html">Cheat Sheet<\/a>
+      <div style="padding:10px 8px 4px;font-size:10px;font-weight:750;letter-spacing:.08em;text-transform:uppercase;color:#6f7b88;">Learn<\/div>
+      <a class="kit-nav-link" href="DNS_Lab.html">DNS Lab (Domain Name System)<\/a>
+      <span class="kit-nav-current" aria-current="page">Routing Lab<\/span>
+      <a class="kit-nav-link" href="Firewall_Rules_Lab.html">Firewall Rules Lab<\/a>
+      <a class="kit-nav-link" href="Network_Fault_Lab.html">Network Fault Lab<\/a>
+      <a class="kit-nav-link" href="VSphere_Sandbox.html">vSphere Sandbox<\/a>
+    <\/div>
+  <\/details>
+<\/div>
 <div class="top">
   <h1>Routing Lab<\/h1>
   <div class="sub">Longest-prefix match · administrative distance · path simulation · BGP decision quiz<\/div>
@@ -13840,9 +13896,36 @@ input,select{width:100%;background:#0c1117;border:1px solid var(--border);color:
 .scenario:hover{border-color:var(--accent)}
 .scenario h3{margin:0 0 4px;font-size:13px}.scenario p{margin:0;font-size:12px;color:var(--sec)}
 @media(max-width:900px){.rule{grid-template-columns:1fr 1fr;}}
+.kit-nav-link{display:block;padding:8px;border-radius:8px;color:#e8edf2;text-decoration:none;font-size:13px;transition:background .12s,color .12s}
+.kit-nav-link:hover,.kit-nav-link:focus-visible{background:rgba(30,102,245,.12);color:#5eb1ff}
+.kit-nav-current{display:block;padding:8px;border-radius:8px;color:#5eb1ff;background:rgba(30,102,245,.12);font-size:13px;font-weight:700}
+@media (max-width:480px){.kit-nav-sitelabel{display:none}}
 <\/style>
 <\/head>
 <body>
+<div id="kit-back-bar" style="position:sticky;top:0;z-index:9999;display:flex;align-items:center;gap:12px;padding:10px 16px;background:rgba(10,14,20,.94);border-bottom:1px solid rgba(255,255,255,.1);backdrop-filter:blur(10px);font-family:system-ui,sans-serif;font-size:13px;">
+  <a href="../Networking_Tools_Hub.html" style="color:#5eb1ff;text-decoration:none;font-weight:650;">← Tools Hub<\/a>
+  <span class="kit-nav-sitelabel" style="color:#6f7b88;">IT Skills Kit<\/span>
+  <details id="kitNav" style="position:relative;margin-left:auto;">
+    <summary style="display:flex;align-items:center;gap:6px;background:transparent;border:1px solid rgba(255,255,255,.16);border-radius:8px;padding:5px 11px;color:#c7d0d9;font-size:12.5px;font-weight:600;cursor:pointer;">
+      Browse tools
+      <svg width="9" height="9" viewBox="0 0 10 10" aria-hidden="true" style="flex:none;transition:transform .14s ease"><path d="M1 3l4 4 4-4" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/><\/svg>
+    <\/summary>
+    <div style="position:absolute;right:0;top:calc(100% + 8px);width:280px;max-width:calc(100vw - 24px);max-height:75vh;overflow:auto;background:#10151b;border:1px solid rgba(255,255,255,.14);border-radius:12px;box-shadow:0 16px 40px rgba(0,0,0,.5);padding:8px;">
+      <div style="padding:6px 8px 4px;font-size:10px;font-weight:750;letter-spacing:.08em;text-transform:uppercase;color:#6f7b88;">Work faster<\/div>
+      <a class="kit-nav-link" href="Log_Sanitizer.html">Log Sanitizer<\/a>
+      <a class="kit-nav-link" href="Command_Translator.html">Command Translator<\/a>
+      <a class="kit-nav-link" href="Network_Cyber_Toolkit_v1.3.html">Network Calculator Toolkit<\/a>
+      <a class="kit-nav-link" href="Cheat_Sheet.html">Cheat Sheet<\/a>
+      <div style="padding:10px 8px 4px;font-size:10px;font-weight:750;letter-spacing:.08em;text-transform:uppercase;color:#6f7b88;">Learn<\/div>
+      <a class="kit-nav-link" href="DNS_Lab.html">DNS Lab (Domain Name System)<\/a>
+      <a class="kit-nav-link" href="Routing_Lab.html">Routing Lab<\/a>
+      <span class="kit-nav-current" aria-current="page">Firewall Rules Lab<\/span>
+      <a class="kit-nav-link" href="Network_Fault_Lab.html">Network Fault Lab<\/a>
+      <a class="kit-nav-link" href="VSphere_Sandbox.html">vSphere Sandbox<\/a>
+    <\/div>
+  <\/details>
+<\/div>
 <div class="top">
   <h1>Firewall Rules Lab<\/h1>
   <div class="sub">Ordered ACL simulation · first match wins · implicit deny · packet tester<\/div>
@@ -14117,7 +14200,7 @@ renderRules();
 <link rel="icon" type="image/png" sizes="32x32" href="data:image/png;base64,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">
 <style>
 /* =============================================================
-   Black Knights Network Fault Lab
+   Network Fault Lab
    Visual system matched to Log Sanitizer (exchange-grade dark)
    ============================================================= */
 :root {
@@ -14604,13 +14687,35 @@ html { overscroll-behavior-y: none; }
 .gap-8 { gap: 8px; }
 .mt-8 { margin-top: 8px; }
 .mt-12 { margin-top: 12px; }
+.kit-nav-link{display:block;padding:8px;border-radius:8px;color:#e8edf2;text-decoration:none;font-size:13px;transition:background .12s,color .12s}
+.kit-nav-link:hover,.kit-nav-link:focus-visible{background:rgba(30,102,245,.12);color:#5eb1ff}
+.kit-nav-current{display:block;padding:8px;border-radius:8px;color:#5eb1ff;background:rgba(30,102,245,.12);font-size:13px;font-weight:700}
+@media (max-width:480px){.kit-nav-sitelabel{display:none}}
 <\/style>
 <\/head>
 <body>
 <div id="kit-back-bar" style="position:sticky;top:0;z-index:9999;display:flex;align-items:center;gap:12px;padding:8px 16px;background:rgba(10,14,20,.94);border-bottom:1px solid rgba(255,255,255,.1);backdrop-filter:blur(10px);font-family:system-ui,sans-serif;font-size:13px;">
   <a href="../Networking_Tools_Hub.html" id="btnBackToHub" style="color:#5eb1ff;text-decoration:none;font-weight:650;">← Tools Hub<\/a>
-  <span style="color:#6f7b88;">Network Skills Kit<\/span>
-  <span style="margin-left:auto;color:#6f7b88;font-size:12px;">Network Fault Lab<\/span>
+  <span class="kit-nav-sitelabel" style="color:#6f7b88;">IT Skills Kit<\/span>
+  <details id="kitNav" style="position:relative;margin-left:auto;">
+    <summary style="display:flex;align-items:center;gap:6px;background:transparent;border:1px solid rgba(255,255,255,.16);border-radius:8px;padding:5px 11px;color:#c7d0d9;font-size:12.5px;font-weight:600;cursor:pointer;">
+      Browse tools
+      <svg width="9" height="9" viewBox="0 0 10 10" aria-hidden="true" style="flex:none;transition:transform .14s ease"><path d="M1 3l4 4 4-4" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/><\/svg>
+    <\/summary>
+    <div style="position:absolute;right:0;top:calc(100% + 8px);width:280px;max-width:calc(100vw - 24px);max-height:75vh;overflow:auto;background:#10151b;border:1px solid rgba(255,255,255,.14);border-radius:12px;box-shadow:0 16px 40px rgba(0,0,0,.5);padding:8px;">
+      <div style="padding:6px 8px 4px;font-size:10px;font-weight:750;letter-spacing:.08em;text-transform:uppercase;color:#6f7b88;">Work faster<\/div>
+      <a class="kit-nav-link" href="Log_Sanitizer.html">Log Sanitizer<\/a>
+      <a class="kit-nav-link" href="Command_Translator.html">Command Translator<\/a>
+      <a class="kit-nav-link" href="Network_Cyber_Toolkit_v1.3.html">Network Calculator Toolkit<\/a>
+      <a class="kit-nav-link" href="Cheat_Sheet.html">Cheat Sheet<\/a>
+      <div style="padding:10px 8px 4px;font-size:10px;font-weight:750;letter-spacing:.08em;text-transform:uppercase;color:#6f7b88;">Learn<\/div>
+      <a class="kit-nav-link" href="DNS_Lab.html">DNS Lab (Domain Name System)<\/a>
+      <a class="kit-nav-link" href="Routing_Lab.html">Routing Lab<\/a>
+      <a class="kit-nav-link" href="Firewall_Rules_Lab.html">Firewall Rules Lab<\/a>
+      <span class="kit-nav-current" aria-current="page">Network Fault Lab<\/span>
+      <a class="kit-nav-link" href="VSphere_Sandbox.html">vSphere Sandbox<\/a>
+    <\/div>
+  <\/details>
 <\/div>
 
 <div class="app">
@@ -14618,7 +14723,7 @@ html { overscroll-behavior-y: none; }
   <header class="masthead">
     <div class="mast-left">
       <a href="../Networking_Tools_Hub.html" id="btnBackToHubMast" class="btn quiet" style="margin-right:4px;text-decoration:none;">← Hub<\/a>
-      <div class="logo-mark">BK<\/div>
+      <div class="logo-mark">IK<\/div>
       <div class="mast-titles">
         <h1>Network Fault Lab<\/h1>
         <div class="eyebrow">CCNA Practice Environment<\/div>
@@ -14725,7 +14830,7 @@ html { overscroll-behavior-y: none; }
   <span>Vendor <span class="val" id="sbVendor">Cisco<\/span><\/span>
   <span>Changes <span class="val" id="sbChanges">0<\/span><\/span>
   <span>Hints <span class="val" id="sbHints">0<\/span><\/span>
-  <span style="margin-left:auto">Black Knights · Network Fault Lab <span class="val">v1.0<\/span><\/span>
+  <span style="margin-left:auto">Built by Ian Knight · Network Fault Lab <span class="val">v1.0<\/span><\/span>
 <\/footer>
 
 <!-- Success modal -->
@@ -14746,7 +14851,7 @@ html { overscroll-behavior-y: none; }
 <script>
 /* =============================================================
    Network Fault Lab v1.0
-   Black Knights · CCNA practice environment
+   CCNA practice environment
    ============================================================= */
 
 const TOOL_VERSION = '1.0';
@@ -17621,13 +17726,17 @@ body {
 .hol-manual .hm-status.bad{color:#b91c1c}
 .hol-fab{position:fixed;right:16px;bottom:56px;z-index:14000;background:#1e3a5f;color:#fff;border:none;border-radius:99px;padding:10px 14px;font-weight:650;font-size:12.5px;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.25)}
 .hol-fab.hidden{display:none}
+.kit-nav-link{display:block;padding:8px;border-radius:8px;color:#e8edf2;text-decoration:none;font-size:13px;transition:background .12s,color .12s}
+.kit-nav-link:hover,.kit-nav-link:focus-visible{background:rgba(30,102,245,.12);color:#5eb1ff}
+.kit-nav-current{display:block;padding:8px;border-radius:8px;color:#5eb1ff;background:rgba(30,102,245,.12);font-size:13px;font-weight:700}
+@media (max-width:480px){.kit-nav-sitelabel{display:none}}
 
 </style>
 </head>
 <body>
 <div id="kit-back-bar" style="position:sticky;top:0;z-index:9999;display:flex;align-items:center;gap:12px;padding:6px 12px;background:rgba(10,14,20,.92);border-bottom:1px solid rgba(255,255,255,.1);backdrop-filter:blur(10px);font-family:system-ui,sans-serif;font-size:13px;">
   <a href="../Networking_Tools_Hub.html" style="color:#5eb1ff;text-decoration:none;font-weight:650;">← Tools Hub</a>
-  <span class="kit-nav-sitelabel" style="color:#6f7b88;">Network Skills Kit</span>
+  <span class="kit-nav-sitelabel" style="color:#6f7b88;">IT Skills Kit</span>
   <details id="kitNav" style="position:relative;margin-left:auto;">
     <summary style="display:flex;align-items:center;gap:6px;background:transparent;border:1px solid rgba(255,255,255,.16);border-radius:8px;padding:5px 11px;color:#c7d0d9;font-size:12.5px;font-weight:600;cursor:pointer;">
       Browse tools
@@ -17638,6 +17747,7 @@ body {
       <a class="kit-nav-link" href="Log_Sanitizer.html">Log Sanitizer</a>
       <a class="kit-nav-link" href="Command_Translator.html">Command Translator</a>
       <a class="kit-nav-link" href="Network_Cyber_Toolkit_v1.3.html">Network Calculator Toolkit</a>
+      <a class="kit-nav-link" href="Cheat_Sheet.html">Cheat Sheet</a>
       <div style="padding:10px 8px 4px;font-size:10px;font-weight:750;letter-spacing:.08em;text-transform:uppercase;color:#6f7b88;">Learn</div>
       <a class="kit-nav-link" href="DNS_Lab.html">DNS Lab (Domain Name System)</a>
       <a class="kit-nav-link" href="Routing_Lab.html">Routing Lab</a>
@@ -17842,7 +17952,7 @@ body {
 
 <div id="holPortal" class="hol-portal" role="dialog" aria-label="Hands-on Labs catalog">
   <div class="hol-top">
-    <div class="brand">Network Skills Kit · Offline Hands-on Lab</div>
+    <div class="brand">IT Skills Kit · Offline Hands-on Lab</div>
     <h1>vSphere Hands-on Labs</h1>
     <p>Choose a lab to launch a simulated vSphere Client. No account required. Complete the steps in the lab manual, then check your work. Nothing reaches a real vCenter.</p>
   </div>
@@ -20024,7 +20134,6 @@ try { seenIntro = localStorage.getItem('vsphereSandboxIntroSeen') === '1'; } cat
 <script>
 (function(){
   var frame = document.getElementById('toolFrame');
-  var buttons = Array.prototype.slice.call(document.querySelectorAll('.nb'));
 
   function unescapeEmbed(s){
     return s.replace(/<\\\//g, '</');
@@ -20047,14 +20156,8 @@ try { seenIntro = localStorage.getItem('vsphereSandboxIntroSeen') === '1'; } cat
       frame.removeAttribute('allow');
     }
     frame.srcdoc = unescapeEmbed(src.textContent);
-    buttons.forEach(function(b){ b.classList.toggle('on', b.getAttribute('data-tool') === id); });
-    document.body.classList.toggle('hub-view', id === 'hub');
     try { history.replaceState(null, '', '#' + id); } catch(e) {}
   }
-
-  buttons.forEach(function(b){
-    b.addEventListener('click', function(){ loadTool(b.getAttribute('data-tool')); });
-  });
 
   window.addEventListener('message', function(e){
     if (e.data && e.data.navigateTool) loadTool(e.data.navigateTool);
