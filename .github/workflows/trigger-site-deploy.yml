@@ -1,0 +1,17 @@
+name: Trigger site deploy
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  notify-cloudflare:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Call Cloudflare Pages deploy hook
+        run: |
+          if [ -z "${{ secrets.CF_DEPLOY_HOOK_URL }}" ]; then
+            echo "CF_DEPLOY_HOOK_URL secret is not set; skipping." >&2
+            exit 1
+          fi
+          curl -fsS -X POST "${{ secrets.CF_DEPLOY_HOOK_URL }}"
