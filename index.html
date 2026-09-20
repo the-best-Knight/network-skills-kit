@@ -2722,6 +2722,7 @@ function removeManualEntry(session, original) {
     var name = tokenNameOf(meta.replacement);
     if (name) {
       session.tokRev.delete(name);
+      renumberAfterDelete(session, name);
     } else {
       session.synRev.delete(meta.replacement);
       var si = session.synths.indexOf(meta.replacement);
@@ -2729,6 +2730,69 @@ function removeManualEntry(session, original) {
     }
   }
   return { ok: true };
+}
+
+/* Deleting a mapped entry can leave a gap in that label's numbering, e.g.
+   SECRET_12 removed while SECRET_13 stays -- most visible right after a
+   short, wrong partial value (left behind by the live-typing-splitting bug
+   fixed elsewhere, or by a plain typo caught and retyped well after
+   reuseIfStillTyping's merge window had closed) sits next to the corrected,
+   complete one in the dictionary. Shifts every same-label token numbered
+   above the deleted one down by one so numbering stays contiguous. Only
+   applies to bracket-token labels (SECRET/ID/TERM/custom) -- the
+   structure-preserving synthetic types (HOST, USER, IP, ...) embed their
+   index inside a type-specific value shape (operator3, node-2, ...) and
+   aren't renumbered here. */
+function renumberAfterDelete(session, deletedName) {
+  var m = deletedName.match(/^(.+)_(\d+)$/);
+  if (!m) return;
+  var lbl = m[1], deletedNum = parseInt(m[2], 10);
+  var toShift = [];
+  session.tokRev.forEach(function (orig, name) {
+    var mm = name.match(/^(.+)_(\d+)$/);
+    if (mm && mm[1] === lbl && parseInt(mm[2], 10) > deletedNum) {
+      toShift.push({ name: name, num: parseInt(mm[2], 10), original: orig });
+    }
+  });
+  toShift.sort(function (a, b) { return a.num - b.num; });
+  toShift.forEach(function (item) {
+    var newName = lbl + '_' + (item.num - 1);
+    var meta = session.map.get(item.original);
+    if (meta) {
+      var open = meta.replacement.charAt(0);
+      var close = open === '<' ? '>' : ']';
+      meta.replacement = open + newName + close;
+    }
+    session.tokRev.delete(item.name);
+    session.tokRev.set(newName, item.original);
+  });
+  if (session.counters[lbl]) session.counters[lbl] = Math.max(0, session.counters[lbl] - 1);
+}
+
+/* Fully removes a mapped entry -- unlike un-redact/keep (unredactAutoEntry),
+   which only stops substitution for this session, this forgets the mapping
+   entirely and renumbers later same-label entries down to close the gap.
+   The next sanitize pass re-detects the original value fresh if it's still
+   anywhere in the raw input, so this can never leave something unredacted
+   -- it only forgets a stale or superseded mapping. */
+function deleteMappedEntry(original) {
+  var meta = session.map.get(original);
+  if (!meta) { showToast('Not currently mapped.', 'error'); return; }
+  session.map.delete(original);
+  if (session.kept) session.kept.delete(original.toLowerCase());
+  var manualIdx = session.manual.findIndex(function (m) { return m.original === original; });
+  if (manualIdx !== -1) session.manual.splice(manualIdx, 1);
+  var name = tokenNameOf(meta.replacement);
+  if (name) {
+    session.tokRev.delete(name);
+    renumberAfterDelete(session, name);
+  } else {
+    session.synRev.delete(meta.replacement);
+    var si = session.synths.indexOf(meta.replacement);
+    if (si !== -1) { session.synths.splice(si, 1); bumpSynthVer(session); }
+  }
+  refreshAfterMapEdit();
+  showToast('Removed ' + meta.replacement + (name ? ' and renumbered later entries.' : '.'), 'success');
 }
 
 function bumpSynthVer(session) { session._synthVer = (session._synthVer || 0) + 1; }
@@ -5233,6 +5297,9 @@ function renderMapTable() {
       addBtn('hand-picked x', 'Remove this hand-picked entry', 'unpick', function () { unpickEntry(original); });
     } else {
       addBtn('un-redact', 'Keep this exact value for this session only', 'unpick', function () { unredactAutoEntry(original); });
+    }
+    if (!manualSet.has(original)) {
+      addBtn('delete', 'Forget this entry entirely (e.g. a wrong partial value left behind after a typo) and renumber later same-type entries down', 'unpick', function () { deleteMappedEntry(original); });
     }
     if (MEMORY_KEEP.has(lower)) {
       addBtn('forget keep', 'Remove from persistent always-keep memory', 'btn tiny', function () { memoryForget(original); });
