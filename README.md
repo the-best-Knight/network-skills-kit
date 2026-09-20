@@ -27,7 +27,6 @@ The tool this kit was built around, and still the one used the most. Paste a log
 | Routing Lab | Longest-prefix match, live routing tables, packet path visualization, BGP best-path quiz |
 | Firewall Rules Lab | ACL simulator — ordered rules, packet tester, implicit deny, policy scenarios |
 | Network Fault Lab | Diagnose-and-fix scenarios with a live topology, multi-vendor CLI lessons (Dell OS10 / Cisco IOS / Junos) |
-| vSphere Sandbox | Offline vSphere Client practice — clusters, hosts, VMs, power ops, vMotion |
 
 More gets added as it's built. See the [writeup](https://ianknight.org/blog/it-skills-kit/) for the story behind each one.
 
