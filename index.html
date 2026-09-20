@@ -1462,11 +1462,13 @@ td.orig.revealed { cursor: pointer; }
 .sect > summary::-webkit-details-marker { display: none; }
 .sect > summary::before {
   content: ""; flex: none;
-  width: 6px; height: 6px; border-radius: 50%;
-  background: var(--line);
-  transition: background .15s ease, transform .15s ease;
+  width: 6px; height: 6px;
+  border-right: 1.6px solid var(--af-blue);
+  border-bottom: 1.6px solid var(--af-blue);
+  transform: rotate(-45deg);
+  transition: transform .15s ease;
 }
-.sect[open] > summary::before { background: var(--silver); }
+.sect[open] > summary::before { transform: rotate(45deg); }
 .sect > summary:hover { color: var(--ink); background: rgba(255,255,255,.05); }
 .sect[open] > summary { color: var(--ink); }
 .sect-meta { margin-left: auto; font-family: var(--sans); font-size: 11.5px; font-weight: 400; color: var(--dim); }
@@ -2243,7 +2245,6 @@ body {
     <details class="sect" open>
       <summary>Detector profile<span class="sect-meta" id="profileGroupState">groups<\/span><\/summary>
     <div class="sect-body">
-      <div class="persist-note">Settings (groups, rules, custom patterns, whitelist, sensitivity mode) are saved in this browser only. <b>Nothing is uploaded<\/b>. Clear site data to wipe.<\/div>
       <div class="profile-groups" id="profileGroups">
         <label class="profile-group">
           <span><span class="pg-title">Core secrets &amp; credentials<\/span><br><span class="pg-desc">Keys, tokens, passwords, hashes. Always on.<\/span><\/span>
@@ -2287,7 +2288,7 @@ body {
     <\/div>
     <\/details>
 
-    <details class="sect">
+    <details class="sect advanced-only">
       <summary>Tutorial &amp; walkthrough<span class="sect-meta" id="tutorialState">—<\/span><\/summary>
       <div class="sect-body">
         <p class="panel-note">Intro and guided tour run in this browser only. Nothing is uploaded. Use these controls to replay either one anytime.<\/p>
@@ -2300,7 +2301,7 @@ body {
       <\/div>
     <\/details>
 
-    <details class="sect" open>
+    <details class="sect advanced-only" open>
       <summary>Secret handling<span class="sect-meta" id="secretHandlingState">hardened<\/span><\/summary>
       <div class="sect-body">
         <p class="panel-note">Built for passwords and API keys. Processing is local-only (CSP blocks network). Session maps stay in RAM. Export is always encrypted (AES-GCM or OpenSSL).<\/p>
@@ -2310,8 +2311,8 @@ body {
         <\/label>
         <div class="control-row" style="gap:14px;margin-bottom:10px;flex-wrap:wrap;">
           <div class="field" style="flex:1;min-width:150px;">
-            <label for="numIdleMinutes">Lock screen after (minutes idle, 0 = off):<\/label>
-            <input type="number" id="numIdleMinutes" min="0" max="120" step="1" value="5" oninput="onSecretHandlingChange()">
+            <label for="numIdleMinutes">Lock screen after (minutes idle):<\/label>
+            <input type="number" id="numIdleMinutes" min="1" max="120" step="1" value="5" oninput="onSecretHandlingChange()">
           <\/div>
           <div class="field" style="flex:1;min-width:150px;">
             <label for="numClipboardSeconds">Clear clipboard after (seconds, 0 = off):<\/label>
@@ -2599,9 +2600,11 @@ var LIVE_LIMIT = 400000;
 
 /* Idle soft-lock: minutes of no mouse/keyboard/scroll activity before the
    screen blurs and locks. Both this and CLIPBOARD_CLEAR_SECONDS are also
-   user-adjustable in Secret handling (Simple view) -- see onSecretHandlingChange()
-   below, which reads both fields and re-arms the idle timer; 0 disables the
-   idle lock entirely. */
+   user-adjustable in Secret handling (Advanced view) -- see
+   onSecretHandlingChange() below, which reads both fields and re-arms the
+   idle timer. Deliberately no "0 = off" here: an operator can retune the
+   idle lock, not switch it off -- onSecretHandlingChange()/
+   loadPersistedSettings() both floor it at 1 minute. */
 var IDLE_LOCK_MINUTES = 5;
 var idleLockTimer = null;
 var CLIPBOARD_CLEAR_SECONDS = 30;
@@ -5821,7 +5824,7 @@ function loadPersistedSettings() {
     updateProfileGroupState();
     updateDetectionRuleCount();
     if (typeof d.purgeOnLeave === 'boolean') PURGE_ON_LEAVE = d.purgeOnLeave;
-    if (typeof d.idleMinutes === 'number' && d.idleMinutes >= 0) { IDLE_LOCK_MINUTES = d.idleMinutes; armIdleLock(); }
+    if (typeof d.idleMinutes === 'number') { IDLE_LOCK_MINUTES = Math.max(1, d.idleMinutes); armIdleLock(); }
     if (typeof d.clipboardSeconds === 'number' && d.clipboardSeconds >= 0) CLIPBOARD_CLEAR_SECONDS = d.clipboardSeconds;
     updateSecretHandlingUI();
     /* Always-keep / Always-redact originals are never restored from disk --
@@ -6036,8 +6039,13 @@ function onSecretHandlingChange() {
   PURGE_ON_LEAVE = !!(chkP && chkP.checked);
   var numI = $('numIdleMinutes');
   if (numI) {
+    /* No "0 = off" here on purpose: the idle lock is not something an
+       operator should be able to switch off entirely from this field, only
+       retune. Anything below 1 clamps back up to 1 minute, both in this live
+       edit and in numI.value itself so the field never keeps showing 0. */
     var mins = parseInt(numI.value, 10);
-    IDLE_LOCK_MINUTES = (isFinite(mins) && mins >= 0) ? mins : IDLE_LOCK_MINUTES;
+    IDLE_LOCK_MINUTES = (isFinite(mins) && mins >= 1) ? mins : 1;
+    numI.value = IDLE_LOCK_MINUTES;
     armIdleLock();
   }
   var numC = $('numClipboardSeconds');
