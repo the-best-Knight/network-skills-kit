@@ -775,9 +775,16 @@ body.window-blurred .app { filter: blur(14px); }
 
 /* ---------- Sensitivity mode (v126 / finding-model) ---------- */
 .sens-row {
-  display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap;
+  display: flex; align-items: center; justify-content: center; gap: 6px 10px; flex-wrap: wrap;
   margin: 0 0 12px;
 }
+/* The hint text's length varies per sensitivity mode (Strict's is much
+   longer than Audit-only's) -- left inline next to the pill, a longer or
+   shorter hint shifted the whole centered row sideways every time the mode
+   changed, making the pill appear to jump. Forcing it onto its own full-
+   width line below decouples the two: the label+pill row's width, and so
+   its centered position, no longer depends on which mode is selected. */
+.sens-row .sens-hint { flex-basis: 100%; text-align: center; }
 .sens-label {
   font-size: 11px; font-weight: 650; letter-spacing: .3px;
   color: var(--silver); text-transform: uppercase;
