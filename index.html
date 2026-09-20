@@ -619,29 +619,6 @@ body { padding-top: 68px; }
   border-bottom: 0;
   box-shadow: 0 -1px 0 rgba(255,255,255,.08);
 }
-/* Matches .sb-head's own look (same card background, plain 1px border, same
-   title/hint treatment) since this is that same header's collapsed stand-in
-   -- it used to carry its own distinct style (an icon box, a blue left
-   accent border, blue status text) that made it read as a different
-   component instead of the same one in a different state. */
-.config-launch {
-  display: flex; align-items: center; gap: 14px;
-  width: 100%; max-width: 1100px; margin: 0 auto 14px;
-  padding: 14px 16px; text-align: left;
-  background: var(--navy-800); color: var(--ink);
-  border: 1px solid var(--line);
-  border-radius: var(--r); cursor: pointer; font-family: var(--sans);
-}
-.config-launch:hover { border-color: var(--silver); background: var(--navy-700); }
-.config-launch .cfg-copy { min-width: 0; flex: 1; }
-.config-launch .cfg-title { display: block; font-family: var(--sans); font-size: 12.5px; font-weight: 600; color: var(--ink); }
-.config-launch .cfg-state {
-  flex: none; font-size: 10px; font-weight: 600; letter-spacing: .3px;
-  color: var(--dim); border: 1px solid var(--line); border-radius: var(--r-pill);
-  padding: 4px 10px; white-space: nowrap; transition: color .12s ease, border-color .12s ease;
-}
-.config-launch:hover .cfg-state { color: var(--ink); border-color: var(--silver); }
-.config-launch .cfg-key { flex: none; font-family: var(--mono); font-size: 11px; color: var(--dim); white-space: nowrap; }
 .double-check {
   display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 10px;
   padding: 10px 12px; border: 1px solid var(--line); border-radius: var(--r-sm);
@@ -657,8 +634,6 @@ body { padding-top: 68px; }
 @media (max-width: 700px) {
   body { padding-left: 12px; padding-right: 12px; padding-bottom: 126px; }
   .masthead { top: 28px; padding: 10px 12px; }
-  .config-launch { margin-bottom: 10px; padding: 11px 12px; }
-  .config-launch .cfg-key { display: none; }
   .statusbar { padding: 9px 12px; overflow-x: auto; flex-wrap: nowrap; gap: 14px; white-space: nowrap; }
 }
 
@@ -1275,7 +1250,13 @@ mark.search-hl {
   text-align: left;
 }
 .sb-toggle:hover { border-color: var(--silver); color: var(--ink); }
-body.sb-collapsed .sidebar { display: none; }
+/* Collapsing hides only the body -- .sb-head (title, Alt+C, the Hide/Show
+   button) stays exactly where it is. There used to be a second, separate
+   element (a "pill") that swapped in for the whole sidebar on collapse; it
+   had its own size and position, so toggling visibly jumped the page around
+   between two different-looking things instead of one header staying put
+   while its content folds away underneath it. */
+body.sb-collapsed .sidebar .sb-body { display: none; }
 
 /* ---------- Rule toggles ---------- */
 .rules { background: var(--navy-850); border: 1px solid var(--line); border-radius: var(--r); }
@@ -1462,6 +1443,12 @@ td.orig.revealed { cursor: pointer; }
    disables what they control, so a value set in Advanced still applies even
    while collapsed back to Simple. */
 .sidebar.simple-level .advanced-only { display: none; }
+/* Detector profile is the only section :not(.advanced-only) -- in Simple
+   view it's the last one actually visible, but every advanced-only section
+   after it in the DOM is still there (just display:none), so plain
+   :last-child never matches it and it kept a trailing border-bottom with
+   nothing below to divide it from. */
+.sidebar.simple-level .sect:not(.advanced-only) { border-bottom: none; }
 .sect > summary {
   list-style: none; cursor: pointer;
   display: flex; align-items: center; gap: 8px;
@@ -1641,10 +1628,6 @@ body {
   gap: 20px;
 }
 
-.config-launch {
-  display: none !important;
-}
-
 .sidebar {
   width: 360px;
   position: sticky;
@@ -1725,26 +1708,6 @@ body {
 .intro-preview-col.after .intro-code { color: var(--ink); }
 .intro-preview-col.before .intro-code mark { background: none; color: var(--alert); font-weight: 700; }
 
-@media (min-width: 821px) {
-  /* v85 turned Detection settings into a full-width bar above the work
-     area (position: static) at every width -- see .sidebar below. This
-     collapsed-state toggle predates that pass and was left on the older
-     two-column-rail positioning: position: fixed with a top offset of
-     28px + chrome-header-h, which only ever accounted for the masthead
-     and never for #kit-back-bar (the "← Tools Hub" strip) above it.
-     Fixed and unaware of the back-bar's height, it floated over whatever
-     content now sits where the old rail used to be. Matching the narrow-
-     viewport rule below (which never used position: fixed) instead of
-     patching the offset removes the whole class of "chrome height
-     changed, this offset didn't" bug rather than re-tuning a constant
-     that can drift out of sync again. */
-  body.sb-collapsed .config-launch {
-    display: flex !important;
-    margin: 0 auto 14px;
-    max-width: var(--content-max);
-  }
-}
-
 @media (max-width: 1100px) {
   .app { grid-template-columns: 320px minmax(0, 1fr); gap: 16px; }
   .sidebar { width: 320px; }
@@ -1758,8 +1721,6 @@ body {
   .masthead .mast-badges { gap: 4px; }
   .app { display: flex; flex-direction: column; gap: 12px; }
   .sidebar { width: 100%; position: static; max-height: none; overflow: visible; }
-  body.sb-collapsed .sidebar { display: none; }
-  .config-launch { display: flex !important; margin: 0 auto 10px; max-width: var(--content-max); }
   .config-summary { position: static; }
   .intro-example-head { align-items: stretch; flex-direction: column; }
   .intro-preview { grid-template-columns: 1fr; }
@@ -1902,7 +1863,6 @@ body {
   overflow-x: hidden;
   scrollbar-gutter: stable;
 }
-.scroll-area .config-launch { margin: 14px auto 0; }
 .scroll-area .app { padding: 20px 24px 32px; }
 .sidebar {
   top: 14px !important;
@@ -2153,24 +2113,16 @@ body {
   <\/div>
 
 <div class="scroll-area">
-<button id="sidebarToggle" class="config-launch" onclick="toggleSidebar()" aria-expanded="true" aria-controls="sidebar" title="Detection settings (Alt+C)">
-  <span class="cfg-copy">
-    <span class="cfg-title">Detection settings<\/span>
-  <\/span>
-  <span class="cfg-state" id="cfgState">Settings ready<\/span>
-  <span class="cfg-key">Alt+C<\/span>
-<\/button>
-
 <div class="app">
 <aside id="sidebar" class="sidebar simple-level" aria-label="Configuration">
   <div class="sb-head">
     <span class="sb-title">Detection settings<\/span>
     <div style="display:flex;align-items:center;gap:8px;">
       <span class="sb-hint">Alt+C<\/span>
-      <button class="btn quiet sb-hide" type="button" onclick="toggleSidebar()" aria-label="Hide detection settings">Hide<\/button>
+      <button class="btn quiet sb-hide" type="button" id="sbHideBtn" onclick="toggleSidebar()" aria-expanded="true" aria-controls="sbBody" aria-label="Hide detection settings">Hide<\/button>
     <\/div>
   <\/div>
-  <div class="sb-body">
+  <div class="sb-body" id="sbBody">
     <div class="settings-level-row" id="settingsLevelRow">
       <span class="sens-label">View<\/span>
       <div class="sens-toggle" role="group" aria-label="Settings detail level">
@@ -6092,16 +6044,12 @@ function armPurgeOnLeave() {
 
 function toggleSidebar() {
   var collapsed = document.body.classList.toggle('sb-collapsed');
-  var btn = $('sidebarToggle');
-  var state = $('cfgState');
+  var btn = $('sbHideBtn');
   if (btn) {
+    btn.textContent = collapsed ? 'Show' : 'Hide';
     btn.setAttribute('aria-expanded', collapsed ? 'false' : 'true');
-    btn.setAttribute('title', collapsed ? 'Open detection settings (Alt+C)' : 'Close detection settings (Alt+C)');
+    btn.setAttribute('aria-label', collapsed ? 'Show detection settings' : 'Hide detection settings');
   }
-  /* This label is only ever seen collapsed -- .config-launch stays
-     display:none the rest of the time -- so it always reads "Show",
-     mirroring the expanded header's own "Hide" button one-for-one. */
-  if (state) state.textContent = 'Show';
 }
 
 function readTextareaSelection() {
@@ -7412,7 +7360,6 @@ window.addEventListener('DOMContentLoaded', function () {
   });
   $('sbVersion').innerText = 'v' + TOOL_VERSION;
   if ($('pageCredit')) $('pageCredit').innerText = 'Built by ' + TOOL_MAINTAINER;
-  $('cfgState').innerText = 'Configure before you run';
 
   populateRuleToggles();
   initializeDetectionRules();
