@@ -2278,15 +2278,10 @@ body {
           <span><span class="pg-title">Purge secrets when leaving this page<\/span><br><span class="pg-desc">Clears raw input, session map, and highlights on hide/unload so values do not linger in the DOM<\/span><\/span>
           <input type="checkbox" id="chkPurgeOnLeave" checked onchange="onSecretHandlingChange()">
         <\/label>
-        <label class="profile-group">
-          <span><span class="pg-title">Persist Always-keep / Always-redact to disk<\/span><br><span class="pg-desc"><b>Off by default.<\/b> When on, original values are written to localStorage in this browser. Do not enable on shared or production-secret hosts<\/span><\/span>
-          <input type="checkbox" id="chkPersistMemory" onchange="onSecretHandlingChange()">
-        <\/label>
         <div class="control-row" style="gap:8px;margin-top:10px;">
           <button class="btn danger" type="button" id="btnPurgeNow">Purge secrets now<\/button>
-          <button class="btn quiet" type="button" id="btnClearDiskMemory">Clear disk memory<\/button>
         <\/div>
-        <div class="field-hint" id="secretHandlingHint" style="margin-top:8px;">Disk memory is off. Always-keep / Always-redact apply only while this tab is open.<\/div>
+        <div class="field-hint" id="secretHandlingHint" style="margin-top:8px;">Always-keep / Always-redact values never leave this tab. Nothing is written to disk -- the only way a mapping survives is a manual, encrypted Export.<\/div>
       <\/div>
     <\/details>
   <\/div>
@@ -3439,13 +3434,14 @@ var STRUCT_PATH_KEYS = /^(?:path|filepath|filename|dir|directory|home|workdir|cw
    map: these are operator preferences that survive reloads. */
 var MEMORY_KEEP = new Set();          // values always preserved (session + optional disk)
 var MEMORY_REDACT = new Map();        // value(lower) -> { original, type }
-/* Security defaults for secret-bearing use (passwords, API keys):
-   - PERSIST_MEMORY_TO_DISK: when false (default), Always-keep / Always-redact
-     values stay in RAM for this tab only and are never written to localStorage.
-     Turning this on stores originals in the browser profile — only for lab hosts.
+/* Security default for secret-bearing use (passwords, API keys):
    - PURGE_ON_LEAVE: wipe raw input, session map, and highlights when the tab
-     hides or unloads so secrets do not linger in the DOM after you walk away. */
-var PERSIST_MEMORY_TO_DISK = false;
+     hides or unloads so secrets do not linger in the DOM after you walk away.
+   Always-keep / Always-redact originals (MEMORY_KEEP / MEMORY_REDACT) live in
+   RAM for this tab only and are never written to localStorage, with no way to
+   opt into that -- see persistSettings()/loadPersistedSettings() below. The
+   only way a mapping survives past the tab closing is a manual, encrypted
+   Export. */
 var PURGE_ON_LEAVE = true;
 
 function structKeyType(key) {
@@ -3638,9 +3634,7 @@ function memoryAlwaysKeep(original) {
   session.kept.set(lower, { original: original, type: (session.map.get(original) || {}).type || 'SECRET', persistent: true });
   persistSettings();
   sanitizeNow();
-  showToast(PERSIST_MEMORY_TO_DISK
-    ? 'Always keep: value saved in this browser (localStorage).'
-    : 'Always keep: value remembered for this tab only (not written to disk).', 'success');
+  showToast('Always keep: value remembered for this tab only (never written to disk).', 'success');
 }
 
 function memoryAlwaysRedact(original, type) {
@@ -3653,9 +3647,7 @@ function memoryAlwaysRedact(original, type) {
   if (!already) session.manual.push({ original: original, type: type || 'SECRET', label: null, persistent: true });
   persistSettings();
   sanitizeNow();
-  showToast(PERSIST_MEMORY_TO_DISK
-    ? 'Always redact: value saved in this browser (localStorage).'
-    : 'Always redact: value remembered for this tab only (not written to disk).', 'success');
+  showToast('Always redact: value remembered for this tab only (never written to disk).', 'success');
 }
 
 function memoryForget(original) {
@@ -5646,35 +5638,20 @@ function markDirty() {
 
 function persistSettings() {
   try {
-    // Settings (rule toggles, groups, custom patterns) may be saved. Sensitive
-    // memory (Always keep/redact originals) is only written when
-    // PERSIST_MEMORY_TO_DISK is explicitly enabled — default is off so
-    // passwords/API keys never land in localStorage.
+    // Settings (rule toggles, groups, custom patterns) may be saved. Always-
+    // keep / Always-redact originals never are, with no opt-in: real secret
+    // values leave this tab only via a manual, encrypted Export. Every save
+    // actively strips memoryKeep/memoryRedact so a pre-upgrade browser
+    // profile that still has plaintext originals from an older build gets
+    // scrubbed the moment settings are next written.
     var stored = {};
     try { stored = JSON.parse(localStorage.getItem(LS_KEY) || '{}') || {}; } catch (e) { stored = {}; }
 
     var payload = Object.assign({ v: 2 }, stored, {
-      persistMemoryToDisk: !!PERSIST_MEMORY_TO_DISK,
-      purgeOnLeave: !!PURGE_ON_LEAVE
+      purgeOnLeave: !!PURGE_ON_LEAVE,
+      memoryKeep: [],
+      memoryRedact: []
     });
-
-    if (PERSIST_MEMORY_TO_DISK) {
-      var mergedKeep = new Set(Array.isArray(stored.memoryKeep) ? stored.memoryKeep : []);
-      MEMORY_KEEP.forEach(function (lower) { mergedKeep.add(lower); });
-      var mergedRedact = new Map();
-      (Array.isArray(stored.memoryRedact) ? stored.memoryRedact : []).forEach(function (e) {
-        if (e && e.v != null) mergedRedact.set(String(e.v).toLowerCase(), e);
-      });
-      MEMORY_REDACT.forEach(function (meta, lower) {
-        mergedRedact.set(lower, { v: meta.original, t: meta.type });
-      });
-      payload.memoryKeep = Array.from(mergedKeep);
-      payload.memoryRedact = Array.from(mergedRedact.values());
-    } else {
-      // Actively strip any previously stored originals from disk.
-      payload.memoryKeep = [];
-      payload.memoryRedact = [];
-    }
 
     if (DIRTY_FIELDS.has('sensitivity')) payload.sensitivity = SENSITIVITY_MODE;
     if (DIRTY_FIELDS.has('groups')) payload.groups = readProfileGroupState();
@@ -5739,30 +5716,18 @@ function loadPersistedSettings() {
     }
     updateProfileGroupState();
     updateDetectionRuleCount();
-    /* Security flags (default off for disk memory). */
-    if (typeof d.persistMemoryToDisk === 'boolean') PERSIST_MEMORY_TO_DISK = d.persistMemoryToDisk;
     if (typeof d.purgeOnLeave === 'boolean') PURGE_ON_LEAVE = d.purgeOnLeave;
-    /* Sensitive memory only restored when the operator has opted in to disk
-       storage. Otherwise wipe any legacy plaintext originals from older builds. */
+    /* Always-keep / Always-redact originals are never restored from disk --
+       there is no opt-in for that. If a pre-upgrade browser profile still has
+       plaintext originals saved by an older build, wipe them now rather than
+       just leaving them inert on disk. */
     MEMORY_KEEP = new Set();
     MEMORY_REDACT = new Map();
-    if (PERSIST_MEMORY_TO_DISK) {
-      if (Array.isArray(d.memoryKeep)) {
-        d.memoryKeep.forEach(function (v) {
-          if (typeof v === 'string' && v) MEMORY_KEEP.add(v.toLowerCase());
-        });
-      }
-      if (Array.isArray(d.memoryRedact)) {
-        d.memoryRedact.forEach(function (e) {
-          if (!e || typeof e.v !== 'string' || !e.v) return;
-          MEMORY_REDACT.set(e.v.toLowerCase(), { original: e.v, type: e.t || 'SECRET' });
-        });
-      }
-    } else if ((Array.isArray(d.memoryKeep) && d.memoryKeep.length) || (Array.isArray(d.memoryRedact) && d.memoryRedact.length)) {
+    if ((Array.isArray(d.memoryKeep) && d.memoryKeep.length) || (Array.isArray(d.memoryRedact) && d.memoryRedact.length) || d.persistMemoryToDisk) {
       try {
         d.memoryKeep = [];
         d.memoryRedact = [];
-        d.persistMemoryToDisk = false;
+        delete d.persistMemoryToDisk;
         localStorage.setItem(LS_KEY, JSON.stringify(d));
       } catch (wipeErr) {}
     }
@@ -5951,45 +5916,13 @@ function closeIntro() {
 
 function updateSecretHandlingUI() {
   var chkP = $('chkPurgeOnLeave');
-  var chkM = $('chkPersistMemory');
   if (chkP) chkP.checked = !!PURGE_ON_LEAVE;
-  if (chkM) chkM.checked = !!PERSIST_MEMORY_TO_DISK;
   var meta = $('secretHandlingState');
-  var hint = $('secretHandlingHint');
-  if (meta) meta.textContent = PERSIST_MEMORY_TO_DISK ? 'disk memory on' : 'hardened';
-  if (hint) {
-    hint.textContent = PERSIST_MEMORY_TO_DISK
-      ? 'Warning: Always-keep / Always-redact originals are stored in localStorage on this browser.'
-      : 'Disk memory is off. Always-keep / Always-redact apply only while this tab is open.';
-  }
+  if (meta) meta.textContent = 'hardened';
 }
 function onSecretHandlingChange() {
   var chkP = $('chkPurgeOnLeave');
-  var chkM = $('chkPersistMemory');
   PURGE_ON_LEAVE = !!(chkP && chkP.checked);
-  var wantDisk = !!(chkM && chkM.checked);
-  if (wantDisk && !PERSIST_MEMORY_TO_DISK) {
-    var ok = window.confirm(
-      'Persist Always-keep / Always-redact values to this browser localStorage?\n\n' +
-      'Original passwords and API keys would be stored in plaintext in the browser profile.\n' +
-      'Only enable this on a trusted lab workstation, never on a shared host.'
-    );
-    if (!ok) {
-      if (chkM) chkM.checked = false;
-      wantDisk = false;
-    }
-  }
-  PERSIST_MEMORY_TO_DISK = wantDisk;
-  if (!PERSIST_MEMORY_TO_DISK) {
-    try {
-      var stored = JSON.parse(localStorage.getItem(LS_KEY) || '{}') || {};
-      stored.memoryKeep = [];
-      stored.memoryRedact = [];
-      stored.persistMemoryToDisk = false;
-      stored.purgeOnLeave = !!PURGE_ON_LEAVE;
-      localStorage.setItem(LS_KEY, JSON.stringify(stored));
-    } catch (e) {}
-  }
   persistSettings();
   updateSecretHandlingUI();
 }
@@ -6015,20 +5948,6 @@ function purgeSecretsNow() {
   try { renderMapTable(); } catch (e3) {}
   try { updateStatus(0, [], false); } catch (e4) {}
   try { showToast('Secrets purged from this tab (input, session map, highlights).', 'success'); } catch (e5) {}
-}
-function clearDiskMemoryOnly() {
-  try {
-    var stored = JSON.parse(localStorage.getItem(LS_KEY) || '{}') || {};
-    stored.memoryKeep = [];
-    stored.memoryRedact = [];
-    stored.persistMemoryToDisk = false;
-    localStorage.setItem(LS_KEY, JSON.stringify(stored));
-  } catch (e) {}
-  PERSIST_MEMORY_TO_DISK = false;
-  MEMORY_KEEP = new Set();
-  MEMORY_REDACT = new Map();
-  updateSecretHandlingUI();
-  showToast('Cleared any Always-keep / Always-redact values stored in localStorage.', 'success');
 }
 function armPurgeOnLeave() {
   window.addEventListener('pagehide', function () {
@@ -7587,7 +7506,6 @@ window.addEventListener('DOMContentLoaded', function () {
       if (ok) purgeSecretsNow();
     });
   });
-  if ($('btnClearDiskMemory')) $('btnClearDiskMemory').addEventListener('click', clearDiskMemoryOnly);
   updateTutorialState();
   updateSecretHandlingUI();
 });
