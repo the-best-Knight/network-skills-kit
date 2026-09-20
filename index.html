@@ -731,6 +731,9 @@ body.idle-locked .idle-lock-overlay { display: flex; }
 }
 .idle-lock-card h2 { font-size: 16px; font-weight: 650; color: var(--ink); }
 .idle-lock-card p { font-size: 12.5px; color: var(--silver); line-height: 1.5; }
+/* Window-focus blur (see armFocusBlur): lighter than idle-lock -- no overlay,
+   no pointer-events block, lifts the instant focus returns. */
+body.window-blurred .app { filter: blur(14px); }
 .masthead h1 {
   font-size: 18px; font-weight: 600; letter-spacing: .4px; color: var(--ink);
 }
@@ -792,6 +795,14 @@ body.idle-locked .idle-lock-overlay { display: flex; }
 .sens-btn:hover { color: var(--ink); background: rgba(255,255,255,.06); }
 .sens-btn.active { color: #fff; background: var(--af-blue); }
 .sens-hint { font-size: 11px; color: var(--dim); }
+.level-btn {
+  background: none; border: none; border-radius: var(--r-pill);
+  color: var(--dim); font-family: var(--sans); font-size: 12px; font-weight: 600;
+  padding: 7px 14px; cursor: pointer;
+  transition: color .12s ease, background .12s ease;
+}
+.level-btn:hover { color: var(--ink); background: rgba(255,255,255,.06); }
+.level-btn.active { color: #fff; background: var(--af-blue); }
 
 /* ---------- Detector profile groups (v126) ---------- */
 .profile-groups {
@@ -1429,6 +1440,17 @@ td.orig.revealed { cursor: pointer; }
 /* ---------- Collapsible sidebar sections ---------- */
 .sect { border-bottom: 1px solid var(--line-soft); }
 .sect:last-child { border-bottom: none; }
+.settings-level-row {
+  display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+  padding: 13px 16px; border-bottom: 1px solid var(--line-soft);
+}
+.settings-level-row .sens-hint { flex-basis: 100%; }
+/* Simple is the default view: fewer, higher-impact controls up front.
+   Advanced sections (custom rules, per-rule toggles, profile import) stay in
+   the DOM and keep working underneath -- this only hides them, it never
+   disables what they control, so a value set in Advanced still applies even
+   while collapsed back to Simple. */
+.sidebar.simple-level .advanced-only { display: none; }
 .sect > summary {
   list-style: none; cursor: pointer;
   display: flex; align-items: center; gap: 8px;
@@ -2135,7 +2157,7 @@ body {
 <\/button>
 
 <div class="app">
-<aside id="sidebar" class="sidebar" aria-label="Configuration">
+<aside id="sidebar" class="sidebar simple-level" aria-label="Configuration">
   <div class="sb-head">
     <span class="sb-title">Detection settings<\/span>
     <div style="display:flex;align-items:center;gap:8px;">
@@ -2144,7 +2166,15 @@ body {
     <\/div>
   <\/div>
   <div class="sb-body">
-    <details class="sect">
+    <div class="settings-level-row" id="settingsLevelRow">
+      <span class="sens-label">View<\/span>
+      <div class="sens-toggle" role="group" aria-label="Settings detail level">
+        <button type="button" class="level-btn active" data-level="simple" onclick="setSettingsLevel('simple')">Simple<\/button>
+        <button type="button" class="level-btn" data-level="advanced" onclick="setSettingsLevel('advanced')">Advanced<\/button>
+      <\/div>
+      <span class="sens-hint">Simple: the settings most people need. Advanced adds custom rules, per-rule toggles, and profile import.<\/span>
+    <\/div>
+    <details class="sect advanced-only">
       <summary>Codewords &amp; Exclusions<\/summary>
     <div class="sect-body">
         <div class="field">
@@ -2159,7 +2189,7 @@ body {
       <\/div>
     <\/details>
 
-    <details class="sect">
+    <details class="sect advanced-only">
       <summary>Unit Profile Pack<span class="sect-meta" id="activeProfile">None loaded<\/span><\/summary>
     <div class="sect-body">
       <p class="panel-note">Config only. No log content or mapped values. Session maps are separate, in the status bar.<\/p>
@@ -2178,7 +2208,7 @@ body {
     <\/div>
     <\/details>
 
-    <details class="sect">
+    <details class="sect advanced-only">
       <summary>Operator Rules<span class="sect-meta" id="ruleCount">0 active<\/span><\/summary>
     <div class="sect-body">
       <div class="crule-wrap" style="border:none; padding:0;">
@@ -2250,7 +2280,7 @@ body {
     <\/div>
     <\/details>
 
-    <details class="sect">
+    <details class="sect advanced-only">
       <summary>Detection Rules<span class="sect-meta" id="detectionRuleCount"><\/span><\/summary>
     <div class="sect-body">
       <div class="rule-grid" id="ruleGrid" style="border:none; padding:0; padding-top:10px;"><\/div>
@@ -2278,6 +2308,16 @@ body {
           <span><span class="pg-title">Purge secrets when leaving this page<\/span><br><span class="pg-desc">Clears raw input, session map, and highlights on hide/unload so values do not linger in the DOM<\/span><\/span>
           <input type="checkbox" id="chkPurgeOnLeave" checked onchange="onSecretHandlingChange()">
         <\/label>
+        <div class="control-row" style="gap:14px;margin-bottom:10px;flex-wrap:wrap;">
+          <div class="field" style="flex:1;min-width:150px;">
+            <label for="numIdleMinutes">Lock screen after (minutes idle, 0 = off):<\/label>
+            <input type="number" id="numIdleMinutes" min="0" max="120" step="1" value="5" oninput="onSecretHandlingChange()">
+          <\/div>
+          <div class="field" style="flex:1;min-width:150px;">
+            <label for="numClipboardSeconds">Clear clipboard after (seconds, 0 = off):<\/label>
+            <input type="number" id="numClipboardSeconds" min="0" max="600" step="5" value="30" oninput="onSecretHandlingChange()">
+          <\/div>
+        <\/div>
         <div class="control-row" style="gap:8px;margin-top:10px;">
           <button class="btn danger" type="button" id="btnPurgeNow">Purge secrets now<\/button>
         <\/div>
@@ -2558,15 +2598,24 @@ var currentRestoredText = '';
 var LIVE_LIMIT = 400000;
 
 /* Idle soft-lock: minutes of no mouse/keyboard/scroll activity before the
-   screen blurs and locks. Change this one number to retune it; 0 disables
-   the feature entirely. */
+   screen blurs and locks. Both this and CLIPBOARD_CLEAR_SECONDS are also
+   user-adjustable in Secret handling (Simple view) -- see onSecretHandlingChange()
+   below, which reads both fields and re-arms the idle timer; 0 disables the
+   idle lock entirely. */
 var IDLE_LOCK_MINUTES = 5;
 var idleLockTimer = null;
+var CLIPBOARD_CLEAR_SECONDS = 30;
 /* Map panel privacy: panel stays collapsed until the operator confirms
    "Show originals". Individual original cells stay masked until clicked.
    Neither flag touches the engine or session.map — display only. */
 var mapPanelUnlocked = false;
 var revealedOriginals = new Set();
+/* Set once sanitized output (with [SECRET_N]-style placeholders) has been
+   copied via Copy For AI or downloaded -- deleteMappedEntry() checks this to
+   warn before removing an entry that a copy already sitting outside the tool
+   may still reference. Never set by restored-output copies, which hold real
+   values and contain no placeholders to orphan. */
+var sanitizedOutputEverShared = false;
 
 function armIdleLock() {
   clearTimeout(idleLockTimer);
@@ -2582,6 +2631,24 @@ function armIdleLock() {
 function resumeFromIdleLock() {
   document.body.classList.remove('idle-locked');
   armIdleLock();
+}
+
+/* Screenshots and screen recordings can't be blocked from a web page -- no
+   browser exposes that. This narrows the window instead: the instant this
+   window/tab loses focus (alt-tab, a screen share switching apps, another
+   window coming forward), blur the whole working area -- raw input, restored
+   output, and any revealed Session Dictionary originals all live there. No
+   overlay and no click-to-resume like the idle lock: it lifts the moment
+   focus returns, since the point is covering brief moments unfocused, not
+   gating re-entry to a session already unlocked. */
+function armFocusBlur() {
+  function blurNow() { document.body.classList.add('window-blurred'); }
+  function unblurNow() { document.body.classList.remove('window-blurred'); }
+  window.addEventListener('blur', blurNow);
+  window.addEventListener('focus', unblurNow);
+  document.addEventListener('visibilitychange', function () {
+    if (document.hidden) blurNow(); else unblurNow();
+  });
 }
 
 function bindMapPanelGate() {
@@ -2773,21 +2840,39 @@ function renumberAfterDelete(session, deletedName) {
 function deleteMappedEntry(original) {
   var meta = session.map.get(original);
   if (!meta) { showToast('Not currently mapped.', 'error'); return; }
-  session.map.delete(original);
-  if (session.kept) session.kept.delete(original.toLowerCase());
-  var manualIdx = session.manual.findIndex(function (m) { return m.original === original; });
-  if (manualIdx !== -1) session.manual.splice(manualIdx, 1);
-  var name = tokenNameOf(meta.replacement);
-  if (name) {
-    session.tokRev.delete(name);
-    renumberAfterDelete(session, name);
-  } else {
-    session.synRev.delete(meta.replacement);
-    var si = session.synths.indexOf(meta.replacement);
-    if (si !== -1) { session.synths.splice(si, 1); bumpSynthVer(session); }
+  function doDelete() {
+    session.map.delete(original);
+    if (session.kept) session.kept.delete(original.toLowerCase());
+    var manualIdx = session.manual.findIndex(function (m) { return m.original === original; });
+    if (manualIdx !== -1) session.manual.splice(manualIdx, 1);
+    var name = tokenNameOf(meta.replacement);
+    if (name) {
+      session.tokRev.delete(name);
+      renumberAfterDelete(session, name);
+    } else {
+      session.synRev.delete(meta.replacement);
+      var si = session.synths.indexOf(meta.replacement);
+      if (si !== -1) { session.synths.splice(si, 1); bumpSynthVer(session); }
+    }
+    refreshAfterMapEdit();
+    showToast('Removed ' + meta.replacement + (name ? ' and renumbered later entries.' : '.'), 'success');
   }
-  refreshAfterMapEdit();
-  showToast('Removed ' + meta.replacement + (name ? ' and renumbered later entries.' : '.'), 'success');
+  /* Only warn when sanitized output has actually left the tool (Copy For AI /
+     Download) -- otherwise this stays a single, frictionless click, matching
+     every other row action. A copy made before this point may still contain
+     this exact placeholder; deleting forgets the mapping, so Restore would no
+     longer resolve it in that older copy specifically (nothing already
+     redacted is affected either way). */
+  if (sanitizedOutputEverShared) {
+    showConfirm(
+      'Delete ' + meta.replacement + '?\n\n' +
+      'Sanitized output has already been copied or downloaded this session. ' +
+      'If that placeholder made it into something you shared elsewhere, Restore won\'t be able to resolve it there anymore.',
+      function (ok) { if (ok) doDelete(); }
+    );
+  } else {
+    doDelete();
+  }
 }
 
 function bumpSynthVer(session) { session._synthVer = (session._synthVer || 0) + 1; }
@@ -4598,7 +4683,7 @@ function requestSanitize() {
   $('livePaused').style.display = paused ? '' : 'none';
   $('runNowRow').style.display = paused ? '' : 'none';
   if (paused) return;   // a multi-megabyte config would freeze the tab on every keystroke
-  sanitizeTimer = setTimeout(sanitizeNow, 200);
+  sanitizeTimer = setTimeout(sanitizeNow, 350);
 }
 
 /* Marks, on the RAW side, every span whose exact text also became a mapped
@@ -5483,7 +5568,20 @@ var RULE_GROUPS = {
    Ported from Log Sanitizer 3 finding-model + Improvement Backlog Phase 1
    ========================================================================= */
 var SENSITIVITY_MODE = 'strict';  // strict | standard | technical | audit
+var SETTINGS_LEVEL = 'simple';    // simple | advanced -- see .advanced-only / setSettingsLevel()
 var LS_KEY = 'ik-log-sanitizer-v126-settings';
+
+function setSettingsLevel(level) {
+  if (level !== 'simple' && level !== 'advanced') return;
+  SETTINGS_LEVEL = level;
+  var side = $('sidebar');
+  if (side) side.classList.toggle('simple-level', level === 'simple');
+  document.querySelectorAll('.level-btn').forEach(function (b) {
+    b.classList.toggle('active', b.getAttribute('data-level') === level);
+  });
+  markDirty('settingsLevel');
+  persistSettings();
+}
 
 /* Map profile groups → SANITIZATION_RULES ids (mirrors RULE_GROUPS + v3). */
 var PROFILE_GROUP_RULES = {
@@ -5654,6 +5752,9 @@ function persistSettings() {
     });
 
     if (DIRTY_FIELDS.has('sensitivity')) payload.sensitivity = SENSITIVITY_MODE;
+    if (DIRTY_FIELDS.has('settingsLevel')) payload.settingsLevel = SETTINGS_LEVEL;
+    if (DIRTY_FIELDS.has('idleMinutes')) payload.idleMinutes = IDLE_LOCK_MINUTES;
+    if (DIRTY_FIELDS.has('clipboardSeconds')) payload.clipboardSeconds = CLIPBOARD_CLEAR_SECONDS;
     if (DIRTY_FIELDS.has('groups')) payload.groups = readProfileGroupState();
     if (DIRTY_FIELDS.has('ruleToggles')) payload.ruleToggles = currentRuleToggles();
     if (DIRTY_FIELDS.has('customRules')) {
@@ -5682,6 +5783,9 @@ function loadPersistedSettings() {
       });
       var h = $('sensHint');
       if (h) h.textContent = SENS_HINTS[SENSITIVITY_MODE];
+    }
+    if (d.settingsLevel === 'simple' || d.settingsLevel === 'advanced') {
+      setSettingsLevel(d.settingsLevel);
     }
     if (d.groups) {
       if ($('grpNetwork') && typeof d.groups.network === 'boolean') $('grpNetwork').checked = d.groups.network;
@@ -5717,6 +5821,9 @@ function loadPersistedSettings() {
     updateProfileGroupState();
     updateDetectionRuleCount();
     if (typeof d.purgeOnLeave === 'boolean') PURGE_ON_LEAVE = d.purgeOnLeave;
+    if (typeof d.idleMinutes === 'number' && d.idleMinutes >= 0) { IDLE_LOCK_MINUTES = d.idleMinutes; armIdleLock(); }
+    if (typeof d.clipboardSeconds === 'number' && d.clipboardSeconds >= 0) CLIPBOARD_CLEAR_SECONDS = d.clipboardSeconds;
+    updateSecretHandlingUI();
     /* Always-keep / Always-redact originals are never restored from disk --
        there is no opt-in for that. If a pre-upgrade browser profile still has
        plaintext originals saved by an older build, wipe them now rather than
@@ -5917,12 +6024,28 @@ function closeIntro() {
 function updateSecretHandlingUI() {
   var chkP = $('chkPurgeOnLeave');
   if (chkP) chkP.checked = !!PURGE_ON_LEAVE;
+  var numI = $('numIdleMinutes');
+  if (numI) numI.value = IDLE_LOCK_MINUTES;
+  var numC = $('numClipboardSeconds');
+  if (numC) numC.value = CLIPBOARD_CLEAR_SECONDS;
   var meta = $('secretHandlingState');
   if (meta) meta.textContent = 'hardened';
 }
 function onSecretHandlingChange() {
   var chkP = $('chkPurgeOnLeave');
   PURGE_ON_LEAVE = !!(chkP && chkP.checked);
+  var numI = $('numIdleMinutes');
+  if (numI) {
+    var mins = parseInt(numI.value, 10);
+    IDLE_LOCK_MINUTES = (isFinite(mins) && mins >= 0) ? mins : IDLE_LOCK_MINUTES;
+    armIdleLock();
+  }
+  var numC = $('numClipboardSeconds');
+  if (numC) {
+    var secs = parseInt(numC.value, 10);
+    CLIPBOARD_CLEAR_SECONDS = (isFinite(secs) && secs >= 0) ? secs : CLIPBOARD_CLEAR_SECONDS;
+  }
+  markDirty('idleMinutes', 'clipboardSeconds');
   persistSettings();
   updateSecretHandlingUI();
 }
@@ -5932,6 +6055,7 @@ function purgeSecretsNow() {
   MEMORY_REDACT = new Map();
   mapPanelUnlocked = false;
   revealedOriginals = new Set();
+  sanitizedOutputEverShared = false;
   lastFindings = [];
   lastDoubleCheck = null;
   lastSelection = '';
@@ -6073,15 +6197,22 @@ function redactSelection() {
 var clipboardClearTimer = null;
 function scheduleClipboardClear(expectedVal) {
   clearTimeout(clipboardClearTimer);
+  if (!CLIPBOARD_CLEAR_SECONDS) return;
   clipboardClearTimer = setTimeout(function () {
     if (!navigator.clipboard || !navigator.clipboard.readText) return;
     navigator.clipboard.readText().then(function (cur) {
       if (cur !== expectedVal) return;
       return navigator.clipboard.writeText('').then(function () {
-        showToast('Clipboard auto-cleared (30s timeout).', 'success');
+        showToast('Clipboard auto-cleared (' + CLIPBOARD_CLEAR_SECONDS + 's timeout).', 'success');
       });
     }).catch(function () { /* read permission denied - leave clipboard alone */ });
-  }, 30000);
+  }, CLIPBOARD_CLEAR_SECONDS * 1000);
+}
+
+function clipboardCopiedMsg() {
+  return CLIPBOARD_CLEAR_SECONDS
+    ? 'Copied. Clipboard clears in ' + CLIPBOARD_CLEAR_SECONDS + 's.'
+    : 'Copied. Clipboard auto-clear is off -- clear it yourself when done.';
 }
 
 function copyTextValue(val, sensitive) {
@@ -6097,7 +6228,7 @@ function copyTextValue(val, sensitive) {
       ta.select();
       var ok = document.execCommand('copy');
       document.body.removeChild(ta);
-      showToast(ok ? (sensitive ? 'Copied. Clipboard clears in 30s.' : 'Copied to clipboard.') : 'Copy failed - select the text and copy manually.', ok ? 'success' : 'error');
+      showToast(ok ? (sensitive ? clipboardCopiedMsg() : 'Copied to clipboard.') : 'Copy failed - select the text and copy manually.', ok ? 'success' : 'error');
       if (ok && sensitive) scheduleClipboardClear(val);
     } catch (e) {
       showToast('Copy failed - select the text and copy manually.', 'error');
@@ -6106,7 +6237,7 @@ function copyTextValue(val, sensitive) {
   if (navigator.clipboard && navigator.clipboard.writeText) {
     navigator.clipboard.writeText(val).then(
       function () {
-        showToast(sensitive ? 'Copied. Clipboard clears in 30s.' : 'Copied to clipboard.', 'success');
+        showToast(sensitive ? clipboardCopiedMsg() : 'Copied to clipboard.', 'success');
         if (sensitive) scheduleClipboardClear(val);
       },
       fallback
@@ -6162,6 +6293,7 @@ function copyForAIText() {
 
 function copyForAI() {
   var text = copyForAIText();
+  sanitizedOutputEverShared = true;
   if (lastFindings.length > 0) {
     showConfirm('Residual scan flagged ' + lastFindings.length + ' item(s). Copy anyway?', function(conf) {
       if (conf) copyTextValue(text);
@@ -6273,6 +6405,7 @@ function resetSession() {
     session = createSession();
     mapPanelUnlocked = false;
     revealedOriginals = new Set();
+    sanitizedOutputEverShared = false;
     var mapBox = document.querySelector('details.mapbox');
     if (mapBox) mapBox.open = false;
     $('rawInput').value = '';
@@ -6483,6 +6616,7 @@ function saveBlob(name, data, mime) {
 
 function downloadSanitized() {
   if (!currentSanitizedText) { showToast('Nothing to download yet.', 'error'); return; }
+  sanitizedOutputEverShared = true;
   saveBlob('sanitized-' + stamp() + '.txt', currentSanitizedText);
 }
 
@@ -7233,6 +7367,7 @@ window.addEventListener('DOMContentLoaded', function () {
   updateTutorialState();
   updateSecretHandlingUI();
   armPurgeOnLeave();
+  armFocusBlur();
   /* First-visit intro only when the master switch is on and the user has
      not opted out. "How to use" / Show intro always work regardless. */
   if (SHOW_INTRO_AT_STARTUP && !isIntroSeen()) openIntro();
@@ -7267,11 +7402,15 @@ window.addEventListener('DOMContentLoaded', function () {
 
   populateRuleToggles();
   initializeDetectionRules();
-  /* v126: entropy + military off by default (finding-model defaults), then
-     overlay any persisted operator choices from localStorage. */
+  /* v126: entropy off by default under Standard/Technical/Audit (finding-
+     model defaults) -- Strict is the one mode meant to be maximally
+     cautious, so it starts with entropy ON instead. Either way this is only
+     the FIRST-LOAD default: loadPersistedSettings() below overlays whatever
+     an operator has actually saved, so a returning user's own choice always
+     wins regardless of sensitivity mode. */
   ['entropykv','entropybare'].forEach(function (id) {
     var el = $('chk-' + id);
-    if (el && !el.disabled) el.checked = false;
+    if (el && !el.disabled) el.checked = (SENSITIVITY_MODE === 'strict');
   });
   (PROFILE_GROUP_RULES.military || []).forEach(function (id) {
     var el = $('chk-' + id);
