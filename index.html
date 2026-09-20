@@ -1691,16 +1691,23 @@ body {
 .intro-preview-col.before .intro-code mark { background: none; color: var(--alert); font-weight: 700; }
 
 @media (min-width: 821px) {
+  /* v85 turned Detection settings into a full-width bar above the work
+     area (position: static) at every width -- see .sidebar below. This
+     collapsed-state toggle predates that pass and was left on the older
+     two-column-rail positioning: position: fixed with a top offset of
+     28px + chrome-header-h, which only ever accounted for the masthead
+     and never for #kit-back-bar (the "← Tools Hub" strip) above it.
+     Fixed and unaware of the back-bar's height, it floated over whatever
+     content now sits where the old rail used to be. Matching the narrow-
+     viewport rule below (which never used position: fixed) instead of
+     patching the offset removes the whole class of "chrome height
+     changed, this offset didn't" bug rather than re-tuning a constant
+     that can drift out of sync again. */
   body.sb-collapsed .config-launch {
     display: flex !important;
-    position: fixed;
-    left: max(20px, calc((100vw - var(--content-max)) / 2));
-    top: calc(28px + var(--chrome-header-h) + 14px);
-    width: 360px;
-    z-index: 90;
-    margin: 0;
+    margin: 0 auto 14px;
+    max-width: var(--content-max);
   }
-  body.sb-collapsed .app { grid-template-columns: minmax(0, 1fr); }
 }
 
 @media (max-width: 1100px) {
@@ -5756,7 +5763,7 @@ function initializeDetectionRules() {
 function loadSample(type) {
   if (currentMode !== 'sanitize') setMode('sanitize');
   initializeDetectionRules();
-  $('rawInput').value = 'services:\n  homepage:\n    ports:\n      - "3000:3000"\n    host: 192.168.1.104\n    username: Knight\n    password: Password1234\n    config_dir: /Users/knight/homepage/config';
+  $('rawInput').value = 'services:\n  homepage:\n    ports:\n      - "3000:3000"\n    host: 192.168.1.104\n    username: Knight\n    password: Password1234\n    api_key: example-not-a-real-key-do-not-use\n    config_dir: /Users/knight/homepage/config';
   requestSanitize();
   showToast('Loaded example into Tab 1.', 'success');
 }
@@ -6115,8 +6122,8 @@ function copyFieldValue(id) {
 /* Session-opener note prepended to Copy For AI so the receiving model
    treats [SECRET_1], [USER_1], etc. as intentional stand-ins. */
 var AI_SESSION_OPENER =
-  'This conversation may include sanitized text with placeholder tokens like [SECRET_1], [USER_1], [IP_1], [HOST_1], etc. Each one stands in for a real value that was removed before I shared it with you.\n\n' +
-  'Treat every placeholder as if it already contains the correct real value. Keep it exactly as written, in the same place, in any code, config, commands, or explanations you give me. Do not ask me for the real value, do not guess or invent one, and do not flag it as missing, broken, or an error. I\'ll substitute the real values back in myself afterward.\n\n' +
+  'This text was sanitized by a local redaction tool I run on my own machine before sharing it with you, not typed by someone else. Placeholder tokens like [SECRET_1], [USER_1], [IP_1], [HOST_1], etc. each stand in for one real value that was removed before I shared it with you.\n\n' +
+  'Keep every placeholder exactly as written, in the same position, in any command, config, code, or explanation you write back -- for example TOKEN=\'[SECRET_1]\'. Writing it literally and unchanged is what lets me paste your reply back into the tool and have it substitute the real value automatically. Do not ask me for the real value, do not guess or invent one, and do not treat the placeholder itself as missing, broken, or suspicious -- it is expected to look that way. Flag anything else about the content as you normally would.\n\n' +
   '---\n\n';
 
 function copyForAIText() {
