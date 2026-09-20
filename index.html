@@ -2679,7 +2679,8 @@ function createSession() {
     synths: [],
     manual: [],
     kept: new Map(),
-    counters: Object.create(null)
+    counters: Object.create(null),
+    lastAuto: Object.create(null)
   };
 }
 
@@ -2703,7 +2704,7 @@ function addManualEntry(session, original, type, sourceText, label) {
   var lbl = label ? registerTokenLabel(label) : null;
   if (label && !lbl) return { ok: false, error: 'Custom label must start with a letter and use letters, numbers or underscores.' };
   if (lbl) bumpSynthVer(session);   // token pattern changed: drop cached protection regexes
-  var rep = replacementFor({ session: session, sourceText: sourceText || '' }, val, t, lbl);
+  var rep = replacementFor({ session: session, sourceText: sourceText || '' }, val, t, lbl, false);
   session.manual.push({ original: val, type: t, label: lbl || null });
   return { ok: true, original: val, replacement: rep };
 }
@@ -2819,11 +2820,45 @@ function makeSynthetic(original, type, idx, ctx) {
   return null;
 }
 
-function replacementFor(ctx, original, type, label) {
+/* Live sanitize-as-you-type re-scans the WHOLE raw input on every pass, so
+   a value that's still being typed or edited is a different, growing (or
+   shrinking, mid-backspace) string each time -- without this, each partial
+   state mints its own new [SECRET_N], climbing indefinitely while the
+   operator is mid-keystroke on ONE value instead of staying put on the
+   value they're actually typing. Only the single most recently auto-minted
+   value of the same type is a merge candidate, and only within a short
+   window, so an unrelated later value that happens to share a prefix with
+   something typed long ago is never folded into it -- worst case on a
+   false match is two distinct values sharing one label in the Session
+   Dictionary (both still fully redacted), never a leak. */
+function reuseIfStillTyping(session, original, type) {
+  var last = session.lastAuto && session.lastAuto[type];
+  if (!last || !original || !last.original || last.original === original) return null;
+  if (Date.now() - last.ts > 10000) return null;
+  var grew = original.indexOf(last.original) === 0 && original.length > last.original.length;
+  var shrank = last.original.indexOf(original) === 0 && original.length < last.original.length;
+  if (!grew && !shrank) return null;
+  var meta = session.map.get(last.original);
+  if (!meta) return null;
+  session.map.delete(last.original);
+  session.map.set(original, meta);
+  var name = tokenNameOf(meta.replacement);
+  if (name) session.tokRev.set(name, original);
+  else session.synRev.set(meta.replacement, original);
+  session.lastAuto[type] = { original: original, ts: Date.now() };
+  return meta.replacement;
+}
+
+function replacementFor(ctx, original, type, label, auto) {
   var session = ctx.session;
   var hit = session.map.get(original);
   if (hit) return hit.replacement;
   if (session._frozen) return original;   // verification pass: never mint new mappings
+
+  if (auto !== false) {
+    var reused = reuseIfStillTyping(session, original, type);
+    if (reused) return reused;
+  }
 
   var lbl = (label && TOKEN_LABELS.indexOf(label) !== -1) ? label : type;
   var replacement = null;
@@ -2856,6 +2891,10 @@ function replacementFor(ctx, original, type, label) {
     }
   }
   session.map.set(original, { replacement: replacement, type: type });
+  if (auto !== false) {
+    if (!session.lastAuto) session.lastAuto = Object.create(null);
+    session.lastAuto[type] = { original: original, ts: Date.now() };
+  }
   return replacement;
 }
 
@@ -2976,7 +3015,7 @@ function redactPathSegmentInText(text, ctx, original) {
       var m = arguments[0], val = arguments[1];
       if (!val || keptOverlap(val, ctx.session)) return m;
       ctx.replacements++;
-      rep = replacementFor(ctx, val, 'TERM', null);
+      rep = replacementFor(ctx, val, 'TERM', null, false);
       var at = m.lastIndexOf(val);
       return m.slice(0, at) + rep + m.slice(at + val.length);
     });
