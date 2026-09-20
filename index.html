@@ -1574,8 +1574,6 @@ td.orig.revealed { cursor: pointer; }
 .safety-row:first-child { padding-top:0; }
 .safety-row strong { display:block; color:var(--ink); font-size:12px; }
 .safety-row span { display:block; margin-top:2px; color:var(--dim); font-size:11.5px; line-height:1.5; }
-.safety-caution { border:1px solid rgba(230,184,77,.35); background:rgba(230,184,77,.08); border-radius:var(--r-sm); padding:12px 14px; color:var(--silver); font-size:12px; line-height:1.6; }
-.safety-caution strong { color:var(--warn); }
 .safety-sources { font-size:11px; color:var(--dim); border-top:1px solid var(--line-soft); padding-top:12px; }
 @media (max-width: 800px) { .safety-grid { grid-template-columns:1fr; } }
 
@@ -1811,14 +1809,6 @@ body {
   width: min(680px, calc(100vw - 40px)); max-height: min(70vh, 620px); overflow:auto;
   background: var(--navy-800); border:1px solid var(--line); box-shadow: 0 12px 32px rgba(0,0,0,.5);
 }
-.safety-policy {
-  display:grid; grid-template-columns: 1fr 250px; gap: 14px; align-items:center;
-  padding: 16px; background: var(--navy-850); border:1px solid var(--line); border-radius:var(--r-sm);
-}
-.safety-policy strong { display:block; color:var(--ink); font-size:12.5px; }
-.safety-policy span { display:block; margin-top:3px; color:var(--dim); font-size:11px; line-height:1.45; }
-.safety-policy select { width:100%; background:var(--input-bg); color:var(--ink); border:1px solid var(--line); border-radius:var(--r-sm); padding:9px 10px; }
-.safety-policy-note { grid-column:1 / -1; padding-top:10px; border-top:1px solid var(--line-soft); font-size:10.5px !important; color:var(--silver) !important; }
 @media (max-width: 1100px) {
   .statusbar { grid-template-columns: 1fr auto; height:auto; min-height:var(--footer-h); }
   .footer-metrics { justify-content:flex-start; grid-column:1 / -1; order:3; padding-top:4px; border-top:1px solid var(--line-soft); }
@@ -1831,8 +1821,6 @@ body {
   .footer-engine { border-right:0; padding-right:0; }
   .footer-metrics { grid-column:auto; overflow:auto; justify-content:flex-start; }
   .footer-actions { justify-content:flex-start; }
-  .safety-policy { grid-template-columns:1fr; }
-  .safety-policy-note { grid-column:auto; }
 }
 /* =============================================================
    v84 app-shell rewrite
@@ -2360,24 +2348,6 @@ body {
       <\/div>
     <\/div>
 
-    <div class="safety-policy">
-      <div>
-        <strong>AI handoff policy<\/strong>
-        <span>Sets the sharing guidance below. The log itself never leaves this page.<\/span>
-      <\/div>
-      <label>
-        <span class="sr-only">AI handoff policy<\/span>
-        <select id="sharePolicy" onchange="updateSharePolicy()">
-          <option value="approved">Approved enterprise AI<\/option>
-          <option value="internal">Internal AI / private model<\/option>
-          <option value="general">General-purpose AI<\/option>
-          <option value="restricted">Restricted: do not send<\/option>
-        <\/select>
-      <\/label>
-      <div class="safety-policy-note" id="sharePolicyNote">Use your organization's approved AI workspace and follow its retention, access, and classification rules.<\/div>
-    <\/div>
-
-    <div class="safety-caution"><strong>Important:<\/strong> Safer after sanitization is not the same as approved for every classification or contract. A sanitizer can miss novel secrets, so follow your organization's handling policy.<\/div>
   <\/section>
 
   <div class="grid2" id="grid2Main">
@@ -4541,18 +4511,6 @@ function setMode(mode) {
   $('runNowRow').style.display = 'none';
   $('rawCount').innerText = '0 chars';
   $('rawInput').focus();
-}
-
-function updateSharePolicy() {
-  var select = $('sharePolicy'), note = $('sharePolicyNote');
-  if (!select || !note) return;
-  var copy = {
-    approved: "Use your organization\'s approved AI workspace and follow its retention, access, and classification rules.",
-    internal: 'Prefer this path when logs remain inside infrastructure your organization controls; still apply your internal handling policy.',
-    general: 'Use only after your organization permits the destination. Sanitization reduces exposure but does not make restricted data unrestricted.',
-    restricted: 'Do not send this log to an external AI. Keep the raw and sanitized material inside the approved environment.'
-  };
-  note.textContent = copy[select.value] || copy.approved;
 }
 
 function openSafetyTab() {
