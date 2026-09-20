@@ -35,7 +35,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="dark">
   <meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self' data:; style-src 'unsafe-inline'; script-src 'unsafe-inline'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none';">
-  <title>Networking Tools Hub — Operators &amp; Students<\/title>
+  <title>Networking Tools Hub: Operators &amp; Students<\/title>
   <style>
     /* =============================================================
        Design tokens — restrained on purpose.
@@ -278,9 +278,9 @@
       <\/div>
 
       <nav class="topnav-nav" id="tabs">
-        <button type="button" class="tab active" data-tab="all">All tools <span class="count" id="countAll">14<\/span><\/button>
+        <button type="button" class="tab active" data-tab="all">All tools <span class="count" id="countAll">9<\/span><\/button>
         <button type="button" class="tab" data-tab="work">Work faster <span class="count" id="countWork">4<\/span><\/button>
-        <button type="button" class="tab" data-tab="learn">Learn <span class="count" id="countLearn">10<\/span><\/button>
+        <button type="button" class="tab" data-tab="learn">Learn <span class="count" id="countLearn">5<\/span><\/button>
       <\/nav>
 
       <button type="button" id="kitFeedbackOpen" class="topnav-feedback">Send feedback<\/button>
@@ -294,7 +294,7 @@
       <\/div>
       <h1>IT Skills Kit<\/h1>
       <p class="subhead">Offline networking tools for operators and students.<\/p>
-      <p class="desc">Everything below lives in this one file — nothing to install, nothing that calls home. Open a tool and go; none of it touches your production gear.<\/p>
+      <p class="desc">Everything below lives in this one file: nothing to install, nothing that calls home. Open a tool and go; none of it touches your production gear.<\/p>
       <div class="cta-row">
         <a href="#start-here">Start learning<\/a>
         <a href="#tools">Browse all tools<\/a>
@@ -303,14 +303,14 @@
 
     <details class="start-here" id="start-here">
       <summary>New to networking? Start here<\/summary>
-      <p class="lede">Work through these in order — each one builds on the last.<\/p>
+      <p class="lede">Work through these in order. Each one builds on the last.<\/p>
       <ol class="start-path">
-        <li><a href="Tools/Network_Cyber_Toolkit_v1.3.html">Network Calculator Toolkit<\/a> — glossary, IP addressing, and subnetting drills, the foundation everything else sits on<\/li>
-        <li><a href="Tools/Routing_Lab.html">Routing Lab<\/a> — how traffic finds its way<\/li>
-        <li><a href="Tools/DNS_Lab.html">DNS Lab<\/a> — names vs. addresses<\/li>
-        <li><a href="Tools/Firewall_Rules_Lab.html">Firewall Rules Lab<\/a> — access control basics<\/li>
+        <li><a href="Tools/Network_Cyber_Toolkit_v1.3.html">Network Calculator Toolkit<\/a>: glossary, IP addressing, and subnetting drills, the foundation everything else sits on<\/li>
+        <li><a href="Tools/Routing_Lab.html">Routing Lab<\/a>: how traffic finds its way<\/li>
+        <li><a href="Tools/DNS_Lab.html">DNS Lab<\/a>: names vs. addresses<\/li>
+        <li><a href="Tools/Firewall_Rules_Lab.html">Firewall Rules Lab<\/a>: access control basics<\/li>
       <\/ol>
-      <p class="start-next">Comfortable with the basics? <a href="Tools/Network_Fault_Lab.html">Network Fault Lab<\/a> is next — hands-on CLI lessons (Dell/Cisco/Juniper) and diagnose-and-fix scenarios, in one place.<\/p>
+      <p class="start-next">Comfortable with the basics? <a href="Tools/Network_Fault_Lab.html">Network Fault Lab<\/a> is next: hands-on CLI lessons (Dell/Cisco/Juniper) and diagnose-and-fix scenarios, in one place.<\/p>
     <\/details>
 
     <section id="tools">
@@ -325,11 +325,11 @@
       <div class="footer-meta">
         <span class="badge">Works offline<\/span>
         <span>·<\/span>
-        <span>Everything here runs fully offline — internal use only, no outside links.<\/span>
+        <span>Everything here runs fully offline: internal use only, no outside links.<\/span>
         <span>·<\/span>
         <span>Feedback needs internet.<\/span>
       <\/div>
-      <p style="margin:14px 0 0">IT Skills Kit — built by Ian Knight<\/p>
+      <p style="margin:14px 0 0">IT Skills Kit, built by Ian Knight<\/p>
     <\/footer>
   <\/main>
 
@@ -338,21 +338,21 @@
       { id: 'log-sanitizer', href: 'Tools/Log_Sanitizer.html', role: 'work', title: 'Log Sanitizer', solo: true,
         desc: 'Strip IPs, hostnames, and other sensitive fields before you paste a log into a ticket, a vendor case, or chat.' },
       { id: 'command-translator', href: 'Tools/Command_Translator.html', role: 'work', title: 'Command Translator',
-        desc: 'Paste a command and get the equivalent on another CLI — switches, shells, packages, Docker, Kubernetes.' },
+        desc: 'Paste a command and get the equivalent on another CLI: switches, shells, packages, Docker, Kubernetes.' },
       { id: 'toolkit', href: 'Tools/Network_Cyber_Toolkit_v1.3.html', role: 'work', title: 'Network Calculator Toolkit',
-        desc: 'Subnet and VLSM calculators, base/hex converters, hash verifier, ACL builder, port matrix, and more — all offline.' },
+        desc: 'Subnet and VLSM calculators, base/hex converters, hash verifier, ACL builder, port matrix, and more. All offline.' },
       { id: 'practice-ref', href: 'Tools/Cheat_Sheet.html', role: 'work', title: 'Cheat Sheet',
         desc: 'Switch CLI cheat sheet (Cisco / Dell / Junos), prefix reference tables, and a plain-English glossary.' },
       { id: 'dns-lab', href: 'Tools/DNS_Lab.html', role: 'learn', title: 'DNS Lab (Domain Name System)',
-        desc: 'Full offline DNS simulator — dig-style queries, zone database, resolution path, and broken scenarios (CNAME loops, missing records, bad MX).' },
+        desc: 'Full offline DNS simulator: dig-style queries, zone database, resolution path, and broken scenarios (CNAME loops, missing records, bad MX).' },
       { id: 'routing-lab', href: 'Tools/Routing_Lab.html', role: 'learn', title: 'Routing Lab',
-        desc: 'Routing simulator — longest-prefix match, live tables, packet path across R1–R3, BGP best-path quiz, and failure scenarios.' },
+        desc: 'Routing simulator: longest-prefix match, live tables, packet path across R1-R3, BGP best-path quiz, and failure scenarios.' },
       { id: 'firewall-lab', href: 'Tools/Firewall_Rules_Lab.html', role: 'learn', title: 'Firewall Rules Lab',
-        desc: 'Firewall ACL simulator — ordered rules, reorder/add/delete, packet tester, first-match wins, implicit deny, and policy scenarios.' },
+        desc: 'Firewall ACL simulator: ordered rules, reorder/add/delete, packet tester, first-match wins, implicit deny, and policy scenarios.' },
       { id: 'fault-lab', href: 'Tools/Network_Fault_Lab.html', role: 'learn', title: 'Network Fault Lab',
-        desc: 'Diagnose-and-fix failure scenarios with a live topology, plus multi-vendor CLI lessons (Dell OS10, Cisco IOS, Juniper Junos) on the same console — interfaces, VLANs, LACP, SVIs, and saving config.' },
+        desc: 'Diagnose-and-fix failure scenarios with a live topology, plus multi-vendor CLI lessons (Dell OS10, Cisco IOS, Juniper Junos) on the same console: interfaces, VLANs, LACP, SVIs, and saving config.' },
       { id: 'vsphere-sandbox', href: 'Tools/VSphere_Sandbox.html', role: 'learn', title: 'vSphere Sandbox',
-        desc: 'Offline vSphere Client practice — clusters, hosts, VMs, power ops, vMotion, Edit Settings, Recent Tasks, and alarms. Scenarios included; nothing reaches production.' }
+        desc: 'Offline vSphere Client practice: clusters, hosts, VMs, power ops, vMotion, Edit Settings, Recent Tasks, and alarms. Scenarios included; nothing reaches production.' }
     ];
 
     document.getElementById('countAll').textContent = TOOLS.length;
@@ -556,33 +556,27 @@ html { overscroll-behavior-y: none; }
 .app { display: flex; flex-direction: column; gap: 16px; width: 100%; max-width: 1100px; margin: 0 auto; }
 .wrap { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 16px; padding-bottom: 56px; }
 
-/* ---------- Persistent chrome (v80) ---------- */
+/* ---------- Persistent chrome (v80) ----------
+   position/top/left/right/bottom/padding/backdrop-filter here are
+   superseded by the v84 app-shell rewrite below (position:static
+   !important); left as the only source of z-index, background,
+   box-shadow, and border, which v84 does not touch. */
 .masthead {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
   z-index: 22;
   width: 100%;
   max-width: none;
   border-radius: 0;
-  padding: 10px max(18px, calc((100vw - 1100px) / 2));
-  background: rgba(28,28,30,.72); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  background: rgba(28,28,30,.72);
   box-shadow: 0 1px 0 rgba(255,255,255,.08);
 }
 body { padding-top: 68px; }
 .statusbar {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
   z-index: 25;
   width: 100%;
   max-width: none;
   margin: 0;
   border-radius: 0;
-  padding: 10px max(18px, calc((100vw - 1100px) / 2));
-  background: rgba(28,28,30,.72); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  background: rgba(28,28,30,.72);
   border-left: 0;
   border-right: 0;
   border-bottom: 0;
@@ -1945,9 +1939,9 @@ body {
           <\/ol>
 
           <div class="intro-notes">
-            <p><b>The session map holds every original value<\/b> — handle it like the raw log, even encrypted. The sanitized output is safe to share.<\/p>
-            <p>Keeping a value visible only affects that exact value, everywhere it occurs. It never turns off detection for its category — passwords, keys, and everything else are still redacted as normal.<\/p>
-            <p>Nothing leaves this page. This is a hygiene aid, not an accredited system — a stray secret can still slip past.<\/p>
+            <p><b>The session map holds every original value<\/b>. Handle it like the raw log, even encrypted. The sanitized output is safe to share.<\/p>
+            <p>Keeping a value visible only affects that exact value, everywhere it occurs. It never turns off detection for its category. Passwords, keys, and everything else are still redacted as normal.<\/p>
+            <p>Nothing leaves this page. This is a hygiene aid, not an accredited system. A stray secret can still slip past.<\/p>
           <\/div>
         <\/div>
 
@@ -2175,10 +2169,10 @@ body {
     <details class="sect" open>
       <summary>Detector profile<span class="sect-meta" id="profileGroupState">groups<\/span><\/summary>
     <div class="sect-body">
-      <div class="persist-note">Settings (groups, rules, custom patterns, whitelist, sensitivity mode) are saved in this browser only — <b>nothing is uploaded<\/b>. Clear site data to wipe.<\/div>
+      <div class="persist-note">Settings (groups, rules, custom patterns, whitelist, sensitivity mode) are saved in this browser only. <b>Nothing is uploaded<\/b>. Clear site data to wipe.<\/div>
       <div class="profile-groups" id="profileGroups">
         <label class="profile-group">
-          <span><span class="pg-title">Core secrets &amp; credentials<\/span><br><span class="pg-desc">Keys, tokens, passwords, hashes — always on<\/span><\/span>
+          <span><span class="pg-title">Core secrets &amp; credentials<\/span><br><span class="pg-desc">Keys, tokens, passwords, hashes. Always on.<\/span><\/span>
           <input type="checkbox" checked disabled title="Core rules cannot be disabled">
         <\/label>
         <label class="profile-group">
@@ -2190,11 +2184,11 @@ body {
           <input type="checkbox" id="grpAuth" checked onchange="onProfileGroupChange()">
         <\/label>
         <label class="profile-group">
-          <span><span class="pg-title">Military / DoD<\/span><br><span class="pg-desc">FPCON, CAGE, EDIPI, TDY, SORTS — off by default<\/span><\/span>
+          <span><span class="pg-title">Military / DoD<\/span><br><span class="pg-desc">FPCON, CAGE, EDIPI, TDY, SORTS. Off by default.<\/span><\/span>
           <input type="checkbox" id="grpMilitary" onchange="onProfileGroupChange()">
         <\/label>
         <label class="profile-group">
-          <span><span class="pg-title">High-entropy catch-all<\/span><br><span class="pg-desc">Flags random-looking strings for review — off by default<\/span><\/span>
+          <span><span class="pg-title">High-entropy catch-all<\/span><br><span class="pg-desc">Flags random-looking strings for review. Off by default.<\/span><\/span>
           <input type="checkbox" id="grpEntropy" onchange="onProfileGroupChange()">
         <\/label>
       <\/div>
@@ -2228,7 +2222,7 @@ body {
           <button class="btn" type="button" id="btnReplayTour">Replay tour<\/button>
           <button class="btn quiet" type="button" id="btnResetTutorial">Reset preferences<\/button>
         <\/div>
-        <div class="field-hint" id="tutorialHint" style="margin-top:8px;">Work-faster tool: intro and tour are optional. Use the buttons above anytime — nothing auto-starts.<\/div>
+        <div class="field-hint" id="tutorialHint" style="margin-top:8px;">Work-faster tool: intro and tour are optional. Use the buttons above anytime. Nothing auto-starts.<\/div>
       <\/div>
     <\/details>
 
@@ -2241,7 +2235,7 @@ body {
           <input type="checkbox" id="chkPurgeOnLeave" checked onchange="onSecretHandlingChange()">
         <\/label>
         <label class="profile-group">
-          <span><span class="pg-title">Persist Always-keep / Always-redact to disk<\/span><br><span class="pg-desc"><b>Off by default.<\/b> When on, original values are written to localStorage in this browser — do not enable on shared or production-secret hosts<\/span><\/span>
+          <span><span class="pg-title">Persist Always-keep / Always-redact to disk<\/span><br><span class="pg-desc"><b>Off by default.<\/b> When on, original values are written to localStorage in this browser. Do not enable on shared or production-secret hosts<\/span><\/span>
           <input type="checkbox" id="chkPersistMemory" onchange="onSecretHandlingChange()">
         <\/label>
         <div class="control-row" style="gap:8px;margin-top:10px;">
@@ -2311,10 +2305,10 @@ body {
     <div class="panel" style="gap:12px;">
       <div class="panel-head"><span class="panel-title">Why this matters<\/span><\/div>
       <div class="safety-list">
-        <div class="safety-row"><span class="mark">✓<\/span><div><strong>Credentials and tokens<\/strong><\/div><\/div>
-        <div class="safety-row"><span class="mark">✓<\/span><div><strong>Personal and identifying data<\/strong><\/div><\/div>
-        <div class="safety-row"><span class="mark">✓<\/span><div><strong>Internal infrastructure<\/strong><\/div><\/div>
-        <div class="safety-row"><span class="mark">✓<\/span><div><strong>Context stays readable for the AI<\/strong><\/div><\/div>
+        <div class="safety-row"><span class="mark">✓<\/span><div><strong>Credentials and tokens.<\/strong> Passwords, API keys, and hashes are exactly what an attacker would look for in a pasted log.<\/div><\/div>
+        <div class="safety-row"><span class="mark">✓<\/span><div><strong>Personal and identifying data.<\/strong> Names, emails, and IDs do not need to leave your machine just to get help reading a log.<\/div><\/div>
+        <div class="safety-row"><span class="mark">✓<\/span><div><strong>Internal infrastructure.<\/strong> Hostnames, internal IPs, and paths reveal more about your environment than most log questions actually need.<\/div><\/div>
+        <div class="safety-row"><span class="mark">✓<\/span><div><strong>Context stays readable for the AI.<\/strong> Values are swapped for consistent placeholders, not deleted, so the structure of the log still makes sense.<\/div><\/div>
       <\/div>
     <\/div>
 
@@ -2493,7 +2487,7 @@ body {
     <button class="btn danger footer-mini" onclick="resetSession()">Reset<\/button>
   <\/div>
   <span class="val" id="sbFp" style="display:none" aria-hidden="true"><\/span>
-  <span class="val" id="sbVersion" style="display:none" aria-hidden="true">v118.0<\/span>
+  <span class="val" id="sbVersion" style="display:none" aria-hidden="true">v127.0<\/span>
 <\/footer>
 
 <input type="file" id="logFileInput" accept=".txt,.log,.cfg,.conf,.out,.json,.yaml,.yml,.xml,.csv" style="display:none" onchange="loadLogFile(this)">
@@ -3244,7 +3238,7 @@ var SANITIZATION_RULES = [
       // legitimate fresh path start, not a mid-path segment, so it gets an
       // explicit carve-out rather than loosening the guard generally.
       regex: /(?:(?<![:\/\w])|(?<=file:\/\/))\/(?:home|Users)\/[\p{L}\p{N}_.’'-]+(?:\/[a-zA-Z0-9_.@-]+)*/gu },
-    { id: 'unixpath', desc: 'Unix Mount/Data Paths (srv, mnt, media, data, config — can carry an org-specific label)', type: 'PATH',
+    { id: 'unixpath', desc: 'Unix Mount/Data Paths (srv, mnt, media, data, config; can carry an org-specific label)', type: 'PATH',
       regex: /(?<![:\/\w])\/(?:srv|mnt|media|volume\d*|data|config)\/[a-zA-Z0-9_.@-]+(?:\/[a-zA-Z0-9_.@-]+)*/g },
     { id: 'genpath', desc: 'Other Absolute Paths (generic system dirs like /etc, /var, /usr are left readable)', type: 'PATH',
       regex: /(?<![:\/\w])\/(?=[A-Za-z@])[A-Za-z0-9_.@-]+(?:\/[A-Za-z0-9_.@+-]+)+/g,
@@ -5045,7 +5039,7 @@ function renderScan(findings, hasInput) {
     } else if (f.kind) {
       var why2 = document.createElement('span'); why2.className = 'why';
       why2.innerHTML = '<b>Why:<\/b> ';
-      why2.appendChild(document.createTextNode('Matched residual pattern "' + f.kind + '" — value may still be sensitive in the output.'));
+      why2.appendChild(document.createTextNode('Matched residual pattern "' + f.kind + '" (value may still be sensitive in the output).'));
       row.appendChild(why2);
     }
     list.appendChild(row);
@@ -5753,7 +5747,7 @@ function updateTutorialState() {
     } else if (!intro) {
       hint.textContent = 'Intro will open on the next load. Tour can still run after you dismiss it.';
     } else if (!tour) {
-      hint.textContent = 'Intro dismissed for this browser. Tour has not been completed yet — use Replay tour.';
+      hint.textContent = 'Intro dismissed for this browser. Tour has not been completed yet. Use Replay tour.';
     } else {
       hint.textContent = 'Intro and tour marked done for this browser. Reset preferences to see them again at startup.';
     }
@@ -6064,7 +6058,7 @@ function copyFieldValue(id) {
    treats [SECRET_1], [USER_1], etc. as intentional stand-ins. */
 var AI_SESSION_OPENER =
   'This conversation may include sanitized text with placeholder tokens like [SECRET_1], [USER_1], [IP_1], [HOST_1], etc. Each one stands in for a real value that was removed before I shared it with you.\n\n' +
-  'Treat every placeholder as if it already contains the correct real value — keep it exactly as written, in the same place, in any code, config, commands, or explanations you give me. Do not ask me for the real value, do not guess or invent one, and do not flag it as missing, broken, or an error. I\'ll substitute the real values back in myself afterward.\n\n' +
+  'Treat every placeholder as if it already contains the correct real value. Keep it exactly as written, in the same place, in any code, config, commands, or explanations you give me. Do not ask me for the real value, do not guess or invent one, and do not flag it as missing, broken, or an error. I\'ll substitute the real values back in myself afterward.\n\n' +
   '---\n\n';
 
 function copyForAIText() {
@@ -6132,7 +6126,7 @@ function passphraseStrengthLabel(pass) {
   if (/[A-Z]/.test(pass)) classes++;
   if (/[0-9]/.test(pass)) classes++;
   if (/[^A-Za-z0-9]/.test(pass)) classes++;
-  if (len < 16) return { cls: 'weak', text: 'Too short — minimum 16 characters.' };
+  if (len < 16) return { cls: 'weak', text: 'Too short. Minimum 16 characters.' };
   if (len >= 20 && classes >= 3) return { cls: 'strong', text: 'Strong passphrase.' };
   if (classes >= 2) return { cls: 'ok', text: 'Acceptable. Longer + mixed characters is stronger.' };
   return { cls: 'ok', text: 'Acceptable length. Add mixed case, digits, or symbols for strength.' };
@@ -6208,7 +6202,7 @@ function confirmReport() {
     '• counts, active profile, disabled rules\n' +
     '• residual-scan findings and double-check verdict\n' +
     '• self-test status\n\n' +
-    'Contains no original values and no replacement tokens — safe to attach to tickets.\n' +
+    'Contains no original values and no replacement tokens. Safe to attach to tickets.\n' +
     'File: sanitizer-report-YYYYMMDD-HHMM.txt',
     function (ok) { if (ok) downloadReport(); }
   );
@@ -6218,7 +6212,7 @@ function confirmExport() {
   showConfirm(
     'Export session dictionary?\n\n' +
     'Downloads every original → replacement pair in this session as an encrypted .enc file.\n\n' +
-    'Contains real values — treat and store it like the raw log.\n' +
+    'Contains real values. Treat and store it like the raw log.\n' +
     'Next you will choose one of four encryption methods, then set a passphrase (min 16 characters).\n' +
     'File: sanitizer-map-YYYYMMDD-HHMM.enc',
     function (ok) { if (ok) chooseExportMethod(); }
@@ -7299,11 +7293,11 @@ window.addEventListener('DOMContentLoaded', function () {
   var tourStep = 0, tourCleanupFns = [], tourWatchdog = null;
   var TOUR_STEPS = [
     { target: function () { return $('rawInput'); }, manual: true,
-      body: 'Paste a log on the <b>left<\/b>. Sanitizing runs as you type — nothing is uploaded. A sample is loaded for this tour so you can see the flow right away.' },
+      body: 'Paste a log on the <b>left<\/b>. Sanitizing runs as you type. Nothing is uploaded. A sample is loaded for this tour so you can see the flow right away.' },
     { target: function () { return $('sanitizedOutput'); }, manual: true,
-      body: 'The <b>right pane<\/b> is the sanitized output. <b>Blue<\/b> means redacted — click a blue value to preview the original and Keep Visible if it is safe. Underlined path segments are still real text; click one to redact just that piece.' },
+      body: 'The <b>right pane<\/b> is the sanitized output. <b>Blue<\/b> means redacted: click a blue value to preview the original and Keep Visible if it is safe. Underlined path segments are still real text; click one to redact just that piece.' },
     { target: function () { return $('sidebar'); }, manual: true,
-      body: '<b>Detection Settings<\/b> (left rail, or Alt+C) turns categories on/off and holds the Session Substitution Dictionary — values this browser remembers to always keep or always redact. Use <b>Tutorial &amp; walkthrough<\/b> there to replay this tour later.' },
+      body: '<b>Detection Settings<\/b> (left rail, or Alt+C) turns categories on/off and holds the Session Substitution Dictionary: values this browser remembers to always keep or always redact. Use <b>Tutorial &amp; walkthrough<\/b> there to replay this tour later.' },
     { /* setMode() replaces the static #copyAiBtnInit with a freshly-built
          #copyAiBtn (same button, new id) the first time it runs -- which
          may have already happened by the time this step shows, depending
@@ -7311,7 +7305,7 @@ window.addEventListener('DOMContentLoaded', function () {
          mode) did before starting the tour. Resolve to whichever one is
          actually live rather than assuming the static id still exists. */
       target: function () { return $('copyAiBtn') || $('copyAiBtnInit'); }, gates: [{ event: 'click' }],
-      body: 'When the residual scan is green, <b>Copy For AI<\/b> copies the sanitized text plus a short note for the model. You are set — use Replay tour in Detection Settings anytime.' }
+      body: 'When the residual scan is green, <b>Copy For AI<\/b> copies the sanitized text plus a short note for the model. You are set. Use Replay tour in Detection Settings anytime.' }
   ];
   function clearTourCleanup() { tourCleanupFns.forEach(function (fn) { fn(); }); tourCleanupFns = []; if (tourWatchdog) { clearInterval(tourWatchdog); tourWatchdog = null; } }
   function endTour() {
@@ -7463,7 +7457,7 @@ window.addEventListener('DOMContentLoaded', function () {
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="dark">
   <meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self' data:; style-src 'unsafe-inline'; script-src 'unsafe-inline'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none';">
-  <title>Command Translator — Enterprise Kit<\/title>
+  <title>Command Translator: Enterprise Kit<\/title>
   <style>
     :root {
       color-scheme: dark;
@@ -7641,8 +7635,8 @@ window.addEventListener('DOMContentLoaded', function () {
       <div class="getting-started">
         <div class="gs-label">Getting started<\/div>
         <ol>
-          <li>Pick a <strong>mode<\/strong> above the From/To dropdowns — it decides which two dialects you're comparing.<\/li>
-          <li>Click one of the <strong>example commands<\/strong> once they appear — they load straight into the box, no typing required to try it.<\/li>
+          <li>Pick a <strong>mode<\/strong> above the From/To dropdowns. It decides which two dialects you're comparing.<\/li>
+          <li>Click one of the <strong>example commands<\/strong> once they appear. They load straight into the box, no typing required to try it.<\/li>
           <li>Click <strong>Translate<\/strong>. <strong>Swap from/to<\/strong> flips the direction any time.<\/li>
         <\/ol>
       <\/div>
@@ -7679,7 +7673,7 @@ window.addEventListener('DOMContentLoaded', function () {
       <div id="translateWrap" class="translate-wrap">
       <label for="input" style="margin-top:14px">Source command<\/label>
       <textarea id="input" placeholder="Paste or type a command…  (Network OS: press ? for completions)"><\/textarea>
-      <p class="input-hint" id="inputHint">Tip: in Network OS mode, type part of a command and press <b>?<\/b> — like a switch CLI. Example: <code>show int?<\/code> or <code>show interface ?<\/code><\/p>
+      <p class="input-hint" id="inputHint">Tip: in Network OS mode, type part of a command and press <b>?<\/b>, like a switch CLI. Example: <code>show int?<\/code> or <code>show interface ?<\/code><\/p>
       <div class="help-panel" id="helpPanel" aria-live="polite"><\/div>
 
       <div class="examples" id="examples"><\/div>
@@ -7802,7 +7796,7 @@ window.addEventListener('DOMContentLoaded', function () {
         cisco: 'switchport access vlan 10',
         dell: 'switchport access vlan 10',
         juniper: 'set interfaces ge-0/0/3 unit 0 family ethernet-switching vlan members 10',
-        note: 'Junos is hierarchical set syntax; interface name is an example — match your port.'
+        note: 'Junos is hierarchical set syntax; interface name is an example, match your port.'
       },
       'switchport mode trunk': {
         cisco: 'switchport mode trunk',
@@ -7844,7 +7838,7 @@ window.addEventListener('DOMContentLoaded', function () {
         cisco: 'no shutdown',
         dell: 'no shutdown',
         juniper: 'delete interfaces ge-0/0/3 disable',
-        note: 'Junos removes the disable statement rather than “no shutdown”.'
+        note: 'Junos removes the disable statement rather than "no shutdown".'
       },
       'show version': {
         cisco: 'show version',
@@ -7856,7 +7850,7 @@ window.addEventListener('DOMContentLoaded', function () {
         cisco: 'show ip route',
         dell: 'show ip route',
         juniper: 'show route',
-        note: 'Junos drops the "ip" prefix — one routing table command covers all address families.'
+        note: 'Junos drops the "ip" prefix. One routing table command covers all address families.'
       },
       'ping': {
         cisco: 'ping 192.0.2.1',
@@ -7929,7 +7923,7 @@ window.addEventListener('DOMContentLoaded', function () {
       'nft list ruleset': {
         modern: 'nft list ruleset',
         legacy: 'iptables-save',
-        note: 'nftables vs iptables — policy structure is not always line-for-line identical.'
+        note: 'nftables vs iptables: policy structure is not always line-for-line identical.'
       },
       'iptables -L -n -v': {
         modern: 'nft list ruleset',
@@ -8089,7 +8083,7 @@ window.addEventListener('DOMContentLoaded', function () {
       },
       'change permissions': {
         win_cmd: 'icacls file.txt /grant User:F', win_ps: 'icacls file.txt /grant User:F', linux: 'chmod 755 file.txt', mac: 'chmod 755 file.txt',
-        note: 'Windows ACLs and POSIX mode bits are different permission models — this is the closest equivalent action, not an identical one.'
+        note: 'Windows ACLs and POSIX mode bits are different permission models. This is the closest equivalent action, not an identical one.'
       },
       'zip a folder': {
         win_cmd: 'tar -a -c -f archive.zip folder', win_ps: 'Compress-Archive -Path folder -DestinationPath archive.zip', linux: 'zip -r archive.zip folder', mac: 'zip -r archive.zip folder',
@@ -8173,7 +8167,7 @@ window.addEventListener('DOMContentLoaded', function () {
         alpine: 'sudo apk cache clean',
         mac: 'brew cleanup',
         windows: 'winget does not have a cache command',
-        note: 'Free local package cache space. winget has no cache subcommand — clear %LOCALAPPDATA%\\Microsoft\\WinGet\\ manually if needed.'
+        note: 'Free local package cache space. winget has no cache subcommand; clear %LOCALAPPDATA%\\Microsoft\\WinGet\\ manually if needed.'
       },
       'show package files': {
         debian: 'dpkg -L pkg',
@@ -8181,7 +8175,7 @@ window.addEventListener('DOMContentLoaded', function () {
         alpine: 'apk info -L pkg',
         mac: 'brew list pkg',
         windows: 'winget has no per-package file listing',
-        note: 'List the files a package installed. winget does not expose this — check the app\'s own install directory instead.'
+        note: 'List the files a package installed. winget does not expose this; check the app\'s own install directory instead.'
       },
       'reinstall package': {
         debian: 'sudo apt install --reinstall pkg',
@@ -8189,7 +8183,7 @@ window.addEventListener('DOMContentLoaded', function () {
         alpine: 'sudo apk fix pkg',
         mac: 'brew reinstall pkg',
         windows: 'winget install pkg --force',
-        note: 'Re-lay a package\'s files without removing then adding it. --force on winget overwrites in place — use it only when a normal upgrade fails.'
+        note: 'Re-lay a package\'s files without removing then adding it. --force on winget overwrites in place; use it only when a normal upgrade fails.'
       }
     };
 
@@ -8223,7 +8217,7 @@ window.addEventListener('DOMContentLoaded', function () {
       'stop': {
         docker: 'docker stop web',
         kubectl: 'kubectl scale deploy/web --replicas=0 -n NS',
-        note: 'K8s “stop” is usually scale to 0 or delete pod (controller may recreate).'
+        note: 'K8s "stop" is usually scale to 0 or delete pod (controller may recreate).'
       },
       'remove workload': {
         docker: 'docker rm -f web',
@@ -8288,7 +8282,7 @@ window.addEventListener('DOMContentLoaded', function () {
       'remove unused resources': {
         docker: 'docker system prune -f',
         kubectl: 'kubectl delete pods --field-selector=status.phase=Succeeded -A',
-        note: 'Docker\'s prune removes stopped containers, unused images, and networks in one shot. Kubernetes has no single equivalent — this only clears completed pods; unused node images are a separate, node-level concern.'
+        note: 'Docker\'s prune removes stopped containers, unused images, and networks in one shot. Kubernetes has no single equivalent: this only clears completed pods; unused node images are a separate, node-level concern.'
       }
     };
 
@@ -8337,7 +8331,7 @@ window.addEventListener('DOMContentLoaded', function () {
       'get ingress': {
         kubectl: 'kubectl get ingress -A',
         oc: 'oc get route -A',
-        note: 'Kubernetes Ingress vs OpenShift Routes — related but not identical objects.'
+        note: 'Kubernetes Ingress vs OpenShift Routes: related but not identical objects.'
       },
       'context': {
         kubectl: 'kubectl config get-contexts',
@@ -8372,7 +8366,7 @@ window.addEventListener('DOMContentLoaded', function () {
       'create namespace': {
         kubectl: 'kubectl create namespace NAME',
         oc: 'oc new-project NAME',
-        note: 'oc new-project also switches your current context to it and adds OpenShift project metadata — not identical to a plain namespace. oc create namespace also exists but is typically admin-only.'
+        note: 'oc new-project also switches your current context to it and adds OpenShift project metadata, not identical to a plain namespace. oc create namespace also exists but is typically admin-only.'
       },
       'scale deployment': {
         kubectl: 'kubectl scale deploy/NAME --replicas=3 -n NS',
@@ -8395,9 +8389,9 @@ window.addEventListener('DOMContentLoaded', function () {
         note: 'Revert to the previous rollout revision.'
       },
       'expose service externally': {
-        kubectl: '# no single command — create an Ingress resource\nkubectl apply -f ingress.yaml',
+        kubectl: '# no single command; create an Ingress resource\nkubectl apply -f ingress.yaml',
         oc: 'oc expose service NAME',
-        note: 'oc expose on a Service creates an OpenShift Route (a working external URL) directly. Kubernetes has no route-equivalent single command — you write an Ingress manifest and apply it.'
+        note: 'oc expose on a Service creates an OpenShift Route (a working external URL) directly. Kubernetes has no route-equivalent single command; you write an Ingress manifest and apply it.'
       },
       'cordon node': {
         kubectl: 'kubectl cordon NODE',
@@ -8407,7 +8401,7 @@ window.addEventListener('DOMContentLoaded', function () {
       'drain node': {
         kubectl: 'kubectl drain NODE --ignore-daemonsets --delete-emptydir-data',
         oc: 'oc adm drain NODE --ignore-daemonsets --delete-emptydir-data',
-        note: 'Cordon plus evict every pod for maintenance. Same flags needed on both — daemonset-managed and emptyDir-backed pods otherwise block the drain.'
+        note: 'Cordon plus evict every pod for maintenance. Same flags needed on both; daemonset-managed and emptyDir-backed pods otherwise block the drain.'
       },
       'uncordon node': {
         kubectl: 'kubectl uncordon NODE',
@@ -8432,7 +8426,7 @@ window.addEventListener('DOMContentLoaded', function () {
       'list api resources': {
         kubectl: 'kubectl api-resources',
         oc: 'oc api-resources',
-        note: 'Every resource type the cluster knows about — useful before writing a manifest for something unfamiliar.'
+        note: 'Every resource type the cluster knows about. Useful before writing a manifest for something unfamiliar.'
       },
       'get persistent volumes': {
         kubectl: 'kubectl get pv',
@@ -8455,9 +8449,9 @@ window.addEventListener('DOMContentLoaded', function () {
         note: 'Live CPU/memory usage. Needs metrics-server on plain Kubernetes; OpenShift bundles this under oc adm.'
       },
       'list cluster operators': {
-        kubectl: '# no equivalent — ClusterOperator is an OpenShift-specific CRD',
+        kubectl: '# no equivalent; ClusterOperator is an OpenShift-specific CRD',
         oc: 'oc get clusteroperators',
-        note: 'Install/health/version state for every core platform component. Only meaningful on OpenShift — plain Kubernetes has no ClusterOperator object.'
+        note: 'Install/health/version state for every core platform component. Only meaningful on OpenShift; plain Kubernetes has no ClusterOperator object.'
       }
     };
 
@@ -8470,102 +8464,102 @@ window.addEventListener('DOMContentLoaded', function () {
         esxi_cli: 'esxcli vm process list',
         esxi_vim: 'vim-cmd vmsvc/getallvms',
         powercli: 'Get-VM',
-        vxrail_api: 'not applicable — host-level task, not exposed by the cluster-level VxRail API',
+        vxrail_api: 'not applicable: host-level task, not exposed by the cluster-level VxRail API',
         note: 'esxcli only shows running VMs (by World ID); vim-cmd lists every registered VM (by VMID), running or not.'
       },
       'power on vm': {
         esxi_cli: 'esxcli has no VM power-on subcommand — use vim-cmd',
         esxi_vim: 'vim-cmd vmsvc/power.on VMID',
         powercli: 'Start-VM -VM "name"',
-        vxrail_api: 'not applicable — host-level task',
+        vxrail_api: 'not applicable: host-level task',
         note: 'Look up VMID first with vmsvc/getallvms.'
       },
       'power off vm (graceful)': {
         esxi_cli: 'esxcli has no graceful VM shutdown — use vim-cmd',
         esxi_vim: 'vim-cmd vmsvc/power.shutdown VMID',
         powercli: 'Shutdown-VMGuest -VM "name" -Confirm:$false',
-        vxrail_api: 'not applicable — host-level task',
+        vxrail_api: 'not applicable: host-level task',
         note: 'Needs VMware Tools running in the guest, or it fails rather than forcing a hard stop.'
       },
       'power off vm (hard)': {
         esxi_cli: 'esxcli vm process kill --type=hard --world-id=ID',
         esxi_vim: 'vim-cmd vmsvc/power.off VMID',
         powercli: 'Stop-VM -VM "name" -Confirm:$false',
-        vxrail_api: 'not applicable — host-level task',
+        vxrail_api: 'not applicable: host-level task',
         note: 'Same last-resort caution as pulling power on a physical server.'
       },
       'list datastores': {
         esxi_cli: 'esxcli storage filesystem list',
-        esxi_vim: 'not applicable — vim-cmd has no direct datastore listing',
+        esxi_vim: 'not applicable: vim-cmd has no direct datastore listing',
         powercli: 'Get-Datastore',
-        vxrail_api: 'not applicable — host-level task',
+        vxrail_api: 'not applicable: host-level task',
         note: 'On a VxRail node the datastore is almost always the shared vSAN datastore, not local disk.'
       },
       'list virtual switches': {
         esxi_cli: 'esxcli network vswitch standard list',
         esxi_vim: 'not applicable',
         powercli: 'Get-VirtualSwitch',
-        vxrail_api: 'not applicable — host-level task'
+        vxrail_api: 'not applicable: host-level task'
       },
       'list physical nics': {
         esxi_cli: 'esxcli network nic list',
         esxi_vim: 'not applicable',
         powercli: 'Get-VMHostNetworkAdapter -Physical',
-        vxrail_api: 'not applicable — host-level task'
+        vxrail_api: 'not applicable: host-level task'
       },
       'host version / build': {
         esxi_cli: 'esxcli system version get',
         esxi_vim: 'vim-cmd hostsvc/hostsummary',
         powercli: 'Get-VMHost | Select Name, Version, Build',
-        vxrail_api: 'not applicable — this is the host\'s own ESXi build, not VxRail Manager\'s appliance version'
+        vxrail_api: 'not applicable: this is the host\'s own ESXi build, not VxRail Manager\'s appliance version'
       },
       'enter maintenance mode': {
         esxi_cli: 'esxcli system maintenanceMode set --enable true',
         esxi_vim: 'vim-cmd hostsvc/maintenance_mode_enter',
         powercli: 'Set-VMHost -VMHost host -State Maintenance -VsanDataMigrationMode Full',
-        vxrail_api: 'not applicable — host-level task',
-        note: 'On a vSAN/VxRail cluster, pick a real data-migration mode (Full / EnsureAccessibility / NoDataMigration) — the default can leave data underprotected for the outage.'
+        vxrail_api: 'not applicable: host-level task',
+        note: 'On a vSAN/VxRail cluster, pick a real data-migration mode (Full / EnsureAccessibility / NoDataMigration). The default can leave data underprotected for the outage.'
       },
       'enable ssh': {
-        esxi_cli: 'not applicable — SSH is a host service, not an esxcli namespace',
+        esxi_cli: 'not applicable: SSH is a host service, not an esxcli namespace',
         esxi_vim: 'vim-cmd hostsvc/enable_ssh\nvim-cmd hostsvc/start_ssh',
         powercli: 'Get-VMHost host | Get-VMHostService | Where {$_.Key -eq "TSM-SSH"} | Start-VMHostService',
-        vxrail_api: 'not applicable — host-level task'
+        vxrail_api: 'not applicable: host-level task'
       },
       'reboot host': {
         esxi_cli: 'esxcli system shutdown reboot -r "reason"',
         esxi_vim: 'vim-cmd has no reboot subcommand — use esxcli',
         powercli: 'Restart-VMHost -VMHost host -Confirm:$false',
-        vxrail_api: 'not applicable — host-level task',
+        vxrail_api: 'not applicable: host-level task',
         note: 'Enter maintenance mode first on a clustered/VxRail node so workloads evacuate cleanly.'
       },
       'vsan cluster health/membership': {
         esxi_cli: 'esxcli vsan cluster get',
         esxi_vim: 'not applicable',
         powercli: 'Get-VsanClusterConfiguration -Cluster "ClusterName"',
-        vxrail_api: 'not applicable — the same state surfaces in VxRail Manager\'s own health UI, not this API',
-        note: 'Dell documents esxcli vsan commands specifically for VxRail troubleshooting (KB 000010614) — fastest way to check node health/membership without vCenter.'
+        vxrail_api: 'not applicable: the same state surfaces in VxRail Manager\'s own health UI, not this API',
+        note: 'Dell documents esxcli vsan commands specifically for VxRail troubleshooting (KB 000010614), the fastest way to check node health/membership without vCenter.'
       },
       'vsan resync status': {
         esxi_cli: 'esxcli vsan debug resync summary get',
         esxi_vim: 'not applicable',
-        powercli: 'not applicable — no direct PowerCLI equivalent; use RVC or the vSphere Client\'s vSAN resync dashboard',
+        powercli: 'not applicable: no direct PowerCLI equivalent; use RVC or the vSphere Client\'s vSAN resync dashboard',
         vxrail_api: 'not applicable',
-        note: 'Shows bytes/objects still resyncing after a host rejoins the cluster — check before assuming a maintenance-mode exit is safe.'
+        note: 'Shows bytes/objects still resyncing after a host rejoins the cluster. Check before assuming a maintenance-mode exit is safe.'
       },
       'get VxRail Manager / system version': {
-        esxi_cli: 'not applicable — cluster-level, not a single host\'s local shell',
-        esxi_vim: 'not applicable — cluster-level, not a single host\'s local shell',
-        powercli: 'not applicable — no VxRail-specific PowerCLI module; use the REST API or VxRail Manager UI',
+        esxi_cli: 'not applicable: cluster-level, not a single host\'s local shell',
+        esxi_vim: 'not applicable: cluster-level, not a single host\'s local shell',
+        powercli: 'not applicable: no VxRail-specific PowerCLI module; use the REST API or VxRail Manager UI',
         vxrail_api: 'curl -k -u "administrator@vsphere.local:PASSWORD" https://<VxRail_Manager_IP>/rest/vxm/v1/system',
-        note: 'VxRail\'s own automation surface is this REST API (or the VxRail Manager plugin in vCenter) — there is no "VxRail shell" for routine cluster admin the way esxcli is a shell for one host. Interactive Swagger docs live at /rest/vxm/api-doc.html on the same address.'
+        note: 'VxRail\'s own automation surface is this REST API (or the VxRail Manager plugin in vCenter). There is no "VxRail shell" for routine cluster admin the way esxcli is a shell for one host. Interactive Swagger docs live at /rest/vxm/api-doc.html on the same address.'
       },
       'initialize a new vxrail cluster': {
-        esxi_cli: 'not applicable — the cluster does not exist yet at this step',
+        esxi_cli: 'not applicable: the cluster does not exist yet at this step',
         esxi_vim: 'not applicable',
         powercli: 'not applicable',
         vxrail_api: 'curl -k -X POST https://<VxRail_Manager_IP>/rest/vxm/v1/system/initialize -H "Content-Type: application/json" -d @initialize-payload.json',
-        note: 'First-run cluster bring-up. The JSON payload (management network, vCenter target, ESXi root password, discovered node list) is the real work — see Dell\'s VxRail RESTful API Cookbook for the full schema before scripting this.'
+        note: 'First-run cluster bring-up. The JSON payload (management network, vCenter target, ESXi root password, discovered node list) is the real work; see Dell\'s VxRail RESTful API Cookbook for the full schema before scripting this.'
       }
     };
 
@@ -8890,7 +8884,7 @@ window.addEventListener('DOMContentLoaded', function () {
       if (from === to) {
         out.textContent = cmd;
         notes.style.display = 'block';
-        notes.innerHTML = '<span class="badge badge-ok">Same dialect<\/span> Source and target are identical — no translation needed.';
+        notes.innerHTML = '<span class="badge badge-ok">Same dialect<\/span> Source and target are identical. No translation needed.';
         return;
       }
 
@@ -8997,11 +8991,11 @@ window.addEventListener('DOMContentLoaded', function () {
       { target: () => document.querySelector('.mode-bar'), gates: [{ event: 'click' }],
         body: 'These buttons switch what\'s being compared. Try a different mode, like <b>Docker ↔ K8s<\/b>.' },
       { target: () => document.getElementById('examples'), gates: [{ event: 'click' }],
-        body: 'Click one of these example commands to load it into the box below — no typing required.' },
+        body: 'Click one of these example commands to load it into the box below. No typing required.' },
       { target: () => document.getElementById('translateBtn'), gates: [{ event: 'click' }],
         body: 'Click <b>Translate<\/b> to convert it.' },
       { target: null, manual: true, finish: true,
-        body: 'That\'s the whole tool — Swap from/to flips direction, Copy result grabs the translation. Every mode works the same way. You\'re set.' }
+        body: 'That\'s the whole tool. Swap from/to flips direction, Copy result grabs the translation. Every mode works the same way. You\'re set.' }
     ];
     function clearTourCleanup() { tourCleanupFns.forEach(fn => fn()); tourCleanupFns = []; if (tourWatchdog) { clearInterval(tourWatchdog); tourWatchdog = null; } }
     function endTour() { clearTourCleanup(); document.querySelectorAll('.tour-spotlight,.tour-callout').forEach(el => el.remove()); try { localStorage.setItem(TOUR_KEY, '1'); } catch (e) {} }
@@ -9857,41 +9851,6 @@ body.idle-locked .idle-lock-overlay { display: flex; }
       <\/div>
     <\/div>
 
-    <!-- ========== REFERENCE ========== -->
-    <div class="pane" id="pane-ref">
-      <div class="panel">
-        <div class="panel-head"><div class="panel-title">Common prefixes<\/div><\/div>
-        <div style="overflow-x:auto">
-          <table class="data">
-            <thead>
-              <tr>
-                <th>CIDR<\/th><th>Mask<\/th><th>Wildcard<\/th><th>Hosts<\/th><th>Typical use<\/th>
-              <\/tr>
-            <\/thead>
-            <tbody id="refTable"><\/tbody>
-          <\/table>
-        <\/div>
-      <\/div>
-      <div class="panel">
-        <div class="panel-head"><div class="panel-title">Private & special ranges (RFC 1918 / others)<\/div><\/div>
-        <div style="overflow-x:auto">
-          <table class="data">
-            <thead><tr><th>Range<\/th><th>CIDR<\/th><th>Notes<\/th><\/tr><\/thead>
-            <tbody>
-              <tr><td>10.0.0.0 – 10.255.255.255<\/td><td>10.0.0.0/8<\/td><td>Private (Class A)<\/td><\/tr>
-              <tr><td>172.16.0.0 – 172.31.255.255<\/td><td>172.16.0.0/12<\/td><td>Private (Class B)<\/td><\/tr>
-              <tr><td>192.168.0.0 – 192.168.255.255<\/td><td>192.168.0.0/16<\/td><td>Private (Class C)<\/td><\/tr>
-              <tr><td>127.0.0.0 – 127.255.255.255<\/td><td>127.0.0.0/8<\/td><td>Loopback<\/td><\/tr>
-              <tr><td>169.254.0.0 – 169.254.255.255<\/td><td>169.254.0.0/16<\/td><td>Link-local (APIPA)<\/td><\/tr>
-              <tr><td>224.0.0.0 – 239.255.255.255<\/td><td>224.0.0.0/4<\/td><td>Multicast<\/td><\/tr>
-              <tr><td>240.0.0.0 – 255.255.255.255<\/td><td>240.0.0.0/4<\/td><td>Reserved / experimental<\/td><\/tr>
-              <tr><td>0.0.0.0 / 255.255.255.255<\/td><td>—<\/td><td>This network / limited broadcast<\/td><\/tr>
-            <\/tbody>
-          <\/table>
-        <\/div>
-      <\/div>
-    <\/div>
-
     <!-- ========== BINARY LAB ========== -->
     <div class="pane" id="pane-binary">
       <div class="panel">
@@ -10151,7 +10110,7 @@ body.idle-locked .idle-lock-overlay { display: flex; }
       <\/div>
       <div class="panel" style="margin-top:12px">
         <div class="panel-head">
-          <div class="panel-title">Quick reference — theoretical max<\/div>
+          <div class="panel-title">Quick reference: theoretical max<\/div>
         <\/div>
         <div class="panel-note" style="margin-bottom:8px">Rough ceiling for common links (payload only; real TCP goodput is lower).<\/div>
         <div style="overflow-x:auto">
@@ -10289,166 +10248,6 @@ body.idle-locked .idle-lock-overlay { display: flex; }
       <\/div>
     <\/div>
 
-    <div class="pane" id="pane-drills">
-      <div class="panel">
-        <div class="panel-head">
-          <div class="panel-title">Subnetting Drills<\/div>
-          <div class="panel-actions">
-            <button class="btn primary" onclick="newDrillQ()">New question<\/button>
-          <\/div>
-        <\/div>
-        <div class="panel-note">Offline timed practice — same skill as public subnetting trainers, built into this toolkit so it sits next to the calculators it drills.<\/div>
-        <div class="field">
-          <label>Drill mode<\/label>
-          <div class="pill-row" id="drillModeRow">
-            <button type="button" class="pill-btn active" data-val="hosts" onclick="setDrillMode('hosts')">Hosts → prefix<\/button>
-            <button type="button" class="pill-btn" data-val="prefix" onclick="setDrillMode('prefix')">Prefix → hosts<\/button>
-            <button type="button" class="pill-btn" data-val="network" onclick="setDrillMode('network')">IP+mask → network<\/button>
-            <button type="button" class="pill-btn" data-val="broadcast" onclick="setDrillMode('broadcast')">IP+mask → broadcast<\/button>
-          <\/div>
-        <\/div>
-        <div class="field">
-          <label>Timer<\/label>
-          <div class="pill-row" id="drillSecsRow">
-            <button type="button" class="pill-btn" data-val="15" onclick="setDrillSecs(15)">15s<\/button>
-            <button type="button" class="pill-btn active" data-val="30" onclick="setDrillSecs(30)">30s<\/button>
-            <button type="button" class="pill-btn" data-val="45" onclick="setDrillSecs(45)">45s<\/button>
-            <button type="button" class="pill-btn" data-val="60" onclick="setDrillSecs(60)">60s<\/button>
-          <\/div>
-        <\/div>
-        <div class="result-grid" style="margin-top:4px">
-          <div class="result-card"><div class="label">Correct<\/div><div class="value ok" id="drillScoreOut">0<\/div><\/div>
-          <div class="result-card"><div class="label">Attempted<\/div><div class="value" id="drillTriedOut">0<\/div><\/div>
-          <div class="result-card"><div class="label">Streak<\/div><div class="value" id="drillStreakOut">0<\/div><\/div>
-          <div class="result-card"><div class="label">Seconds left<\/div><div class="value" id="drillTimerOut">30<\/div><\/div>
-        <\/div>
-      <\/div>
-
-      <div class="panel" style="margin-top:4px">
-        <div class="panel-head">
-          <div class="panel-title" id="drillPromptTitle">Question<\/div>
-        <\/div>
-        <div class="result-card" style="font-family:var(--mono); font-size:15px; padding:16px">
-          <div id="drillPrompt">Press "New question" to start.<\/div>
-        <\/div>
-        <div class="field" style="margin-top:12px">
-          <label for="drillAnswer">Your answer<\/label>
-          <input id="drillAnswer" placeholder="e.g. 24 or 192.168.1.0" autocomplete="off">
-        <\/div>
-        <div style="display:flex; gap:8px; flex-wrap:wrap; margin-top:6px">
-          <button class="btn primary" onclick="checkDrill()">Check<\/button>
-          <button class="btn quiet" onclick="skipDrill()">Skip<\/button>
-        <\/div>
-        <div class="panel-note" id="drillMsg" style="margin-top:12px"><\/div>
-      <\/div>
-    <\/div>
-
-    <!-- ========== GLOSSARY (merged in from the retired standalone tool) ========== -->
-    <div class="pane" id="pane-glossary">
-      <div class="panel">
-        <div class="panel-head">
-          <div class="panel-title">Glossary<\/div>
-        <\/div>
-        <div class="panel-note">Plain-English definitions for the terms used across this kit. One sentence each — no lecture.<\/div>
-        <div class="field" style="max-width:420px; margin-top:4px">
-          <label for="glossSearch">Search<\/label>
-          <input type="text" id="glossSearch" placeholder="e.g. VLAN, NAT, gateway" spellcheck="false" oninput="applyGlossaryFilter()">
-        <\/div>
-        <div class="pill-row" id="glossCatRow" style="margin-top:4px">
-          <button type="button" class="pill-btn active" data-cat="all" onclick="setGlossCat('all')">All<\/button>
-          <button type="button" class="pill-btn" data-cat="addr" onclick="setGlossCat('addr')">Addressing<\/button>
-          <button type="button" class="pill-btn" data-cat="names" onclick="setGlossCat('names')">Names<\/button>
-          <button type="button" class="pill-btn" data-cat="switch" onclick="setGlossCat('switch')">Switching<\/button>
-          <button type="button" class="pill-btn" data-cat="route" onclick="setGlossCat('route')">Routing<\/button>
-          <button type="button" class="pill-btn" data-cat="sec" onclick="setGlossCat('sec')">Security<\/button>
-          <button type="button" class="pill-btn" data-cat="transport" onclick="setGlossCat('transport')">Transport<\/button>
-        <\/div>
-      <\/div>
-
-      <div class="panel" id="glossList">
-        <p class="gloss-cat-heading" data-cat="addr">Addressing<\/p>
-        <dl class="gloss-terms" data-cat="addr">
-          <div class="gloss-term"><dt>IP address<\/dt><dd>A number that identifies a device on a network — like a street address for a packet.<\/dd>
-            <div class="gloss-used-in">Used in: <a href="Routing_Lab.html">Routing Lab<\/a><\/div><\/div>
-          <div class="gloss-term"><dt>Subnet mask<\/dt><dd>Marks which part of an IP address is the network and which part is the specific device.<\/dd><\/div>
-          <div class="gloss-term"><dt>CIDR / prefix length <code>/24<\/code><\/dt><dd>The "/24" after an IP address — shorthand for how much of the address is the network part.<\/dd>
-            <div class="gloss-used-in">Used in: <a href="Routing_Lab.html">Routing Lab<\/a><\/div><\/div>
-          <div class="gloss-term"><dt>Network address<\/dt><dd>The first address in a subnet. Identifies the subnet itself — not a device you can use.<\/dd><\/div>
-          <div class="gloss-term"><dt>Broadcast address<\/dt><dd>The last address in a subnet. A message sent here reaches every device on that subnet at once.<\/dd><\/div>
-          <div class="gloss-term"><dt>Private vs. public IP<\/dt><dd>Private addresses (10.x, 172.16–31.x, 192.168.x) only work inside a local network. Public addresses are reachable from the internet.<\/dd><\/div>
-          <div class="gloss-term"><dt>Default gateway<\/dt><dd>The router a device sends traffic to when the destination isn't on its own subnet.<\/dd>
-            <div class="gloss-used-in">Used in: <a href="Routing_Lab.html">Routing Lab<\/a>, <a href="Network_Fault_Lab.html">Network Fault Lab<\/a><\/div><\/div>
-        <\/dl>
-
-        <p class="gloss-cat-heading" data-cat="names">Names &amp; discovery<\/p>
-        <dl class="gloss-terms" data-cat="names">
-          <div class="gloss-term"><dt>DNS<\/dt><dd>Domain Name System. Translates names like example.com into IP addresses.<\/dd>
-            <div class="gloss-used-in">Used in: <a href="DNS_Lab.html">DNS Lab<\/a><\/div><\/div>
-          <div class="gloss-term"><dt>Hostname<\/dt><dd>The human-readable name of a device, e.g. web-server-01.<\/dd>
-            <div class="gloss-used-in">Used in: <a href="DNS_Lab.html">DNS Lab<\/a>, <a href="Log_Sanitizer.html">Log Sanitizer<\/a><\/div><\/div>
-          <div class="gloss-term"><dt>MAC address<\/dt><dd>A hardware address built into a network card. Unique to the physical device, not the network it's on.<\/dd>
-            <div class="gloss-used-in">Used in: <a href="Network_Fault_Lab.html">Network Fault Lab<\/a><\/div><\/div>
-          <div class="gloss-term"><dt>ARP<\/dt><dd>Address Resolution Protocol. How a device finds the MAC address that goes with an IP address on the same network.<\/dd>
-            <div class="gloss-used-in">Used in: <a href="Network_Fault_Lab.html">Network Fault Lab<\/a><\/div><\/div>
-        <\/dl>
-
-        <p class="gloss-cat-heading" data-cat="switch">Switching<\/p>
-        <dl class="gloss-terms" data-cat="switch">
-          <div class="gloss-term"><dt>Switch<\/dt><dd>A device that connects devices on the same local network and forwards traffic between them by MAC address.<\/dd>
-            <div class="gloss-used-in">Used in: <a href="Network_Fault_Lab.html">Network Fault Lab<\/a><\/div><\/div>
-          <div class="gloss-term"><dt>Port (switch)<\/dt><dd>A physical connector on a switch that a cable plugs into. Not the same thing as a service port — see Transport below.<\/dd>
-            <div class="gloss-used-in">Used in: <a href="Network_Fault_Lab.html">Network Fault Lab<\/a><\/div><\/div>
-          <div class="gloss-term"><dt>VLAN<\/dt><dd>Virtual LAN. Splits one physical switch into multiple separate logical networks.<\/dd>
-            <div class="gloss-used-in">Used in: <a href="Network_Fault_Lab.html">Network Fault Lab<\/a><\/div><\/div>
-          <div class="gloss-term"><dt>Access port<\/dt><dd>A switch port that belongs to exactly one VLAN. Used for end devices like PCs and printers.<\/dd>
-            <div class="gloss-used-in">Used in: <a href="Network_Fault_Lab.html">Network Fault Lab<\/a><\/div><\/div>
-          <div class="gloss-term"><dt>Trunk port<\/dt><dd>A switch port that carries traffic for multiple VLANs at once. Used for links between switches.<\/dd>
-            <div class="gloss-used-in">Used in: <a href="Network_Fault_Lab.html">Network Fault Lab<\/a><\/div><\/div>
-          <div class="gloss-term"><dt>LACP / port-channel<\/dt><dd>Bundles multiple physical links into one logical link, for more bandwidth and a backup if one link fails.<\/dd>
-            <div class="gloss-used-in">Used in: <a href="Network_Fault_Lab.html">Network Fault Lab<\/a><\/div><\/div>
-          <div class="gloss-term"><dt>STP<\/dt><dd>Spanning Tree Protocol. Stops network loops by automatically blocking redundant paths between switches.<\/dd>
-            <div class="gloss-used-in">Used in: <a href="Network_Fault_Lab.html">Network Fault Lab<\/a><\/div><\/div>
-        <\/dl>
-
-        <p class="gloss-cat-heading" data-cat="route">Routing<\/p>
-        <dl class="gloss-terms" data-cat="route">
-          <div class="gloss-term"><dt>Router<\/dt><dd>A device that forwards traffic between different networks.<\/dd>
-            <div class="gloss-used-in">Used in: <a href="Routing_Lab.html">Routing Lab<\/a><\/div><\/div>
-          <div class="gloss-term"><dt>Routing table<\/dt><dd>A router's list of known networks and which direction to send traffic for each one.<\/dd>
-            <div class="gloss-used-in">Used in: <a href="Routing_Lab.html">Routing Lab<\/a><\/div><\/div>
-          <div class="gloss-term"><dt>Default route<\/dt><dd>The "everything else goes here" entry in a routing table, used when nothing more specific matches.<\/dd>
-            <div class="gloss-used-in">Used in: <a href="Routing_Lab.html">Routing Lab<\/a><\/div><\/div>
-          <div class="gloss-term"><dt>Administrative distance<\/dt><dd>How much a router trusts one source of routing information over another, when it learns the same route two different ways.<\/dd>
-            <div class="gloss-used-in">Used in: <a href="Routing_Lab.html">Routing Lab<\/a><\/div><\/div>
-          <div class="gloss-term"><dt>BGP<\/dt><dd>Border Gateway Protocol. The routing protocol that connects large networks — like ISPs — to each other across the internet.<\/dd>
-            <div class="gloss-used-in">Used in: <a href="Routing_Lab.html">Routing Lab<\/a><\/div><\/div>
-        <\/dl>
-
-        <p class="gloss-cat-heading" data-cat="sec">Security<\/p>
-        <dl class="gloss-terms" data-cat="sec">
-          <div class="gloss-term"><dt>Firewall<\/dt><dd>A device or service that allows or blocks traffic based on a set of rules.<\/dd>
-            <div class="gloss-used-in">Used in: <a href="Firewall_Rules_Lab.html">Firewall Rules Lab<\/a><\/div><\/div>
-          <div class="gloss-term"><dt>ACL<\/dt><dd>Access Control List. An ordered set of allow/deny rules, usually applied to a router or switch interface.<\/dd>
-            <div class="gloss-used-in">Used in: <a href="Firewall_Rules_Lab.html">Firewall Rules Lab<\/a><\/div><\/div>
-          <div class="gloss-term"><dt>Implicit deny<\/dt><dd>The rule at the end of most ACLs and firewall policies: if nothing else matched, block it.<\/dd>
-            <div class="gloss-used-in">Used in: <a href="Firewall_Rules_Lab.html">Firewall Rules Lab<\/a><\/div><\/div>
-          <div class="gloss-term"><dt>NAT<\/dt><dd>Network Address Translation. Rewrites IP addresses — often private-to-public — as traffic crosses a boundary.<\/dd><\/div>
-          <div class="gloss-term"><dt>PAT<\/dt><dd>Port Address Translation, aka "NAT overload." Many private devices share one public IP, kept separate by port number.<\/dd><\/div>
-          <div class="gloss-term"><dt>TLS / HTTPS<\/dt><dd>Encrypts traffic between a browser and a server so it can't be read or altered in transit.<\/dd><\/div>
-        <\/dl>
-
-        <p class="gloss-cat-heading" data-cat="transport">Transport &amp; protocols<\/p>
-        <dl class="gloss-terms" data-cat="transport">
-          <div class="gloss-term"><dt>Protocol<\/dt><dd>An agreed-upon set of rules two devices use to talk to each other — e.g. HTTP, DNS, TCP.<\/dd><\/div>
-          <div class="gloss-term"><dt>TCP<\/dt><dd>A connection-based protocol that guarantees delivery and order. Used for things like web pages and file transfers.<\/dd>
-            <div class="gloss-used-in">Used in: <a href="Firewall_Rules_Lab.html">Firewall Rules Lab<\/a><\/div><\/div>
-          <div class="gloss-term"><dt>UDP<\/dt><dd>A connectionless protocol with no delivery guarantee. Used where speed matters more than perfection, like video calls and DNS.<\/dd><\/div>
-          <div class="gloss-term"><dt>Port (service)<\/dt><dd>A number from 0–65535 that identifies which application on a device a piece of traffic is meant for. Not the same thing as a switch port.<\/dd>
-            <div class="gloss-used-in">Used in: <a href="Firewall_Rules_Lab.html">Firewall Rules Lab<\/a><\/div><\/div>
-        <\/dl>
-      <\/div>
-    <\/div>
-
     <div class="page-credit" id="pageCredit">Built by Ian Knight<\/div>
   <\/div>
 <\/div>
@@ -10458,7 +10257,7 @@ body.idle-locked .idle-lock-overlay { display: flex; }
   <span>Version <span class="val" id="sbVersion">v1.3<\/span><\/span>
   <span>Build <span class="val" id="sbFp">—<\/span><\/span>
   <span style="flex:1"><\/span>
-  <span class="val" id="sbHint">All calculation is local — nothing leaves the browser<\/span>
+  <span class="val" id="sbHint">All calculation is local. Nothing leaves the browser<\/span>
 <\/footer>
 
 <div id="toast-container" role="status" aria-live="polite"><\/div>
@@ -10800,7 +10599,7 @@ function runVlsm() {
   var used = 0;
   results.forEach(function (r) { if (r.ok) used += totalAddrs(parseInt(r.network.split('/')[1], 10)); });
   $('vlsmSummary').textContent = overflow
-    ? 'Some subnets could not be allocated — parent is too small or fragmented.'
+    ? 'Some subnets could not be allocated. Parent is too small or fragmented.'
     : 'Allocated ' + results.filter(function (r) { return r.ok; }).length + ' subnet(s). ' +
       used.toLocaleString() + ' of ' + parentSize.toLocaleString() + ' addresses used.';
   $('vlsmOut').style.display = '';
@@ -10872,28 +10671,6 @@ function runBinaryLab() {
     '<div class="result-card"><div class="label">Mask<\/div><div class="value">' + ipToStr(mask) + '<\/div><\/div>' +
     '<div class="result-card"><div class="label">Host bits<\/div><div class="value">' + (32 - p) + '<\/div><\/div>' +
     '<div class="result-card"><div class="label">Usable hosts<\/div><div class="value">' + hostCount(p).toLocaleString() + '<\/div><\/div>';
-}
-
-/* ---------- Reference table ---------- */
-function buildRefTable() {
-  var prefixes = [8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32];
-  var uses = {
-    8: 'Class A legacy', 16: 'Class B / large enterprise', 24: 'Typical LAN',
-    25: 'Half of /24', 26: 'Quarter of /24', 27: '32-addr block', 28: '16-addr block',
-    29: '8-addr block', 30: 'Point-to-point (legacy)', 31: 'Point-to-point (RFC 3021)', 32: 'Host route'
-  };
-  var tbody = $('refTable');
-  prefixes.forEach(function (p) {
-    var mask = prefixToMask(p);
-    var tr = document.createElement('tr');
-    tr.innerHTML =
-      '<td>/' + p + '<\/td>' +
-      '<td>' + ipToStr(mask) + '<\/td>' +
-      '<td>' + ipToStr((~mask) >>> 0) + '<\/td>' +
-      '<td>' + hostCount(p).toLocaleString() + '<\/td>' +
-      '<td>' + (uses[p] || '') + '<\/td>';
-    tbody.appendChild(tr);
-  });
 }
 
 /* ---------- Tabs ---------- */
@@ -11148,7 +10925,7 @@ function runConflictCheck() {
       tr.appendChild(tdDetail);
 
       tbody.appendChild(tr);
-      reportLines.push('[' + typeLabel(c.type) + '] ' + c.a.raw + '  ↔  ' + c.b.raw + '  (' + c.scope + ') — ' + pairDetail(c.a, c.b, c.type));
+      reportLines.push('[' + typeLabel(c.type) + '] ' + c.a.raw + '  ↔  ' + c.b.raw + '  (' + c.scope + '): ' + pairDetail(c.a, c.b, c.type));
     });
   }
   if (allErrors.length) {
@@ -11171,7 +10948,7 @@ function runConflictCheck() {
   lastConflictReport = reportLines.length
     ? 'Conflict report\n' + reportLines.join('\n')
     : 'Conflict report\nNo conflicts detected.';
-  showToast(conflicts.length ? (conflicts.length + ' conflict(s) found.') : 'Clean — no conflicts.', conflicts.length ? 'error' : 'success');
+  showToast(conflicts.length ? (conflicts.length + ' conflict(s) found.') : 'Clean, no conflicts.', conflicts.length ? 'error' : 'success');
   $('sbStatus').textContent = conflicts.length ? (conflicts.length + (conflicts.length === 1 ? ' conflict' : ' conflicts')) : 'No conflicts';
   persistInputs();
 }
@@ -11211,12 +10988,12 @@ var PORT_DATA = [
   { port: 20, proto: 'tcp', service: 'FTP-DATA', notes: 'Active-mode data channel', risk: 'med' },
   { port: 21, proto: 'tcp', service: 'FTP', notes: 'Cleartext control channel; prefer SFTP/FTPS', risk: 'high' },
   { port: 22, proto: 'tcp', service: 'SSH', notes: 'Secure shell / SFTP; restrict source, key auth', risk: 'med' },
-  { port: 23, proto: 'tcp', service: 'Telnet', notes: 'Cleartext remote login — do not expose', risk: 'high' },
+  { port: 23, proto: 'tcp', service: 'Telnet', notes: 'Cleartext remote login, do not expose', risk: 'high' },
   { port: 25, proto: 'tcp', service: 'SMTP', notes: 'Mail transfer; open relays are high risk', risk: 'med' },
   { port: 53, proto: 'both', service: 'DNS', notes: 'UDP queries / TCP zone transfer; recursion abuse risk', risk: 'med' },
   { port: 67, proto: 'udp', service: 'DHCP Server', notes: 'Bootstrap; rogue DHCP is a common LAN threat', risk: 'med' },
   { port: 68, proto: 'udp', service: 'DHCP Client', notes: 'Client side of DHCP', risk: 'none' },
-  { port: 69, proto: 'udp', service: 'TFTP', notes: 'Unauthenticated file transfer — high exposure', risk: 'high' },
+  { port: 69, proto: 'udp', service: 'TFTP', notes: 'Unauthenticated file transfer, high exposure', risk: 'high' },
   { port: 80, proto: 'tcp', service: 'HTTP', notes: 'Cleartext web; prefer HTTPS', risk: 'med' },
   { port: 88, proto: 'both', service: 'Kerberos', notes: 'Auth tickets; protect domain controllers', risk: 'med' },
   { port: 110, proto: 'tcp', service: 'POP3', notes: 'Cleartext mail retrieval; prefer POP3S 995', risk: 'med' },
@@ -11248,7 +11025,7 @@ var PORT_DATA = [
   { port: 995, proto: 'tcp', service: 'POP3S', notes: 'POP3 over TLS', risk: 'none' },
   { port: 1433, proto: 'tcp', service: 'MS SQL', notes: 'Database; never internet-facing without controls', risk: 'high' },
   { port: 1521, proto: 'tcp', service: 'Oracle DB', notes: 'Database listener; restrict tightly', risk: 'high' },
-  { port: 1723, proto: 'tcp', service: 'PPTP', notes: 'Legacy VPN; weak crypto — avoid', risk: 'high' },
+  { port: 1723, proto: 'tcp', service: 'PPTP', notes: 'Legacy VPN; weak crypto, avoid', risk: 'high' },
   { port: 2049, proto: 'both', service: 'NFS', notes: 'Network filesystem; auth and export hardening', risk: 'high' },
   { port: 3306, proto: 'tcp', service: 'MySQL / MariaDB', notes: 'Database; bind to localhost or private net', risk: 'high' },
   { port: 3389, proto: 'both', service: 'RDP', notes: 'Remote Desktop; NLA + gateway, no raw internet', risk: 'high' },
@@ -11271,7 +11048,7 @@ var PORT_DATA = [
   { port: 873, proto: 'tcp', service: 'rsync', notes: 'File sync; unauth modules are high risk', risk: 'high' },
   { port: 9418, proto: 'tcp', service: 'Git', notes: 'Git protocol (cleartext); prefer SSH/HTTPS', risk: 'med' },
   { port: 11211, proto: 'both', service: 'Memcached', notes: 'Amplification history if open to internet', risk: 'high' },
-  { port: 2375, proto: 'tcp', service: 'Docker API', notes: 'Unauthenticated Docker socket — critical if exposed', risk: 'high' },
+  { port: 2375, proto: 'tcp', service: 'Docker API', notes: 'Unauthenticated Docker socket, critical if exposed', risk: 'high' },
   { port: 2376, proto: 'tcp', service: 'Docker API TLS', notes: 'TLS-protected Docker API', risk: 'med' },
   { port: 6443, proto: 'tcp', service: 'Kubernetes API', notes: 'Cluster control plane; RBAC + network policy', risk: 'high' },
   { port: 10250, proto: 'tcp', service: 'Kubelet API', notes: 'Node agent; historically misconfigured', risk: 'high' },
@@ -11354,11 +11131,11 @@ function setPortRisk(v) {
   filterPorts();
 }
 
-function filterPorts() {
+function getFilteredPorts() {
   var q = (($('portSearch') && $('portSearch').value) || '').trim().toLowerCase();
   var proto = portProtoVal;
   var risk = portRiskVal;
-  var filtered = PORTS.filter(function (p) {
+  return PORTS.filter(function (p) {
     if (proto === 'tcp' && p.proto !== 'tcp' && p.proto !== 'both') return false;
     if (proto === 'udp' && p.proto !== 'udp' && p.proto !== 'both') return false;
     if (proto === 'both' && p.proto !== 'both') return false;
@@ -11369,6 +11146,10 @@ function filterPorts() {
     var hay = (p.port + ' ' + p.proto + ' ' + p.service + ' ' + p.notes).toLowerCase();
     return hay.indexOf(q) !== -1;
   });
+}
+
+function filterPorts() {
+  var filtered = getFilteredPorts();
   renderPortRows(filtered);
   var el = $('portCount');
   if (el) {
@@ -11381,20 +11162,7 @@ function filterPorts() {
 }
 
 function copyVisiblePorts() {
-  var q = (($('portSearch') && $('portSearch').value) || '').trim().toLowerCase();
-  var proto = portProtoVal;
-  var risk = portRiskVal;
-  var filtered = PORTS.filter(function (p) {
-    if (proto === 'tcp' && p.proto !== 'tcp' && p.proto !== 'both') return false;
-    if (proto === 'udp' && p.proto !== 'udp' && p.proto !== 'both') return false;
-    if (proto === 'both' && p.proto !== 'both') return false;
-    if (risk === 'high' && p.risk !== 'high') return false;
-    if (risk === 'med' && p.risk !== 'med') return false;
-    if (risk === 'none' && p.risk !== 'none') return false;
-    if (!q) return true;
-    var hay = (p.port + ' ' + p.proto + ' ' + p.service + ' ' + p.notes).toLowerCase();
-    return hay.indexOf(q) !== -1;
-  });
+  var filtered = getFilteredPorts();
   if (!filtered.length) { showToast('Nothing to copy.', 'error'); return; }
   var lines = filtered.map(function (p) {
     return p.port + '\t' + p.proto.toUpperCase() + '\t' + p.service + '\t' + p.notes;
@@ -11561,7 +11329,7 @@ function runSummarize() {
   if (extra > 0) {
     sumEl.appendChild(pill('warn', extra.toLocaleString() + ' extra addresses in summary (gaps filled)'));
   } else {
-    sumEl.appendChild(pill('ok', 'Exact coverage — no gaps filled'));
+    sumEl.appendChild(pill('ok', 'Exact coverage, no gaps filled'));
   }
 
   var report = ['Supernet / route summary report', 'Inputs: ' + cidrs.length, 'Aggregates: ' + aggregates.length, ''];
@@ -11881,7 +11649,7 @@ function hashRawText() {
 function hashUploadedFile(file) {
   if (!file) return;
   if (file.size > 200 * 1024 * 1024) {
-    showToast('File larger than 200 MB — may be slow or fail in-browser.', 'error');
+    showToast('File larger than 200 MB. May be slow or fail in-browser.', 'error');
   }
   var reader = new FileReader();
   reader.onload = function(e) {
@@ -11916,148 +11684,10 @@ function armHashDropZone() {
   });
 }
 
-/* ---------- Subnetting Drills (merged in from the retired standalone tool) ---------- */
-var drillScore = 0, drillTried = 0, drillStreak = 0, drillDeadline = 0, drillTimerId = null, drillCurrent = null;
-var drillModeVal = 'hosts', drillSecsVal = 30;
-
-function setDrillMode(v) {
-  drillModeVal = v;
-  document.querySelectorAll('#drillModeRow .pill-btn').forEach(function (b) {
-    b.classList.toggle('active', b.getAttribute('data-val') === v);
-  });
-}
-function setDrillSecs(v) {
-  drillSecsVal = v;
-  document.querySelectorAll('#drillSecsRow .pill-btn').forEach(function (b) {
-    b.classList.toggle('active', +b.getAttribute('data-val') === v);
-  });
-}
-
-function randInt(a, b) { return a + Math.floor(Math.random() * (b - a + 1)); }
-function randomIp() { return [randInt(10, 200), randInt(0, 255), randInt(0, 255), randInt(1, 254)].join('.'); }
-
-function makeDrillQuestion() {
-  var mode = drillModeVal;
-  if (mode === 'hosts') {
-    var hosts = [2, 6, 14, 30, 62, 126, 254, 510, 1022][randInt(0, 8)];
-    var prefix = 32 - Math.ceil(Math.log2(hosts + 2));
-    return { text: 'Minimum prefix length for at least ' + hosts + ' usable hosts?', answer: String(prefix), hint: 'Need ' + hosts + '+2 addresses → /' + prefix };
-  }
-  if (mode === 'prefix') {
-    var p2 = randInt(20, 30);
-    var h2 = Math.pow(2, 32 - p2) - 2;
-    return { text: 'Usable hosts in a /' + p2 + ' network?', answer: String(h2), hint: '2^(32-' + p2 + ')-2 = ' + h2 };
-  }
-  var ip = randomIp(), prefix3 = randInt(16, 28);
-  var mask = prefixToMask(prefix3);
-  var net = (parseIp(ip) & mask) >>> 0, bcast = (net | (~mask >>> 0)) >>> 0;
-  if (mode === 'network') {
-    return { text: 'Network address of ' + ip + '/' + prefix3 + '?', answer: ipToStr(net), hint: 'Mask /' + prefix3 + ' → ' + ipToStr(net) };
-  }
-  return { text: 'Broadcast address of ' + ip + '/' + prefix3 + '?', answer: ipToStr(bcast), hint: 'Last address → ' + ipToStr(bcast) };
-}
-
-function drillTick() {
-  var left = Math.max(0, Math.ceil((drillDeadline - Date.now()) / 1000));
-  $('drillTimerOut').textContent = left;
-  if (left <= 0) {
-    clearInterval(drillTimerId); drillTimerId = null;
-    showDrillMsg(false, 'Time up. Answer was ' + drillCurrent.answer + '. ' + drillCurrent.hint);
-    drillStreak = 0; $('drillStreakOut').textContent = 0;
-  }
-}
-
-function newDrillQ() {
-  drillCurrent = makeDrillQuestion();
-  $('drillPrompt').textContent = drillCurrent.text;
-  $('drillAnswer').value = '';
-  $('drillMsg').textContent = '';
-  $('drillMsg').style.color = '';
-  $('drillAnswer').focus();
-  var secs = drillSecsVal;
-  drillDeadline = Date.now() + secs * 1000;
-  $('drillTimerOut').textContent = secs;
-  clearInterval(drillTimerId);
-  drillTimerId = setInterval(drillTick, 200);
-}
-
-function showDrillMsg(ok, text) {
-  var m = $('drillMsg');
-  m.textContent = text;
-  m.style.color = ok ? 'var(--ok)' : 'var(--alert)';
-}
-
-function checkDrill() {
-  if (!drillCurrent) return;
-  drillTried++; $('drillTriedOut').textContent = drillTried;
-  var raw = $('drillAnswer').value.trim().toLowerCase().replace(/^\//, '');
-  var ok = raw === String(drillCurrent.answer).toLowerCase();
-  if (ok) {
-    drillScore++; drillStreak++;
-    $('drillScoreOut').textContent = drillScore; $('drillStreakOut').textContent = drillStreak;
-    showDrillMsg(true, 'Correct. ' + drillCurrent.hint);
-    clearInterval(drillTimerId);
-    setTimeout(newDrillQ, 700);
-  } else {
-    drillStreak = 0; $('drillStreakOut').textContent = 0;
-    showDrillMsg(false, 'Not quite. ' + drillCurrent.hint);
-  }
-}
-
-function skipDrill() {
-  if (drillCurrent) showDrillMsg(false, 'Skipped. Answer: ' + drillCurrent.answer);
-  newDrillQ();
-}
-
-/* ---------- Glossary (merged in from the retired standalone tool) ---------- */
-var glossActiveCat = 'all';
-
-function setGlossCat(cat) {
-  glossActiveCat = cat;
-  document.querySelectorAll('#glossCatRow .pill-btn').forEach(function (b) {
-    b.classList.toggle('active', b.getAttribute('data-cat') === cat);
-  });
-  applyGlossaryFilter();
-}
-
-function applyGlossaryFilter() {
-  var q = ($('glossSearch').value || '').trim().toLowerCase();
-  var anyVisible = false;
-  document.querySelectorAll('.gloss-terms').forEach(function (dl) {
-    var catMatch = glossActiveCat === 'all' || dl.dataset.cat === glossActiveCat;
-    var heading = document.querySelector('.gloss-cat-heading[data-cat="' + dl.dataset.cat + '"]');
-    var groupHasVisible = false;
-    dl.querySelectorAll('.gloss-term').forEach(function (term) {
-      // Search only the term name (dt) and definition (dd) -- not the "Used
-      // in: ..." footer, which would otherwise match almost every entry on a
-      // query like "lab" regardless of what the definition actually says.
-      var dt = term.querySelector('dt'), dd = term.querySelector('dd');
-      var searchable = ((dt ? dt.textContent : '') + ' ' + (dd ? dd.textContent : '')).toLowerCase();
-      var show = catMatch && (!q || searchable.indexOf(q) !== -1);
-      term.style.display = show ? '' : 'none';
-      if (show) { groupHasVisible = true; anyVisible = true; }
-    });
-    dl.style.display = groupHasVisible ? '' : 'none';
-    if (heading) heading.style.display = groupHasVisible ? '' : 'none';
-  });
-  var existingEmpty = $('glossEmptyMsg');
-  if (!anyVisible) {
-    if (!existingEmpty) {
-      var p = document.createElement('p');
-      p.id = 'glossEmptyMsg'; p.className = 'gloss-empty';
-      p.textContent = 'No terms match that search.';
-      $('glossList').appendChild(p);
-    }
-  } else if (existingEmpty) {
-    existingEmpty.remove();
-  }
-}
-
 /* ---------- Init ---------- */
 window.addEventListener('DOMContentLoaded', function () {
   $('sbVersion').textContent = 'v' + TOOL_VERSION;
   if ($('pageCredit')) $('pageCredit').textContent = 'Built by ' + TOOL_MAINTAINER;
-  buildRefTable();
   filterPorts();
   armIdleLock();
   armHashDropZone();
@@ -12125,35 +11755,25 @@ window.addEventListener('DOMContentLoaded', function () {
       if (e.key === 'Enter') hashRawText();
     });
   }
-  // Drill answer Enter (plain Enter, not Ctrl/Cmd+Enter -- matches the quiz's
-  // original fast-paced "just hit Enter" convention from the standalone tool)
-  if ($('drillAnswer')) {
-    $('drillAnswer').addEventListener('keydown', function (e) {
-      if (e.key === 'Enter') checkDrill();
-    });
-  }
-
   // ---------- Guided walkthrough ----------
   // Gated: each step but the closing one waits for the real action on the
   // real control before advancing. Auto-starts once; always skippable;
-  // replayable via "Take the tour" in the masthead. 13 sub-tools here means
+  // replayable via "Take the tour" in the masthead. 10 sub-tools here means
   // a full tour of everything would be excessive -- this teaches the ONE
   // thing a first-time visitor actually needs (the sidebar is grouped,
   // every tool is independent, pick one and go), not a forced march
-  // through all 13.
+  // through all 10.
   var TOUR_KEY = 'calcToolkitTourSeen';
   var tourStep = 0, tourCleanupFns = [], tourWatchdog = null;
   var TOUR_STEPS = [
     { target: function () { return document.querySelector('.side'); }, manual: true,
-      body: 'Everything here lives in this sidebar, grouped into <b>Calculators<\/b>, <b>Security<\/b>, and <b>Practice &amp; Reference<\/b>. Let\'s try the first one.' },
+      body: 'Everything here lives in this sidebar, grouped into <b>Calculators<\/b> and <b>Security<\/b>. Let\'s try the first one.' },
     { target: function () { return $('btnCalc'); },
       onShow: function () { if ($('ipAddr') && !$('ipAddr').value) $('ipAddr').value = '192.168.10.25'; if ($('prefixOrMask') && !$('prefixOrMask').value) $('prefixOrMask').value = '24'; },
       gates: [{ event: 'click' }],
-      body: 'We\'ve filled in an example IP and prefix above — click <b>Calculate<\/b> to see the full breakdown.' },
-    { target: function () { return document.querySelector('.tab[data-tab="glossary"]'); }, gates: [{ event: 'click' }],
-      body: 'Every tool here is independent — jump to <b>Glossary<\/b> anytime to look something up.' },
+      body: 'We\'ve filled in an example IP and prefix above. Click <b>Calculate<\/b> to see the full breakdown.' },
     { target: null, manual: true, finish: true,
-      body: 'That\'s the pattern for all 13 tools: pick one from the sidebar, use it, move to the next whenever you want. Explore at your own pace.' }
+      body: 'That\'s the pattern for all 10 tools: pick one from the sidebar, use it, move to the next whenever you want. Explore at your own pace.' }
   ];
   function clearTourCleanup() { tourCleanupFns.forEach(function (fn) { fn(); }); tourCleanupFns = []; if (tourWatchdog) { clearInterval(tourWatchdog); tourWatchdog = null; } }
   function endTour() { clearTourCleanup(); document.querySelectorAll('.tour-spotlight, .tour-callout').forEach(function (el) { el.remove(); }); try { localStorage.setItem(TOUR_KEY, '1'); } catch (e) {} }
@@ -12256,7 +11876,7 @@ window.addEventListener('DOMContentLoaded', function () {
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self' data:; style-src 'unsafe-inline'; script-src 'unsafe-inline'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none';">
-<title>Cheat Sheet — IT Skills Kit<\/title>
+<title>Cheat Sheet: IT Skills Kit<\/title>
 <style>
 :root {
   color-scheme: dark;
@@ -12422,6 +12042,7 @@ input:focus, select:focus {
   letter-spacing: .1em;
   text-transform: uppercase;
   color: var(--dim);
+  scroll-margin-top: 120px;
 }
 .sheet-cat:first-child { margin-top: 4px; }
 .table-wrap {
@@ -12493,7 +12114,6 @@ td.cmd, .mono {
 .gloss-used-in a { color: var(--dim); text-decoration: underline; text-decoration-color: var(--line); }
 .gloss-used-in a:hover { color: var(--muted); }
 .gloss-empty { color: var(--muted); padding: 16px; text-align: center; }
-.panel-actions { display: none; }
 @media (max-width: 640px) {
   body { padding: 18px 12px 48px; }
   .card { padding: 16px; border-radius: 18px; }
@@ -12656,9 +12276,6 @@ tr:hover .copy-hint { opacity: 1; }
   background: rgba(255,255,255,.02);
 }
 .cat-jump a:hover { color: #8bc7ff; border-color: rgba(30,102,245,.35); }
-.sheet-cat {
-  scroll-margin-top: 120px;
-}
 .kit-nav-link{display:block;padding:8px;border-radius:8px;color:#e8edf2;text-decoration:none;font-size:13px;transition:background .12s,color .12s}
 .kit-nav-link:hover,.kit-nav-link:focus-visible{background:rgba(30,102,245,.12);color:#5eb1ff}
 .kit-nav-current{display:block;padding:8px;border-radius:8px;color:#5eb1ff;background:rgba(30,102,245,.12);font-size:13px;font-weight:700}
@@ -12703,7 +12320,7 @@ tr:hover .copy-hint { opacity: 1; }
     <header class="hero">
       <div class="eyebrow">Work faster · Offline<\/div>
       <h1>Cheat Sheet<\/h1>
-      <p>Switch CLI commands, prefix tables, and a plain-English glossary — one place, no drills.<\/p>
+      <p>Switch CLI commands, prefix tables, and a plain-English glossary, all in one place. No drills.<\/p>
     <\/header>
 
     <nav class="tabs" aria-label="Cheat sheet sections">
@@ -12791,7 +12408,7 @@ tr:hover .copy-hint { opacity: 1; }
         <div class="panel-head">
           <div class="panel-title">Glossary<\/div>
         <\/div>
-        <div class="panel-note">Plain-English definitions for the terms used across this kit. One sentence each — no lecture.<\/div>
+        <div class="panel-note">Plain-English definitions for the terms used across this kit. One sentence each.<\/div>
         <div class="field" style="max-width:420px; margin-top:4px">
           <label for="glossSearch">Search<\/label>
           <input type="text" id="glossSearch" placeholder="e.g. VLAN, NAT, gateway" spellcheck="false" oninput="applyGlossaryFilter()">
@@ -12810,12 +12427,12 @@ tr:hover .copy-hint { opacity: 1; }
       <div class="panel" id="glossList">
         <p class="gloss-cat-heading" data-cat="addr">Addressing<\/p>
         <dl class="gloss-terms" data-cat="addr">
-          <div class="gloss-term"><dt>IP address<\/dt><dd>A number that identifies a device on a network — like a street address for a packet.<\/dd>
+          <div class="gloss-term"><dt>IP address<\/dt><dd>A number that identifies a device on a network, like a street address for a packet.<\/dd>
             <div class="gloss-used-in">Used in: <a href="Routing_Lab.html">Routing Lab<\/a><\/div><\/div>
           <div class="gloss-term"><dt>Subnet mask<\/dt><dd>Marks which part of an IP address is the network and which part is the specific device.<\/dd><\/div>
-          <div class="gloss-term"><dt>CIDR / prefix length <code>/24<\/code><\/dt><dd>The "/24" after an IP address — shorthand for how much of the address is the network part.<\/dd>
+          <div class="gloss-term"><dt>CIDR / prefix length <code>/24<\/code><\/dt><dd>The "/24" after an IP address: shorthand for how much of the address is the network part.<\/dd>
             <div class="gloss-used-in">Used in: <a href="Routing_Lab.html">Routing Lab<\/a><\/div><\/div>
-          <div class="gloss-term"><dt>Network address<\/dt><dd>The first address in a subnet. Identifies the subnet itself — not a device you can use.<\/dd><\/div>
+          <div class="gloss-term"><dt>Network address<\/dt><dd>The first address in a subnet. Identifies the subnet itself; not a device you can use.<\/dd><\/div>
           <div class="gloss-term"><dt>Broadcast address<\/dt><dd>The last address in a subnet. A message sent here reaches every device on that subnet at once.<\/dd><\/div>
           <div class="gloss-term"><dt>Private vs. public IP<\/dt><dd>Private addresses (10.x, 172.16–31.x, 192.168.x) only work inside a local network. Public addresses are reachable from the internet.<\/dd><\/div>
           <div class="gloss-term"><dt>Default gateway<\/dt><dd>The router a device sends traffic to when the destination isn't on its own subnet.<\/dd>
@@ -12838,7 +12455,7 @@ tr:hover .copy-hint { opacity: 1; }
         <dl class="gloss-terms" data-cat="switch">
           <div class="gloss-term"><dt>Switch<\/dt><dd>A device that connects devices on the same local network and forwards traffic between them by MAC address.<\/dd>
             <div class="gloss-used-in">Used in: <a href="Network_Fault_Lab.html">Network Fault Lab<\/a><\/div><\/div>
-          <div class="gloss-term"><dt>Port (switch)<\/dt><dd>A physical connector on a switch that a cable plugs into. Not the same thing as a service port — see Transport below.<\/dd>
+          <div class="gloss-term"><dt>Port (switch)<\/dt><dd>A physical connector on a switch that a cable plugs into. Not the same thing as a service port (see Transport below).<\/dd>
             <div class="gloss-used-in">Used in: <a href="Network_Fault_Lab.html">Network Fault Lab<\/a><\/div><\/div>
           <div class="gloss-term"><dt>VLAN<\/dt><dd>Virtual LAN. Splits one physical switch into multiple separate logical networks.<\/dd>
             <div class="gloss-used-in">Used in: <a href="Network_Fault_Lab.html">Network Fault Lab<\/a><\/div><\/div>
@@ -12862,7 +12479,7 @@ tr:hover .copy-hint { opacity: 1; }
             <div class="gloss-used-in">Used in: <a href="Routing_Lab.html">Routing Lab<\/a><\/div><\/div>
           <div class="gloss-term"><dt>Administrative distance<\/dt><dd>How much a router trusts one source of routing information over another, when it learns the same route two different ways.<\/dd>
             <div class="gloss-used-in">Used in: <a href="Routing_Lab.html">Routing Lab<\/a><\/div><\/div>
-          <div class="gloss-term"><dt>BGP<\/dt><dd>Border Gateway Protocol. The routing protocol that connects large networks — like ISPs — to each other across the internet.<\/dd>
+          <div class="gloss-term"><dt>BGP<\/dt><dd>Border Gateway Protocol. The routing protocol that connects large networks, like ISPs, to each other across the internet.<\/dd>
             <div class="gloss-used-in">Used in: <a href="Routing_Lab.html">Routing Lab<\/a><\/div><\/div>
         <\/dl>
 
@@ -12874,14 +12491,14 @@ tr:hover .copy-hint { opacity: 1; }
             <div class="gloss-used-in">Used in: <a href="Firewall_Rules_Lab.html">Firewall Rules Lab<\/a><\/div><\/div>
           <div class="gloss-term"><dt>Implicit deny<\/dt><dd>The rule at the end of most ACLs and firewall policies: if nothing else matched, block it.<\/dd>
             <div class="gloss-used-in">Used in: <a href="Firewall_Rules_Lab.html">Firewall Rules Lab<\/a><\/div><\/div>
-          <div class="gloss-term"><dt>NAT<\/dt><dd>Network Address Translation. Rewrites IP addresses — often private-to-public — as traffic crosses a boundary.<\/dd><\/div>
+          <div class="gloss-term"><dt>NAT<\/dt><dd>Network Address Translation. Rewrites IP addresses (often private-to-public) as traffic crosses a boundary.<\/dd><\/div>
           <div class="gloss-term"><dt>PAT<\/dt><dd>Port Address Translation, aka "NAT overload." Many private devices share one public IP, kept separate by port number.<\/dd><\/div>
           <div class="gloss-term"><dt>TLS / HTTPS<\/dt><dd>Encrypts traffic between a browser and a server so it can't be read or altered in transit.<\/dd><\/div>
         <\/dl>
 
         <p class="gloss-cat-heading" data-cat="transport">Transport &amp; protocols<\/p>
         <dl class="gloss-terms" data-cat="transport">
-          <div class="gloss-term"><dt>Protocol<\/dt><dd>An agreed-upon set of rules two devices use to talk to each other — e.g. HTTP, DNS, TCP.<\/dd><\/div>
+          <div class="gloss-term"><dt>Protocol<\/dt><dd>An agreed-upon set of rules two devices use to talk to each other, e.g. HTTP, DNS, TCP.<\/dd><\/div>
           <div class="gloss-term"><dt>TCP<\/dt><dd>A connection-based protocol that guarantees delivery and order. Used for things like web pages and file transfers.<\/dd>
             <div class="gloss-used-in">Used in: <a href="Firewall_Rules_Lab.html">Firewall Rules Lab<\/a><\/div><\/div>
           <div class="gloss-term"><dt>UDP<\/dt><dd>A connectionless protocol with no delivery guarantee. Used where speed matters more than perfection, like video calls and DNS.<\/dd><\/div>
@@ -13331,7 +12948,7 @@ input:focus,select:focus,textarea:focus{outline:1px solid var(--accent);border-c
 <div id="tab-query" class="wrap">
   <div class="card">
     <h2>Query<\/h2>
-    <p class="hint">Ask the lab resolver. Answers come only from the offline zone below — nothing leaves this page.<\/p>
+    <p class="hint">Ask the lab resolver. Answers come only from the offline zone below. Nothing leaves this page.<\/p>
     <div class="row">
       <div><label>Name<\/label><input id="qName" value="www.lab.local" spellcheck="false"><\/div>
       <div><label>Type<\/label>
@@ -13436,7 +13053,7 @@ SOA     Start of authority<\/div>
 <div id="tab-walk" class="wrap hidden">
   <div class="card full">
     <h2>Guided walkthrough <span id="walkProgress" class="mut" style="font-size:12px;font-weight:400"><\/span><\/h2>
-    <p class="hint">Four failures, worked in order. Each one loads the broken zone for you, but you have to actually run the diagnostic query yourself before "Check my diagnosis" will accept it — and you have to answer why before it counts as solved.<\/p>
+    <p class="hint">Four failures, worked in order. Each one loads the broken zone for you, but you have to actually run the diagnostic query yourself before "Check my diagnosis" will accept it, and you have to answer why before it counts as solved.<\/p>
     <div id="walkBody"><\/div>
   <\/div>
 <\/div>
@@ -13466,16 +13083,16 @@ let queryLog = [];
 
 const SCENARIOS = [
   {id:'cname-loop', title:'CNAME loop', body:'www points at app, app points back at www. Lookups never finish cleanly.',
-    hint:'Query www.lab.local and open the Zone database tab. Follow the CNAME chain by hand — does it ever reach a record with an actual A/AAAA answer, or does it point back to something you already visited?',
+    hint:'Query www.lab.local and open the Zone database tab. Follow the CNAME chain by hand: does it ever reach a record with an actual A/AAAA answer, or does it point back to something you already visited?',
     apply(){ zone=zone.filter(r=>!(r.name==='app.lab.local.'&&r.type==='A')); zone.push({name:'app.lab.local.',ttl:300,type:'CNAME',data:'www.lab.local.'}); }},
   {id:'missing-a', title:'Missing A for API', body:'api.lab.local has no A record. Clients fail to connect.',
-    hint:'Query api.lab.local with type A. The response will tell you what DNS returns when a name has no record of the requested type at all — that response code is the tell.',
+    hint:'Query api.lab.local with type A. The response will tell you what DNS returns when a name has no record of the requested type at all. That response code is the tell.',
     apply(){ zone=zone.filter(r=>!(r.name==='api.lab.local.'&&r.type==='A')); }},
   {id:'wrong-mx', title:'Wrong MX target', body:'MX points at a name with no A/AAAA. Mail breaks.',
     hint:'Query lab.local with type MX to see what hostname mail is being routed to. Then query that exact hostname for A — does it resolve to anything?',
     apply(){ zone=zone.map(r=>r.type==='MX'?Object.assign({},r,{data:'10 missing-mail.lab.local.'}):r); }},
   {id:'bad-ns', title:'NS without glue', body:'NS records exist but ns2 has no A record (glue missing in this lab zone).',
-    hint:'Check the Zone database tab for the NS records on lab.local, then look for an A record for each nameserver name. A resolver can’t contact a nameserver it can’t get an address for — that’s "glue".',
+    hint:'Check the Zone database tab for the NS records on lab.local, then look for an A record for each nameserver name. A resolver can’t contact a nameserver it can’t get an address for. That’s "glue".',
     apply(){ zone=zone.filter(r=>!(r.name==='ns2.lab.local.'&&r.type==='A')); }},
 ];
 
@@ -13509,7 +13126,7 @@ function query(name, type, mode, follow){
       if(cn.length){
         path.push({cls:'warn', hop:'auth', text:'CNAME: '+cur+' → '+cn[0].data});
         answers=answers.concat(cn);
-        if(!follow){ path.push({cls:'on', hop:'auth', text:'Follow CNAME disabled — stop'}); break; }
+        if(!follow){ path.push({cls:'on', hop:'auth', text:'Follow CNAME disabled, stop'}); break; }
         cur=cn[0].data;
         continue;
       }
@@ -13522,7 +13139,7 @@ function query(name, type, mode, follow){
     path.push({cls:'bad', hop:'auth', text:'NXDOMAIN / no '+type+' for '+cur});
     break;
   }
-  if(hops>=6) path.push({cls:'bad', hop:'auth', text:'Stopped — possible CNAME loop'});
+  if(hops>=6) path.push({cls:'bad', hop:'auth', text:'Stopped, possible CNAME loop'});
   lastPath=path;
   return {answers, path, name:nm, type};
 }
@@ -13593,6 +13210,8 @@ document.getElementById('btnResetZone').onclick=()=>{
   zone=JSON.parse(JSON.stringify(BASE_ZONE));
   renderZone();
   document.getElementById('scOut').innerHTML='<span class="ok">Zone restored to healthy baseline.<\/span>';
+  currentScenario=null;
+  btnHint.disabled=true;
 };
 
 document.querySelectorAll('.tabs .tab').forEach(t=>{
@@ -13629,7 +13248,6 @@ btnHint.onclick=()=>{
   if(!currentScenario) return;
   document.getElementById('scOut').innerHTML=`<span class="warn">Loaded: ${currentScenario.title}<\/span>\n${currentScenario.body}\n\n<span class="ok">Hint:<\/span> ${currentScenario.hint}`;
 };
-document.getElementById('btnResetZone').addEventListener('click',()=>{ currentScenario=null; btnHint.disabled=true; });
 renderZone();
 
 const QUIZ_Q=[
@@ -13662,7 +13280,7 @@ function showQuiz(){
       const ok=choice===q.ans;
       quizAnswered++;
       if(ok) quizCorrect++;
-      document.getElementById('quizOut').innerHTML=(ok?'<span class="ok">Correct.<\/span>':'<span class="bad">Not quite — the answer is '+q.ans+'.<\/span>');
+      document.getElementById('quizOut').innerHTML=(ok?'<span class="ok">Correct.<\/span>':'<span class="bad">Not quite. The answer is '+q.ans+'.<\/span>');
       renderQuizScore();
     };
     cc.appendChild(b);
@@ -13711,7 +13329,7 @@ function renderWalkStep(){
   const body=document.getElementById('walkBody');
   if(walkIdx>=SCENARIOS.length){
     document.getElementById('walkProgress').textContent=`— ${SCENARIOS.length}/${SCENARIOS.length} complete`;
-    body.innerHTML='<div class="out"><span class="ok">Walkthrough complete — all four failures diagnosed and explained correctly.<\/span><\/div>';
+    body.innerHTML='<div class="out"><span class="ok">Walkthrough complete. All four failures diagnosed and explained correctly.<\/span><\/div>';
     return;
   }
   document.getElementById('walkProgress').textContent = walkIdx ? `— ${walkIdx}/${SCENARIOS.length} complete` : '';
@@ -13722,7 +13340,7 @@ function renderWalkStep(){
       <div class="out" id="walkFeedback" style="margin-top:10px"><span class="mut">Waiting on a query…<\/span><\/div>`;
     document.getElementById('btnWalkCheck').onclick=()=>{
       if(data.diagnose(queryLog)){ walkPhase='question'; renderWalkStep(); }
-      else document.getElementById('walkFeedback').innerHTML='<span class="bad">Not yet — go run a query against the actual broken name from the Query tab first.<\/span>';
+      else document.getElementById('walkFeedback').innerHTML='<span class="bad">Not yet. Go run a query against the actual broken name from the Query tab first.<\/span>';
     };
   } else {
     body.innerHTML=`<div class="out"><span class="ok">Symptom confirmed.<\/span> Now explain it.<\/div>
@@ -13738,7 +13356,7 @@ function renderWalkStep(){
           document.getElementById('walkFeedback').innerHTML='<span class="ok">Correct. Step complete.<\/span>';
           setTimeout(()=>{ walkIdx++; walkPhase='diagnose'; showWalkStep(); }, 900);
         } else {
-          document.getElementById('walkFeedback').innerHTML='<span class="bad">Not quite — look again at what actually changed in the zone.<\/span>';
+          document.getElementById('walkFeedback').innerHTML='<span class="bad">Not quite. Look again at what actually changed in the zone.<\/span>';
         }
       };
       cc.appendChild(b);
@@ -13760,9 +13378,9 @@ const TOUR_STEPS=[
   { tab:'path', target:()=>document.getElementById('dnsChain'), manual:true,
     body:'This is the same query, drawn out. <b>Blue<\/b> means the request reached that stop, <b>green<\/b> means it got an answer there, <b>red<\/b> means it failed there. The steps below spell out the same thing in words if you want the detail.' },
   { target:()=>document.querySelector('[data-tab="scenarios"]'), gates:[{event:'click'}],
-    body:'Scenarios load a broken zone — use Query to work out what\'s wrong.' },
+    body:'Scenarios load a broken zone. Use Query to work out what\'s wrong.' },
   { target:()=>document.querySelector('[data-tab="walk"]'), gates:[{event:'click'}],
-    body:'The Walkthrough tab is the hands-on version — it makes you diagnose and explain each failure before it lets you move on.' },
+    body:'The Walkthrough tab is the hands-on version. It makes you diagnose and explain each failure before it lets you move on.' },
   { target:null, manual:true, finish:true, body:'That\'s the lab. Good luck.' },
 ];
 function clearTourCleanup(){ tourCleanupFns.forEach(fn=>fn()); tourCleanupFns=[]; if(tourWatchdog){ clearInterval(tourWatchdog); tourWatchdog=null; } }
@@ -14006,7 +13624,7 @@ th{color:var(--mut);font-size:11px}
       <div class="node" id="topoNode-R3"><b>R3<\/b><span>10.0.0.3<br>branch<\/span><\/div>
     <\/div>
     <div class="legend"><span><i class="dot dot-accent"><\/i>Packet passed through here<\/span><span><i class="dot dot-ok"><\/i>Delivered here<\/span><span><i class="dot dot-bad"><\/i>Dropped here<\/span><\/div>
-    <p class="hint" style="margin-top:10px">R1—R2—R3. Pick a source router and destination below, then click <b>Trace path<\/b> — the diagram above lights up to match.<\/p>
+    <p class="hint" style="margin-top:10px">R1—R2—R3. Pick a source router and destination below, then click <b>Trace path<\/b>, and the diagram above lights up to match.<\/p>
     <div class="row">
       <div><label>Source router<\/label><select id="pathFrom"><option>R1<\/option><option>R2<\/option><option>R3<\/option><\/select><\/div>
       <div><label>Destination IP<\/label><input id="pathDest" value="10.3.1.50"><\/div>
@@ -14052,7 +13670,7 @@ th{color:var(--mut);font-size:11px}
 <div id="tab-walk" class="wrap hidden">
   <div class="card full">
     <h2>Guided walkthrough <span id="walkProgress" class="mut" style="font-size:12px;font-weight:400"><\/span><\/h2>
-    <p class="hint">Three routing decisions, worked in order. Each one sets up the routing tables for you, but you have to actually run the lookup yourself before "Check my diagnosis" will accept it — and you have to answer why before it counts as solved.<\/p>
+    <p class="hint">Three routing decisions, worked in order. Each one sets up the routing tables for you, but you have to actually run the lookup yourself before "Check my diagnosis" will accept it, and you have to answer why before it counts as solved.<\/p>
     <div id="walkBody"><\/div>
   <\/div>
 <\/div>
@@ -14268,8 +13886,8 @@ const WALK_DATA = {
   'remove-default': {
     diagnose(log){ return log.some(e => e.router==='R1' && !e.best); },
     question: 'Why does this lookup fail now?',
-    choices: ['The interface is administratively down', 'There is no matching route left in the table — no default route to catch it', 'The administrative distance is too high', 'The destination IP is invalid'],
-    answer: 'There is no matching route left in the table — no default route to catch it',
+    choices: ['The interface is administratively down', 'There is no matching route left in the table (no default route to catch it)', 'The administrative distance is too high', 'The destination IP is invalid'],
+    answer: 'There is no matching route left in the table (no default route to catch it)',
   },
 };
 let walkIdx=0, walkPhase='diagnose', walkInited=-1;
@@ -14284,7 +13902,7 @@ function renderWalkStep(){
   const body=document.getElementById('walkBody');
   if(walkIdx>=SCENARIOS.length){
     document.getElementById('walkProgress').textContent=`— ${SCENARIOS.length}/${SCENARIOS.length} complete`;
-    body.innerHTML='<div class="out"><span class="ok">Walkthrough complete — all three routing decisions diagnosed and explained correctly.<\/span><\/div>';
+    body.innerHTML='<div class="out"><span class="ok">Walkthrough complete. All three routing decisions diagnosed and explained correctly.<\/span><\/div>';
     return;
   }
   document.getElementById('walkProgress').textContent = walkIdx ? `— ${walkIdx}/${SCENARIOS.length} complete` : '';
@@ -14295,7 +13913,7 @@ function renderWalkStep(){
       <div class="out" id="walkFeedback" style="margin-top:10px"><span class="mut">Waiting on a lookup…<\/span><\/div>`;
     document.getElementById('btnWalkCheck').onclick=()=>{
       if(data.diagnose(lpmLog)){ walkPhase='question'; renderWalkStep(); }
-      else document.getElementById('walkFeedback').innerHTML='<span class="bad">Not yet — go run a lookup that actually shows the result described above.<\/span>';
+      else document.getElementById('walkFeedback').innerHTML='<span class="bad">Not yet. Go run a lookup that actually shows the result described above.<\/span>';
     };
   } else {
     body.innerHTML=`<div class="out"><span class="ok">Result confirmed.<\/span> Now explain it.<\/div>
@@ -14311,7 +13929,7 @@ function renderWalkStep(){
           document.getElementById('walkFeedback').innerHTML='<span class="ok">Correct. Step complete.<\/span>';
           setTimeout(()=>{ walkIdx++; walkPhase='diagnose'; showWalkStep(); }, 900);
         } else {
-          document.getElementById('walkFeedback').innerHTML='<span class="bad">Not quite — look again at what actually changed in the routing table.<\/span>';
+          document.getElementById('walkFeedback').innerHTML='<span class="bad">Not quite. Look again at what actually changed in the routing table.<\/span>';
         }
       };
       cc.appendChild(b);
@@ -14334,9 +13952,9 @@ const TOUR_STEPS=[
   { tab:'path', target:()=>document.getElementById('pathTopo'), manual:true,
     body:'That\'s the path, drawn out. <b>Blue<\/b> means the packet passed through there, <b>green<\/b> means it was delivered there, <b>red<\/b> means it got dropped there.' },
   { target:()=>document.querySelector('[data-tab="scenarios"]'), gates:[{event:'click'}],
-    body:'Scenarios change the routing tables — use Lookup to see which route wins now.' },
+    body:'Scenarios change the routing tables. Use Lookup to see which route wins now.' },
   { target:()=>document.querySelector('[data-tab="walk"]'), gates:[{event:'click'}],
-    body:'The Walkthrough tab is the hands-on version — it makes you diagnose and explain each routing decision before it lets you move on.' },
+    body:'The Walkthrough tab is the hands-on version. It makes you diagnose and explain each routing decision before it lets you move on.' },
   { target:null, manual:true, finish:true, body:'That\'s the lab. Good luck.' },
 ];
 function clearTourCleanup(){ tourCleanupFns.forEach(fn=>fn()); tourCleanupFns=[]; if(tourWatchdog){ clearInterval(tourWatchdog); tourWatchdog=null; } }
@@ -14592,7 +14210,7 @@ input,select{width:100%;background:#0c1117;border:1px solid var(--border);color:
   <\/div>
   <div class="card">
     <h2>Decision<\/h2>
-    <p class="hint" style="margin:0 0 10px">Test a packet to watch it move down through your rules, top to bottom, until one matches — or nothing does.<\/p>
+    <p class="hint" style="margin:0 0 10px">Test a packet to watch it move down through your rules, top to bottom, until one matches, or nothing does.<\/p>
     <div id="pktFlow" class="pflow"><\/div>
     <div class="out" id="pktOut" style="margin-top:10px"><span class="mut">Test a packet against the rule list.<\/span><\/div>
   <\/div>
@@ -14613,7 +14231,7 @@ input,select{width:100%;background:#0c1117;border:1px solid var(--border);color:
 <div id="tab-walk" class="wrap hidden">
   <div class="card full">
     <h2>Guided walkthrough <span id="walkProgress" class="mut" style="font-size:12px;font-weight:400"><\/span><\/h2>
-    <p class="hint">Six broken policies, worked in order. Each one loads the bad rule set for you, but you have to actually test the right packet yourself before "Check my diagnosis" will accept it — and you have to answer why before it counts as solved.<\/p>
+    <p class="hint">Six broken policies, worked in order. Each one loads the bad rule set for you, but you have to actually test the right packet yourself before "Check my diagnosis" will accept it, and you have to answer why before it counts as solved.<\/p>
     <div id="walkBody"><\/div>
   <\/div>
 <\/div>
@@ -14623,7 +14241,7 @@ input,select{width:100%;background:#0c1117;border:1px solid var(--border);color:
     <h2>Evaluation model<\/h2>
     <div class="out" style="min-height:auto">1. Rules are checked in order (index 1, 2, 3…).
 2. A rule matches when proto, src, dst, and ports all match (or "any").
-3. First match decides allow or deny — later rules are not checked.
+3. First match decides allow or deny. Later rules are not checked.
 4. If no rule matches: implicit deny.
 5. CIDR match uses the same longest-prefix style as routing (contains IP).
 
@@ -14771,10 +14389,10 @@ document.getElementById('btnTest').onclick=()=>{
     if(t.matched){
       out+='Rule '+(t.i+1)+' ('+(t.rule.note||t.rule.act)+'): MATCH → '+t.rule.act.toUpperCase()+'\n';
     } else {
-      out+='Rule '+(t.i+1)+' ('+(t.rule.note||t.rule.act)+'): no match — '+t.reasons.join(', ')+'\n';
+      out+='Rule '+(t.i+1)+' ('+(t.rule.note||t.rule.act)+'): no match: '+t.reasons.join(', ')+'\n';
     }
   });
-  if(res.implicit) out+='(no rule matched — falls through to implicit deny)\n';
+  if(res.implicit) out+='(no rule matched, falls through to implicit deny)\n';
   out+='\n';
   if(res.implicit){
     out+='No rule matched.\nResult: DENY (implicit)\n';
@@ -14785,25 +14403,32 @@ document.getElementById('btnTest').onclick=()=>{
   document.getElementById('pktOut').textContent=out;
 };
 
+const SAMPLE_PACKETS={
+  web:{src:'10.1.5.20',dst:'203.0.113.50',proto:'tcp',sp:'51234',dp:'443'},
+  ssh:{src:'10.1.5.20',dst:'203.0.113.50',proto:'tcp',sp:'51234',dp:'22'},
+  dns:{src:'10.1.5.20',dst:'10.0.0.53',proto:'udp',sp:'53000',dp:'53'},
+  ext:{src:'198.51.100.10',dst:'10.1.5.20',proto:'tcp',sp:'443',dp:'443'},
+};
 document.querySelectorAll('[data-sample]').forEach(b=>{
   b.onclick=()=>{
-    const s=b.dataset.sample;
-    if(s==='web'){ pSrc.value='10.1.5.20'; pDst.value='203.0.113.50'; pProto.value='tcp'; pSp.value='51234'; pDp.value='443'; }
-    if(s==='ssh'){ pSrc.value='10.1.5.20'; pDst.value='203.0.113.50'; pProto.value='tcp'; pSp.value='51234'; pDp.value='22'; }
-    if(s==='dns'){ pSrc.value='10.1.5.20'; pDst.value='10.0.0.53'; pProto.value='udp'; pSp.value='53000'; pDp.value='53'; }
-    if(s==='ext'){ pSrc.value='198.51.100.10'; pDst.value='10.1.5.20'; pProto.value='tcp'; pSp.value='443'; pDp.value='443'; }
+    const s=SAMPLE_PACKETS[b.dataset.sample];
+    document.getElementById('pSrc').value=s.src;
+    document.getElementById('pDst').value=s.dst;
+    document.getElementById('pProto').value=s.proto;
+    document.getElementById('pSp').value=s.sp;
+    document.getElementById('pDp').value=s.dp;
   };
 });
 
 const DEFAULT=JSON.parse(JSON.stringify(rules));
 const SCENARIOS=[
-  {id:'ssh-order', title:'Allow SSH by mistake (order)', body:'An allow SSH rule is placed above the deny SSH rule — SSH out becomes allowed.',
+  {id:'ssh-order', title:'Allow SSH by mistake (order)', body:'An allow SSH rule is placed above the deny SSH rule. SSH out becomes allowed.',
     apply(){ rules=[
       {act:'allow',proto:'tcp',src:'10.1.0.0/16',dst:'0.0.0.0/0',sp:'any',dp:'22',note:'SSH out allowed'},
       {act:'deny',proto:'tcp',src:'10.1.0.0/16',dst:'0.0.0.0/0',sp:'any',dp:'22',note:'Block SSH (never hit)'},
       {act:'allow',proto:'tcp',src:'10.1.0.0/16',dst:'0.0.0.0/0',sp:'any',dp:'443',note:'HTTPS out'},
     ]; }},
-  {id:'shadowed-https', title:'Shadowed HTTPS', body:'A broad deny any sits above HTTPS allow — web breaks.',
+  {id:'shadowed-https', title:'Shadowed HTTPS', body:'A broad deny any sits above HTTPS allow. Web breaks.',
     apply(){ rules=[
       {act:'deny',proto:'any',src:'10.1.0.0/16',dst:'0.0.0.0/0',sp:'any',dp:'any',note:'Deny all out'},
       {act:'allow',proto:'tcp',src:'10.1.0.0/16',dst:'0.0.0.0/0',sp:'any',dp:'443',note:'HTTPS (shadowed)'},
@@ -14813,7 +14438,7 @@ const SCENARIOS=[
       {act:'allow',proto:'tcp',src:'10.1.0.0/16',dst:'0.0.0.0/0',sp:'any',dp:'443',note:'HTTPS out'},
       {act:'allow',proto:'any',src:'0.0.0.0/0',dst:'10.0.0.0/8',sp:'any',dp:'any',note:'Allow inbound (bad)'},
     ]; }},
-  {id:'specific-shadowed', title:'Specific rule shadowed by a broad one', body:'A subnet-wide allow sits above a deny meant for one risky host — the deny never gets checked, no matter how specific it is. Try the SSH sample.',
+  {id:'specific-shadowed', title:'Specific rule shadowed by a broad one', body:'A subnet-wide allow sits above a deny meant for one risky host. The deny never gets checked, no matter how specific it is. Try the SSH sample.',
     apply(){ rules=[
       {act:'allow',proto:'any',src:'10.1.0.0/16',dst:'0.0.0.0/0',sp:'any',dp:'any',note:'Allow all internal traffic out'},
       {act:'deny',proto:'tcp',src:'10.1.5.20',dst:'0.0.0.0/0',sp:'any',dp:'22',note:'Block this compromised host (never hit)'},
@@ -14822,7 +14447,7 @@ const SCENARIOS=[
     apply(){ rules=[
       {act:'allow',proto:'udp',src:'10.1.0.0/16',dst:'10.0.0.53/32',sp:'any',dp:'53',note:'DNS out (UDP only)'},
     ]; }},
-  {id:'forgotten-allow', title:'Forgotten temporary allow-any', body:'A rule added to test connectivity used any/any and was never removed — it invisibly allows everything below it, including inbound. Try the internet-to-internal sample.',
+  {id:'forgotten-allow', title:'Forgotten temporary allow-any', body:'A rule added to test connectivity used any/any and was never removed. It invisibly allows everything below it, including inbound. Try the internet-to-internal sample.',
     apply(){ rules=[
       {act:'allow',proto:'any',src:'0.0.0.0/0',dst:'0.0.0.0/0',sp:'any',dp:'any',note:'TEMP - remove after testing (forgotten)'},
       {act:'deny',proto:'any',src:'0.0.0.0/0',dst:'10.0.0.0/8',sp:'any',dp:'any',note:'No inbound from internet (shadowed)'},
@@ -14854,8 +14479,8 @@ const WALK_DATA = {
   'ssh-order': {
     diagnose(log){ return log.some(e => e.pkt.dp==='22' && e.res.act==='allow'); },
     question: 'Why did SSH get allowed even though there\'s a deny-SSH rule right below it?',
-    choices: ['The allow rule is now first — first match wins, later rules never get checked', 'There\'s a typo in the deny rule', 'SSH ignores ACLs', 'The port number is wrong'],
-    answer: 'The allow rule is now first — first match wins, later rules never get checked',
+    choices: ['The allow rule is now first: first match wins, later rules never get checked', 'There\'s a typo in the deny rule', 'SSH ignores ACLs', 'The port number is wrong'],
+    answer: 'The allow rule is now first: first match wins, later rules never get checked',
   },
   'shadowed-https': {
     diagnose(log){ return log.some(e => e.pkt.dp==='443' && e.res.act==='deny'); },
@@ -14871,15 +14496,15 @@ const WALK_DATA = {
   },
   'specific-shadowed': {
     diagnose(log){ return log.some(e => e.pkt.src==='10.1.5.20' && e.pkt.dp==='22' && e.res.act==='allow'); },
-    question: 'The specific deny rule for this host still exists — why doesn\'t it fire?',
+    question: 'The specific deny rule for this host still exists. Why doesn\'t it fire?',
     choices: ['It\'s below a broader rule that already matched everything', 'The IP address in the rule is wrong', 'Deny rules need two matches to trigger', 'TCP traffic bypasses ACLs'],
     answer: 'It\'s below a broader rule that already matched everything',
   },
   'proto-narrow': {
     diagnose(log){ return log.some(e => e.pkt.proto==='tcp' && e.pkt.dst==='10.0.0.53' && e.pkt.dp==='53' && e.res.implicit); },
     question: 'Why does this TCP packet fall through to implicit deny?',
-    choices: ['The DNS server is down', 'The only DNS rule matches UDP, not TCP — protocol has to match too', 'Port 53 is reserved and always blocked', 'TCP requires a handshake the firewall can\'t simulate'],
-    answer: 'The only DNS rule matches UDP, not TCP — protocol has to match too',
+    choices: ['The DNS server is down', 'The only DNS rule matches UDP, not TCP: protocol has to match too', 'Port 53 is reserved and always blocked', 'TCP requires a handshake the firewall can\'t simulate'],
+    answer: 'The only DNS rule matches UDP, not TCP: protocol has to match too',
   },
   'forgotten-allow': {
     diagnose(log){ return log.some(e => e.pkt.src==='198.51.100.10' && e.res.act==='allow' && e.res.rule && /TEMP/.test(e.res.rule.note||'')); },
@@ -14900,7 +14525,7 @@ function renderWalkStep(){
   const body=document.getElementById('walkBody');
   if(walkIdx>=SCENARIOS.length){
     document.getElementById('walkProgress').textContent=`— ${SCENARIOS.length}/${SCENARIOS.length} complete`;
-    body.innerHTML='<div class="out"><span class="ok">Walkthrough complete — all six broken policies diagnosed and explained correctly.<\/span><\/div>';
+    body.innerHTML='<div class="out"><span class="ok">Walkthrough complete. All six broken policies diagnosed and explained correctly.<\/span><\/div>';
     return;
   }
   document.getElementById('walkProgress').textContent = walkIdx ? `— ${walkIdx}/${SCENARIOS.length} complete` : '';
@@ -14911,7 +14536,7 @@ function renderWalkStep(){
       <div class="out" id="walkFeedback" style="margin-top:10px"><span class="mut">Waiting on a packet test…<\/span><\/div>`;
     document.getElementById('btnWalkCheck').onclick=()=>{
       if(data.diagnose(pktLog)){ walkPhase='question'; renderWalkStep(); }
-      else document.getElementById('walkFeedback').innerHTML='<span class="bad">Not yet — go test a packet that actually shows the result described above.<\/span>';
+      else document.getElementById('walkFeedback').innerHTML='<span class="bad">Not yet. Go test a packet that actually shows the result described above.<\/span>';
     };
   } else {
     body.innerHTML=`<div class="out"><span class="ok">Result confirmed.<\/span> Now explain it.<\/div>
@@ -14927,7 +14552,7 @@ function renderWalkStep(){
           document.getElementById('walkFeedback').innerHTML='<span class="ok">Correct. Step complete.<\/span>';
           setTimeout(()=>{ walkIdx++; walkPhase='diagnose'; showWalkStep(); }, 900);
         } else {
-          document.getElementById('walkFeedback').innerHTML='<span class="bad">Not quite — look again at which rule actually matched first.<\/span>';
+          document.getElementById('walkFeedback').innerHTML='<span class="bad">Not quite. Look again at which rule actually matched first.<\/span>';
         }
       };
       cc.appendChild(b);
@@ -14944,11 +14569,11 @@ const TOUR_STEPS=[
   { tab:'packet', target:()=>document.getElementById('btnTest'), gates:[{event:'click'}],
     body:'Click <b>Test packet<\/b> to see which rule matches first.' },
   { tab:'packet', target:()=>document.getElementById('pktFlow'), manual:true,
-    body:'That\'s the packet moving through your rules, top to bottom. The <b>highlighted<\/b> rule is the one that matched — everything below it was never even checked, because the first match wins.' },
+    body:'That\'s the packet moving through your rules, top to bottom. The <b>highlighted<\/b> rule is the one that matched. Everything below it was never even checked, because the first match wins.' },
   { target:()=>document.querySelector('[data-tab="scenarios"]'), gates:[{event:'click'}],
-    body:'Scenarios swap in a broken rule set — test a packet to see what changed.' },
+    body:'Scenarios swap in a broken rule set. Test a packet to see what changed.' },
   { target:()=>document.querySelector('[data-tab="walk"]'), gates:[{event:'click'}],
-    body:'The Walkthrough tab is the hands-on version — it makes you diagnose and explain each broken policy before it lets you move on.' },
+    body:'The Walkthrough tab is the hands-on version. It makes you diagnose and explain each broken policy before it lets you move on.' },
   { target:null, manual:true, finish:true, body:'That\'s the lab. Good luck.' },
 ];
 function clearTourCleanup(){ tourCleanupFns.forEach(fn=>fn()); tourCleanupFns=[]; if(tourWatchdog){ clearInterval(tourWatchdog); tourWatchdog=null; } }
@@ -15607,7 +15232,7 @@ html { overscroll-behavior-y: none; }
   <section class="lab-manager active" id="labManager">
     <div class="hero">
       <h2>Lab Catalog<\/h2>
-      <p>Select a lab to begin. Each scenario injects one or more common CCNA-level faults. Use the topology and the console to diagnose and restore connectivity — all configuration is done through the CLI. Progress is saved locally.<\/p>
+      <p>Select a lab to begin. Each scenario injects one or more common CCNA-level faults. Use the topology and the console to diagnose and restore connectivity. All configuration is done through the CLI. Progress is saved locally.<\/p>
       <div class="hero-meta">
         <div class="hero-stat"><strong id="statCompleted">0<\/strong> Completed<\/div>
         <div class="hero-stat"><strong id="statTotal">8<\/strong> Labs<\/div>
@@ -15659,7 +15284,7 @@ html { overscroll-behavior-y: none; }
       <div class="panel console-panel" id="tabConsole">
         <div class="panel-head">
           <div class="panel-title">Console<\/div>
-          <div class="panel-note" id="consoleContext">No device selected — commands run in global context<\/div>
+          <div class="panel-note" id="consoleContext">No device selected. Commands run in global context<\/div>
         <\/div>
         <div class="console-out" id="consoleOut"><\/div>
         <div class="console-in-row">
@@ -15850,8 +15475,8 @@ Both should be in VLAN 10`,
     goal: 'PC-A must ping 192.168.10.20 successfully',
     teach: 'Access ports belong to exactly one VLAN. If two hosts are in different VLANs they are in different broadcast domains and cannot communicate without a router. Verify with "show vlan brief" and "show interfaces switchport".',
     question: 'Why couldn\'t PC-A and PC-B talk before the VLAN was fixed?',
-    choices: ['They were on different access VLANs — different broadcast domains without a router between them', 'The trunk link was down', 'PC-A had no default gateway', 'The switch port was shut down'],
-    answer: 'They were on different access VLANs — different broadcast domains without a router between them',
+    choices: ['They were on different access VLANs: different broadcast domains without a router between them', 'The trunk link was down', 'PC-A had no default gateway', 'The switch port was shut down'],
+    answer: 'They were on different access VLANs: different broadcast domains without a router between them',
     hints: [
       'Both PCs have correct IP addresses in the same subnet.',
       'Check which VLAN each access port is assigned to.',
@@ -16122,8 +15747,8 @@ Server   10.1.3.50 /24    GW 10.1.3.1`,
     goal: 'Add the missing static route so PC-A can ping the server',
     teach: 'Routers only forward packets to networks they know. Connected routes appear automatically; remote networks require a static route (or a routing protocol). The command is "ip route <network> <mask> <next-hop>".',
     question: 'Why couldn\'t R1 forward packets to the server\'s subnet?',
-    choices: ['R1 had no route to that remote network — connected routes are automatic, but remote ones need to be added', 'R1\'s interface to R2 was shut down', 'The server had the wrong gateway configured', 'R2 didn\'t have a connected route to its own subnet'],
-    answer: 'R1 had no route to that remote network — connected routes are automatic, but remote ones need to be added',
+    choices: ['R1 had no route to that remote network (connected routes are automatic, but remote ones need to be added)', 'R1\'s interface to R2 was shut down', 'The server had the wrong gateway configured', 'R2 didn\'t have a connected route to its own subnet'],
+    answer: 'R1 had no route to that remote network (connected routes are automatic, but remote ones need to be added)',
     hints: [
       'R1 can reach R2 but has no knowledge of 10.1.3.0/24.',
       'Examine the routing table on R1.',
@@ -16176,8 +15801,8 @@ Server   192.168.20.50 /24`,
     goal: 'Restore end-to-end connectivity (two faults are present)',
     teach: 'Real networks often have multiple simultaneous issues. Work methodically: verify Layer 1/2 first, then addressing, then routing. Use ping and traceroute to isolate the break point.',
     question: 'This lab had two independent faults. What\'s the right approach when multiple things are broken at once?',
-    choices: ['Work outward from the source systematically — Layer 1/2 first, then addressing, then routing — rather than guessing', 'Reset the whole lab and hope it fixes itself', 'Only fix the first problem you notice and stop there', 'Faults always cancel each other out, so you only need to fix one'],
-    answer: 'Work outward from the source systematically — Layer 1/2 first, then addressing, then routing — rather than guessing',
+    choices: ['Work outward from the source systematically: Layer 1/2 first, then addressing, then routing, rather than guessing', 'Reset the whole lab and hope it fixes itself', 'Only fix the first problem you notice and stop there', 'Faults always cancel each other out, so you only need to fix one'],
+    answer: 'Work outward from the source systematically: Layer 1/2 first, then addressing, then routing, rather than guessing',
     hints: [
       'Start at PC-A and work outward. Check its gateway and the first-hop switch port.',
       'One fault is a shutdown port; the other is a missing static route or wrong gateway.',
@@ -16386,12 +16011,7 @@ function renderLabManager() {
   $('statVendor').textContent = vendor === 'cisco' ? 'Cisco' : 'Dell';
 }
 
-function startLab(id) {
-  const lvl = LEVELS.find(l => l.id === id);
-  if (!lvl) return;
-  currentLevel = lvl;
-  net = lvl.build();
-  // Deep-ish copy already done by build returning new objects
+function resetLabState() {
   selectedDeviceId = null;
   changeCount = 0;
   hintCount = 0;
@@ -16400,6 +16020,15 @@ function startLab(id) {
   confIface = null;
   Object.keys(consoleSessions).forEach(k => delete consoleSessions[k]);
   consoleHistIdx = -1;
+}
+
+function startLab(id) {
+  const lvl = LEVELS.find(l => l.id === id);
+  if (!lvl) return;
+  currentLevel = lvl;
+  net = lvl.build();
+  // Deep-ish copy already done by build returning new objects
+  resetLabState();
   $('labManager').classList.remove('active');
   $('labWorkspace').classList.add('active');
   $('btnBackToManager').style.display = '';
@@ -16659,7 +16288,7 @@ function renderDevicePanel() {
     });
   }
 
-  html += `<div class="readonly-note">Status only — use the <b>console<\/b> below to shut/no shut, set IPs, VLANs, trunks, and routes.<\/div>`;
+  html += `<div class="readonly-note">Status only. Use the <b>console<\/b> below to shut/no shut, set IPs, VLANs, trunks, and routes.<\/div>`;
 
   body.innerHTML = html;
 }
@@ -16784,7 +16413,7 @@ function updateConsoleContext() {
     ctx.textContent = 'Context: ' + d.name + mode + '  (console locked to this device)';
     prompt.textContent = consolePromptPrefix();
   } else {
-    ctx.textContent = 'No device selected — click a device on the topology or type: select SW1';
+    ctx.textContent = 'No device selected. Click a device on the topology or type: select SW1';
     prompt.textContent = 'Lab#';
   }
 }
@@ -17020,7 +16649,7 @@ function handleQuestionHelp(raw) {
       consolePrint('  ' + m + (line !== m ? '    → ' + line : ''), '');
     });
     if (matches.length === 1) {
-      consolePrint('  (unique — press Tab to complete)', '');
+      consolePrint('  (unique, press Tab to complete)', '');
     }
     return;
   }
@@ -17582,7 +17211,7 @@ function showQuiz() {
         $('quizFeedback').innerHTML = '<span style="color:var(--ok)">Correct.<\/span>';
         setTimeout(() => { $('quizModal').classList.remove('show'); finishLevel(); }, 700);
       } else {
-        $('quizFeedback').innerHTML = '<span style="color:var(--warn)">Not quite — review what you actually changed to fix it.<\/span>';
+        $('quizFeedback').innerHTML = '<span style="color:var(--warn)">Not quite. Review what you actually changed to fix it.<\/span>';
       }
     });
     cc.appendChild(b);
@@ -17624,14 +17253,7 @@ function resetLab() {
   if (!currentLevel) return;
   if (!confirm('Reset this lab to its initial (broken) state?')) return;
   net = currentLevel.build();
-  selectedDeviceId = null;
-  changeCount = 0;
-  hintCount = 0;
-  hintStep = 0;
-  confMode = false;
-  confIface = null;
-  Object.keys(consoleSessions).forEach(k => delete consoleSessions[k]);
-  consoleHistIdx = -1;
+  resetLabState();
   updateStatusbar();
   renderTopology();
   renderDevicePanel();
@@ -17736,7 +17358,7 @@ const TOUR_STEPS = [
   },
   {
     target: () => $('devicePanel'),
-    body: 'The side panel is <b>status only<\/b> — it shows interface state, VLANs, and IPs. You cannot click to configure; everything is done in the console.'
+    body: 'The side panel is <b>status only<\/b>. It shows interface state, VLANs, and IPs. You cannot click to configure; everything is done in the console.'
   },
   {
     target: () => $('tabConsole'),
@@ -18062,7 +17684,6 @@ body {
   background: transparent; width: 100%; text-align: left;
   font-family: var(--sans); font-size: 12.5px; color: var(--text);
 }
-.tree-row:hover { background: #f0f3f6; }
 .tree-row:hover { background: #f2f6f9; }
 .tree-row.selected {
   background: var(--tree-sel); color: #fff; border-left-color: #007cbb;
@@ -18475,7 +18096,13 @@ body {
   flex-direction: column;
   min-height: 0;
 }
-.tree-panel-head { display: none; } /* photo has no title bar under icons — just the tree */
+.tree-panel-head { display: none; } /* photo has no title bar under icons, just the tree */
+@media (max-width: 900px) {
+  /* The mobile Close button lives inside this header, so it can't stay
+     display:none at this width or the button behind it can never render. */
+  .tree-panel-head { display: flex; border-bottom: none; }
+  .tree-panel-head #treePanelTitle { display: none; }
+}
 .tree {
   flex: 1;
   overflow: auto;
@@ -18721,7 +18348,7 @@ body {
       </button>
       <button class="vs-user" type="button" title="User">Administrator@VSPHERE.LOCAL ▾</button>
       <button class="vs-icon-btn" type="button" title="Help" id="btnHowTo">?</button>
-      <button class="vs-text-btn" id="btnTakeTour" type="button">Help</button>
+      <button class="vs-text-btn" id="btnTakeTour" type="button">Take the tour</button>
     </div>
   </div>
 
@@ -18878,10 +18505,10 @@ body {
     </div>
     <div class="modal-body">
       <ol class="modal-steps">
-        <li><span class="num">1</span><span><b>Pick a category</b> on the left rail — Hosts and Clusters, VMs and Templates, Storage, or Networking. Each shows a different slice of the same environment.</span></li>
-        <li><span class="num">2</span><span><b>Click anything</b> in the tree — a cluster, a host, a VM, a datastore, a port group — to inspect it on the right.</span></li>
+        <li><span class="num">1</span><span><b>Pick a category</b> on the left rail: Hosts and Clusters, VMs and Templates, Storage, or Networking. Each shows a different slice of the same environment.</span></li>
+        <li><span class="num">2</span><span><b>Click anything</b> in the tree (a cluster, a host, a VM, a datastore, a port group) to inspect it on the right.</span></li>
         <li><span class="num">3</span><span><b>Switch tabs</b> on the selected object: Summary for its current state, Monitor for recent events and live usage, Configure for its settings (some are editable).</span></li>
-        <li><span class="num">4</span><span><b>Try a Scenario</b> from the dropdown at the top. Each one loads the environment with something broken — investigate it the way you would a real ticket.</span></li>
+        <li><span class="num">4</span><span><b>Try a Scenario</b> from the dropdown at the top. Each one loads the environment with something broken. Investigate it the way you would a real ticket.</span></li>
         <li><span class="num">5</span><span>The <b>ACTIONS ▾</b> menu on a host or VM has the less-common operations (Snapshots, Edit Settings, Connect/Disconnect). Every action you take shows up in <b>Recent Tasks</b> at the bottom of the screen, the same way it would in the real client.</span></li>
       </ol>
       <div class="modal-note">Power state, hardware changes, migration, and snapshots update inventory and Recent Tasks. Some operations fail when resources are constrained.</div>
@@ -18999,11 +18626,11 @@ const SCENARIOS = [
   {
     id: 'baseline', name: 'Explore the Client', trouble: false,
     duration: '15–20 min', level: 'Beginner',
-    desc: 'Orientation: inventory, Summary tabs, power operations, and Recent Tasks — no failures injected.',
+    desc: 'Orientation: inventory, Summary tabs, power operations, and Recent Tasks. No failures injected.',
     objectives: ['Expand a cluster in Hosts and Clusters','Select a VM and review Summary','Power a VM off and on; watch Recent Tasks','Open Edit Settings on a VM'],
     steps: ['Expand Cluster 1, then Host 1.','Select VM 1. Open Summary and note host, datastore, and power state.','Power Off VM 1, wait for the task, then Power On again.','ACTIONS → Edit Settings on VM 1; review hardware, then close.'],
     apply(s) {},
-    check(s) { return { ok: true, detail: 'Orientation lab — mark complete when you have finished the steps.' }; },
+    check(s) { return { ok: true, detail: 'Orientation lab. Mark complete when you have finished the steps.' }; },
     question: 'Where do you go to see the result of a power operation like Power On/Off?',
     choices: ['The Recent Tasks panel at the bottom', 'The Permissions tab', 'The Networks tab', 'The Snapshots tab'],
     answer: 'The Recent Tasks panel at the bottom'
@@ -19017,11 +18644,11 @@ const SCENARIOS = [
     apply(s) { s.hosts.host3.connection = 'disconnected'; },
     check(s) {
       const ok = s.hosts.host3 && s.hosts.host3.connection === 'disconnected';
-      return { ok, detail: ok ? 'Host 3 is disconnected — scenario state matches.' : 'Host 3 is not disconnected.' };
+      return { ok, detail: ok ? 'Host 3 is disconnected. Scenario state matches.' : 'Host 3 is not disconnected.' };
     },
     question: 'What does a disconnected host actually mean for vCenter?',
-    choices: ['vCenter has lost contact with that host — it can\'t manage it or report live status', 'The host has no VMs', 'The host is powered off', 'The host has no datastores'],
-    answer: 'vCenter has lost contact with that host — it can\'t manage it or report live status'
+    choices: ['vCenter has lost contact with that host: it can\'t manage it or report live status', 'The host has no VMs', 'The host is powered off', 'The host has no datastores'],
+    answer: 'vCenter has lost contact with that host: it can\'t manage it or report live status'
   },
   {
     id: 'datastore-full', name: 'Datastore Capacity Pressure', trouble: true,
@@ -19310,7 +18937,7 @@ function renderHolQuiz(sc) {
         fb.className = 'hq-feedback ok';
         if ($('hmComplete')) $('hmComplete').disabled = false;
       } else {
-        fb.textContent = 'Not quite — think about what the scenario actually showed you.';
+        fb.textContent = 'Not quite. Think about what the scenario actually showed you.';
         fb.className = 'hq-feedback bad';
       }
     });
@@ -19633,7 +19260,7 @@ document.addEventListener('click', () => {
   if (openMenuId !== null) { openMenuId = null; renderDetail(); }
 });
 function editSettingsTab() { activeTab = 'configure'; renderDetail(); }
-function openConsole(name) { showToast('Console for ' + name + ' would open in a new window — not simulated in this sandbox.', ''); }
+function openConsole(name) { showToast('Console for ' + name + ' would open in a new window. Not simulated in this sandbox.', ''); }
 
 // ---- Cluster ----
 function renderClusterDetail() {
@@ -20016,7 +19643,7 @@ function renderVmDetail() {
 
   $('detailBody').innerHTML = `
     ${netTrouble ? `<div class="alert-box"><span class="ai">⚠</span><div>This VM's NIC is connected to <strong>${escapeHtml(net.name)}</strong> (VLAN ${net.vlan}), not the production port group. That would explain a loss of reachability. Fix it on the Configure tab.</div></div>` : ''}
-    ${loadWarn ? `<div class="alert-box warn"><span class="ai">⚠</span><div>Guest is under high load${cpuHot ? ' — CPU at ' + v.cpuPct + '%' : ''}${memHot ? ' — Memory at ' + v.memPct + '%' : ''}. Guest metrics are above the warning threshold.</div></div>` : ''}
+    ${loadWarn ? `<div class="alert-box warn"><span class="ai">⚠</span><div>Guest is under high load${cpuHot ? ' (CPU at ' + v.cpuPct + '%)' : ''}${memHot ? ' (Memory at ' + v.memPct + '%)' : ''}. Guest metrics are above the warning threshold.</div></div>` : ''}
     <div class="portlet-grid cols-3">
       <div class="portlet">
         <div class="portlet-head">Guest OS</div>
@@ -20147,7 +19774,7 @@ function renderVmMonitor(v) {
           <div class="usage-row">
             <div class="usage-row-head"><span>Memory</span><span class="amt">${v.memPct}%</span></div>
             <div class="usage-bar"><div class="usage-fill ${barClass(v.memPct)}" style="width:${v.memPct}%"></div></div>
-          </div>` : '<div class="muted-note">Powered off — no live performance data.</div>'}
+          </div>` : '<div class="muted-note">Powered off. No live performance data.</div>'}
         </div>
       </div>
       <div class="portlet">
@@ -20463,9 +20090,9 @@ function openMigrateModal(vmId) {
     const c = state.clusters && state.clusters[h.cluster];
     const bad = h.connection === 'disconnected' || h.maintenance || h.id === cur;
     const label = h.name + (c ? ' (' + c.name + ')' : '') +
-      (h.id === cur ? ' — current' : '') +
-      (h.maintenance ? ' — maintenance' : '') +
-      (h.connection === 'disconnected' ? ' — disconnected' : '');
+      (h.id === cur ? ' (current)' : '') +
+      (h.maintenance ? ' (maintenance)' : '') +
+      (h.connection === 'disconnected' ? ' (disconnected)' : '');
     return `<option value="${h.id}" ${bad && h.id !== cur ? 'disabled' : ''} ${h.id === cur ? 'disabled' : ''}>${escapeHtml(label)}</option>`;
   }).join('');
   $('migrateHost').innerHTML = opts;
@@ -20497,7 +20124,7 @@ function runMigrate() {
   }
   if (v.power === 'on' && dest.memGB - dest.memUsedGB < v.memGB) {
     showToast('Cannot migrate: insufficient memory on ' + dest.name + '.', 'error');
-    logEvent('vMotion of ' + v.name + ' failed — insufficient memory on ' + dest.name, 'bad');
+    logEvent('vMotion of ' + v.name + ' failed: insufficient memory on ' + dest.name, 'bad');
     return;
   }
   // Move inventory membership
@@ -20815,7 +20442,7 @@ const TOUR_STEPS = [
   {
     target: () => document.querySelector('.tree-row[data-kind="host"][data-id="host1"]'),
     gates: [{ event: 'click' }],
-    body: 'Click a host to inspect it — try <b>Host 1</b>.'
+    body: 'Click a host to inspect it, try <b>Host 1</b>.'
   },
   {
     target: () => document.querySelector('.tree-row[data-kind="vm"][data-id="vm1"]'),
@@ -20830,12 +20457,12 @@ const TOUR_STEPS = [
   {
     target: () => document.getElementById('btnActions-vm1'),
     gates: [{ event: 'click' }],
-    body: 'The <b>ACTIONS ▾</b> menu has the less-common operations — Snapshots, Edit Settings, Connect/Disconnect on a host. Open it.'
+    body: 'The <b>ACTIONS ▾</b> menu has the less-common operations: Snapshots, Edit Settings, Connect/Disconnect on a host. Open it.'
   },
   {
     target: () => document.getElementById('tasksToggle'),
     gates: [{ event: 'click' }],
-    body: 'Every action you take — power ops, snapshots, host changes — shows up in <b>Recent Tasks</b> at the bottom of the screen, the same way it would in the real client. Expand it.'
+    body: 'Every action you take (power ops, snapshots, host changes) shows up in <b>Recent Tasks</b> at the bottom of the screen, the same way it would in the real client. Expand it.'
   },
   {
     target: () => $('scenarioSelect'),
@@ -21004,7 +20631,7 @@ function tickTelemetry() {
   // Datastore capacity alarms
   Object.values(state.datastores).forEach(d => {
     const p = Math.round(100 * d.usedGB / d.capacityGB);
-    if (p >= 95) raiseAlarm('bad', d.name + ' nearly full', p + '% used — new provisioning may fail');
+    if (p >= 95) raiseAlarm('bad', d.name + ' nearly full', p + '% used, new provisioning may fail');
     else if (p >= 85) raiseAlarm('warn', d.name + ' space low', p + '% used');
   });
 
@@ -21212,7 +20839,7 @@ try { seenIntro = localStorage.getItem('vsphereSandboxIntroSeen') === '1'; } cat
     fetch('/api/contact', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ name: 'IT Skills Kit — ' + fbCurrentTool, email: email, message: message, 'cf-turnstile-response': tsToken })
+      body: JSON.stringify({ name: 'IT Skills Kit: ' + fbCurrentTool, email: email, message: message, 'cf-turnstile-response': tsToken })
     }).then(function(r){ return r.json().then(function(d){ return { ok: r.ok, d: d }; }); })
       .then(function(res){
         if (res.ok) {
