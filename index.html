@@ -265,12 +265,16 @@
     }
 
     /* Mobile gate -- the tools (subnet calculators, CLI simulators, a
-       vSphere-style client) need a keyboard and real screen space, so below
-       768px this replaces the whole shell instead of shipping a cramped,
-       barely-usable layout. CSS-only: can't be bypassed by disabling JS and
-       can't race with the tool-loading logic in .shell. */
+       vSphere-style client) need a keyboard and real screen space, so on a
+       touch-only device this replaces the whole shell instead of shipping a
+       cramped, barely-usable layout. Keyed on input type (no hover + coarse
+       pointer = touch-only), not viewport width -- a desktop browser in a
+       narrow split-screen window still has a mouse/trackpad (hover: hover,
+       pointer: fine) and must not get gated just for being narrow. CSS-only:
+       can't be bypassed by disabling JS and can't race with the tool-loading
+       logic in .shell. */
     .mobile-gate { display: none; }
-    @media (max-width: 767px) {
+    @media (hover: none) and (pointer: coarse) {
       .topnav, .shell { display: none !important; }
       .mobile-gate {
         display: flex; flex-direction: column; align-items: center; justify-content: center;
