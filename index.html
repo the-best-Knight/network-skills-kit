@@ -2927,7 +2927,7 @@ function keptOverlap(val, session) {
   if (session.kept.has(lower)) return true;
   var hit = false;
   session.kept.forEach(function (meta, key) {
-    if (key && lower.indexOf(key) !== -1) hit = true;
+    if (key && (lower.indexOf(key) !== -1 || key.indexOf(lower) !== -1)) hit = true;
   });
   return hit;
 }
@@ -3131,7 +3131,17 @@ var SANITIZATION_RULES = [
     // to still redact. The accept() guard resolves it by value shape instead
     // of dropping "pwd" from the key list: a real secret never looks like an
     // absolute filesystem path, so only reject when the captured value does.
-    { id: 'kvsecret', desc: 'Key-value Secrets', type: 'SECRET', always: true, regex: /["']?(?:[A-Za-z0-9_.-]*(?:pass(?:word|wd)?|pwd|secret|token|apikey|passphrase|credentials?|psk)|[A-Za-z0-9_.-]*[_-]key|(?<![A-Za-z0-9])key|(?<![A-Za-z0-9])pw)["']?\s*[:=]\s*("[^"\r\n]*"|'[^'\r\n]*'|[^\s\r\n,;]+)/gi, group: 1,
+    //
+    // The bare (unquoted) alternative excludes quote characters so a value
+    // that's mid-typed -- an opening quote with no closing quote yet, e.g.
+    // TOKEN='cfat_ before the rest has been typed -- fails to match at all
+    // instead of the bare alternative grabbing that incomplete fragment as
+    // its own "value". Without this, live sanitize-as-you-type redacts the
+    // partial fragment into its own [SECRET_N] the moment it's typed, then
+    // once the closing quote arrives the *complete* value no longer looks
+    // like the same string, gets redacted as a second, separate [SECRET_N],
+    // and the original single secret ends up split across two placeholders.
+    { id: 'kvsecret', desc: 'Key-value Secrets', type: 'SECRET', always: true, regex: /["']?(?:[A-Za-z0-9_.-]*(?:pass(?:word|wd)?|pwd|secret|token|apikey|passphrase|credentials?|psk)|[A-Za-z0-9_.-]*[_-]key|(?<![A-Za-z0-9])key|(?<![A-Za-z0-9])pw)["']?\s*[:=]\s*("[^"\r\n]*"|'[^'\r\n]*'|[^\s\r\n,;'"]+)/gi, group: 1,
       accept: function (v) { return !/^(?:\/|~\/|[A-Za-z]:\\)/.test(v); } },
     { id: 'bracesecret', desc: 'Secrets in Braces or Brackets', type: 'SECRET', always: true,
       regex: /\b(?:[A-Za-z0-9_.-]*(?:pass(?:word|wd)?|pwd|secret|token|apikey|passphrase|credentials?|psk)|[A-Za-z0-9_.-]*[_-]key|(?<![A-Za-z0-9])key|(?<![A-Za-z0-9])pw)\s*[\{\(\[]\s*([^\}\)\]\r\n]{1,200}?)\s*[\}\)\]]/gi, group: 1 },
@@ -3569,20 +3579,6 @@ function sanitizeText(text, opts, session) {
      Kills key-name vs value false positives for the formats used constantly. */
   text = runStructuredFormatPass(text, ctx, opts);
 
-  // Base64 pre-pass: decode long blobs and redact those whose plaintext looks
-  // like a credential. Runs through applyRule so it respects the never-redact
-  // list and cannot match inside tokens or synthetics already issued.
-  if (opts.b64 !== false && typeof atob === 'function') {
-    text = applyRule(text, ctx, /(?:[A-Za-z0-9+/]{4}){10,}(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?/g, 'SECRET', null,
-      function (val) {
-        if (/^[0-9a-f]+$/i.test(val)) return false; // pure hex: the ID rules own it
-        try {
-          var dec = atob(val);
-          return /(?:password|secret|key|bearer|eyJ)/i.test(dec) || shannonEntropy(dec) > 4.5;
-        } catch (e) { return false; }
-      });
-  }
-
   if (session.manual.length) {
     var savedWl = ctx.whitelist;
     ctx.whitelist = new Set();
@@ -3637,6 +3633,31 @@ function sanitizeText(text, opts, session) {
       });
     }
   });
+
+  // Base64 pre-pass: decode long blobs and redact those whose plaintext looks
+  // like a credential. Runs through applyRule so it respects the never-redact
+  // list and cannot match inside tokens or synthetics already issued.
+  //
+  // Deliberately runs AFTER the key=value-aware rules above (kvsecret etc.),
+  // not before: this regex's charset ([A-Za-z0-9+/]) excludes characters
+  // like "_" and "-" that real tokens commonly contain (e.g. a Cloudflare
+  // "cfat_..." token). Run first, it would only match the base64-alphabet
+  // tail after such a character, redact just that fragment, and leave the
+  // prefix as unredacted plaintext -- with the value already partly
+  // replaced by a [SECRET_N] token, kvsecret could no longer recognize the
+  // rest as a complete quoted value. Running key-aware rules first lets them
+  // claim the whole value as one atomic unit; this pass then only mops up
+  // blobs with no surrounding key=value context (e.g. a bare pasted JWT).
+  if (opts.b64 !== false && typeof atob === 'function') {
+    text = applyRule(text, ctx, /(?:[A-Za-z0-9+/]{4}){10,}(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?/g, 'SECRET', null,
+      function (val) {
+        if (/^[0-9a-f]+$/i.test(val)) return false; // pure hex: the ID rules own it
+        try {
+          var dec = atob(val);
+          return /(?:password|secret|key|bearer|eyJ)/i.test(dec) || shannonEntropy(dec) > 4.5;
+        } catch (e) { return false; }
+      });
+  }
 
   /* Path-segment redactions (added via the clickable "shell" spans in the
      sanitized output -- see redactPathSegment()) run last, after the
