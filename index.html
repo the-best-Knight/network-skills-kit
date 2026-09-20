@@ -1509,8 +1509,11 @@ td.orig.revealed { cursor: pointer; }
   padding: 12px 36px; border-top: 1px solid var(--line-soft);
 }
 
-/* Directions (left) and the live example (right), side by side. */
-.intro-columns { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 40px; align-items: start; }
+/* Directions (left) and the live example (right), side by side. The
+   directions are now just enough to orient a first-time user -- anything
+   more belongs in the guided tour, not a wall of text before they've even
+   started -- so the example gets the larger share of the width. */
+.intro-columns { display: grid; grid-template-columns: minmax(0, .78fr) minmax(0, 1.22fr); gap: 40px; align-items: start; }
 .intro-col-label {
   font-size: 11px; font-weight: 700; letter-spacing: .5px; text-transform: uppercase;
   color: var(--dim); margin-bottom: 10px;
@@ -1518,9 +1521,7 @@ td.orig.revealed { cursor: pointer; }
 .intro-steps { margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 7px; }
 .intro-steps li { font-size: 13.5px; line-height: 1.42; color: var(--silver); }
 .intro-steps strong { color: var(--ink); font-weight: 600; }
-.intro-notes { margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--line-soft); display: flex; flex-direction: column; gap: 6px; }
-.intro-notes p { font-size: 12px; line-height: 1.48; color: var(--dim); }
-.intro-notes b { color: var(--ink); font-weight: 600; }
+.intro-tour-hint { margin-top: 12px; font-size: 12px; line-height: 1.48; color: var(--dim); }
 @media (max-width: 820px) {
   .intro-columns { grid-template-columns: 1fr; gap: 28px; }
 }
@@ -1711,9 +1712,9 @@ body {
 .intro-preview-col { min-width: 0; }
 .intro-preview-label { display: block; font-size: 10.5px; font-weight: 600; letter-spacing: .4px; color: var(--dim); margin-bottom: 6px; }
 .intro-code {
-  padding: 10px 11px;
+  padding: 13px 14px;
   background: var(--input-bg); border: 1px solid var(--line); border-radius: var(--r-sm);
-  font-family: var(--mono); font-size: 12px; color: var(--silver);
+  font-family: var(--mono); font-size: 13.5px; color: var(--silver);
   overflow-x: auto;
 }
 .intro-code .code-line { display: block; white-space: pre-wrap; overflow-wrap: anywhere; line-height: var(--code-line-height); }
@@ -1976,15 +1977,8 @@ body {
             <li><strong>Paste your log<\/strong> on the left. The sanitized version appears on the right as you type.<\/li>
             <li><strong>Check the scan<\/strong> below the output. Green means nothing suspicious remains.<\/li>
             <li><strong>Missed something?<\/strong> Select it and press Alt+R to redact it by hand.<\/li>
-            <li><strong>Flagged something that's fine to show?<\/strong> Select it again (or find it in the Session Substitution Dictionary) and choose "Keep Visible." Switch it back anytime with "Redact Again."<\/li>
-            <li><strong>Copy For AI<\/strong> adds a short note that bracketed placeholders are stand-ins to leave alone (toggle it off next to the button if you don't want it). Paste the reply into the Restore tab.<\/li>
           <\/ol>
-
-          <div class="intro-notes">
-            <p><b>The session map holds every original value<\/b>. Handle it like the raw log, even encrypted. The sanitized output is safe to share.<\/p>
-            <p>Keeping a value visible only affects that exact value, everywhere it occurs. It never turns off detection for its category. Passwords, keys, and everything else are still redacted as normal.<\/p>
-            <p>Nothing leaves this page. This is a hygiene aid, not an accredited system. A stray secret can still slip past.<\/p>
-          <\/div>
+          <p class="intro-tour-hint">Keeping values visible, Copy For AI, and Restore are covered in the guided tour.<\/p>
         <\/div>
 
         <div class="intro-col-example">
@@ -2008,6 +2002,7 @@ body {
 <div class="code-line">    host: <mark>192.168.1.104<\/mark><\/div>
 <div class="code-line">    username: <mark>Knight<\/mark><\/div>
 <div class="code-line">    password: <mark>Password1234<\/mark><\/div>
+<div class="code-line">    api_key: <mark>example-not-a-real-key-do-not-use<\/mark><\/div>
 <div class="code-line">    config_dir: /Users/<mark>knight<\/mark>/homepage/config<\/div>
 <\/div>
               <\/div>
@@ -2018,9 +2013,10 @@ body {
 <div class="code-line">  homepage:<\/div>
 <div class="code-line">    ports:<\/div>
 <div class="code-line">      - "3000:3000"<\/div>
-<div class="code-line">    host: <span class="hl-token">192.0.2.10<\/span><\/div>
+<div class="code-line">    host: <span class="hl-token">node-1.example.net<\/span><\/div>
 <div class="code-line">    username: <span class="hl-token">operator1<\/span><\/div>
-<div class="code-line">    password: <span class="hl-token">[SECRET_1]<\/span><\/div>
+<div class="code-line">    password: <span class="hl-token">[SECRET_2]<\/span><\/div>
+<div class="code-line">    api_key: <span class="hl-token">[SECRET_1]<\/span><\/div>
 <div class="code-line">    config_dir: <span class="hl-shell">/Users/<\/span><span class="hl-token">user1<\/span><span class="hl-shell">/homepage/config<\/span><\/div>
 <\/div>
               <\/div>
