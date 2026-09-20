@@ -772,7 +772,7 @@ body.idle-locked .idle-lock-overlay { display: flex; }
 
 /* ---------- Sensitivity mode (v126 / finding-model) ---------- */
 .sens-row {
-  display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+  display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap;
   margin: 0 0 12px;
 }
 .sens-label {
@@ -813,7 +813,7 @@ body.idle-locked .idle-lock-overlay { display: flex; }
 .persist-note b { color: var(--af-blue-bright); font-weight: 600; }
 
 /* ---------- Mode toggle ---------- */
-.mode-row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.mode-row { display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap; }
 .mode-toggle {
   display: inline-flex; gap: 4px;
   background: transparent; border: 1px solid var(--line);
@@ -2298,7 +2298,7 @@ body {
     <div class="mode-toggle" role="tablist" aria-label="Mode">
       <button class="mode-btn active" id="modeSanitizeBtn" role="tab" aria-selected="true" onclick="setMode('sanitize')">Sanitize<\/button>
       <button class="mode-btn" id="modeRestoreBtn" role="tab" aria-selected="false" onclick="setMode('restore')">Restore<\/button>
-      <button class="mode-btn safety-tab" id="modeSafetyBtn" role="tab" aria-selected="false" onclick="openSafetyTab()">Is this safe?<\/button>
+      <button class="mode-btn safety-tab" id="modeSafetyBtn" role="tab" aria-selected="false" onclick="openSafetyTab()">Safety<\/button>
     <\/div>
   <\/div>
 
