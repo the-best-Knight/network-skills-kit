@@ -17,19 +17,29 @@ The tool this kit was built around, and still the one used the most. Paste a log
 
 ## The rest of the kit
 
+**Work tools**
+
 | Tool | What it does |
 | --- | --- |
-| Log Sanitizer | Redacts secrets/identifiers from logs before you share them |
-| Command Translator | Converts a command between CLI dialects (shells, package managers, Docker, Kubernetes) |
-| Network Calculator Toolkit | Subnet/VLSM calculators, base/hex converters, hash verifier, ACL builder, port matrix |
-| Cheat Sheet | Switch CLI reference (Cisco / Dell / Junos), prefix tables, plain-English glossary |
-| Network Topology Builder | Draw a network diagram offline and export it as PNG, SVG, or JSON |
-| DNS Lab | Offline DNS simulator — dig-style queries, zone database, broken-record scenarios |
-| Routing Lab | Longest-prefix match, live routing tables, packet path visualization, BGP best-path quiz |
-| Firewall Rules Lab | ACL simulator — ordered rules, packet tester, implicit deny, policy scenarios |
-| Network Fault Lab | Diagnose-and-fix scenarios with a live topology, multi-vendor CLI lessons (Dell OS10 / Cisco IOS / Junos) |
+| Log Sanitizer | Hides IPs, passwords, usernames and other secrets in a log before you share it |
+| OSI & Network Reference | Layers, protocols and ports, plus a symptom-based guide to the likely cause of an outage |
+| Network Calculator | Subnet, VLSM, supernet, split and ACL wildcard math, bandwidth and hash calculators, converters |
+| Cheat Sheet | Copy-ready switch/router commands (Cisco / Dell / Junos), ports, terms and error messages |
+| Config Diff | Compare two configs and see exactly what changed |
+| Ping / Traceroute Analyzer | Paste ping or traceroute output and spot loss and slow hops |
+| Network Topology Builder | Draw a network diagram offline and export it as PNG, SVG, JSON or CSV |
 
-More gets added as it's built. See the [writeup](https://ianknight.org/blog/it-skills-kit/) for the story behind each one.
+**Practice labs**
+
+| Lab | What it does |
+| --- | --- |
+| DNS Lab | Offline DNS simulator: dig-style queries, zone database, broken-record scenarios |
+| Routing Lab | Longest-prefix match, live routing tables, packet path visualization |
+| Firewall Rules Lab | ACL simulator: ordered rules, packet tester, implicit deny, policy scenarios |
+| Network Fault Lab | Diagnose-and-fix scenarios with a live topology and a practice switch/router console |
+| vSphere Sandbox | Practice common vSphere tasks in a safe offline copy |
+
+More gets added as it's built. See the [writeup](https://ianknight.org/projects/it-skills-kit/) for the story behind each one.
 
 ## Mobile
 
