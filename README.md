@@ -72,6 +72,10 @@ It syntax-checks every script in the page and in each embedded tool, and exits w
 
 See [CHANGELOG.md](CHANGELOG.md).
 
+## License
+
+[MIT](LICENSE). Use it, change it, and share it, and keep the copyright notice.
+
 ---
 
 Built by [Ian Knight](https://ianknight.org).
