@@ -48,3 +48,13 @@ The tool switcher collapses into a horizontally-scrolling strip under 640px wide
 ## Usage
 
 Just open `index.html`. Each tool is embedded inline and loaded into an iframe on demand — nothing to install, nothing to configure.
+
+## Checking the file
+
+`index.html` is one big file, and a single syntax error in a script stops that whole script from running. Before pushing a change, run:
+
+```bash
+node scripts/check-scripts.mjs
+```
+
+It syntax-checks every script in the page and in each embedded tool, and exits with an error naming the tool if anything fails to parse. Needs Node 18 or newer.
