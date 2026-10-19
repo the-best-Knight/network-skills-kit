@@ -27,7 +27,7 @@ sh tests/run.sh fault-lab        # one file, named without .test.mjs
 KIT=file:///path/to/other.html sh tests/run.sh hub-keys   # test a different build
 ```
 
-Needs Firefox. If it is not in a standard place, set `FIREFOX=/path/to/firefox`. Each file gets a new browser profile, so every test starts like a first-time visitor. Files named `*.light.test.mjs` run with a light browser and `*.dark.test.mjs` with a dark one. Downloads land in a temporary folder that the tests read, and screenshots some tests take go to the system temp folder, never into the repository.
+Needs Firefox. If it is not in a standard place, set `FIREFOX=/path/to/firefox`. Each file gets a new browser profile, so every test starts like a first-time visitor. Files named `*.light.test.mjs` run with a light browser and `*.dark.test.mjs` with a dark one. A test that checks theme colours must be named for its theme: the GitHub runner opens a light browser, a Mac in dark mode opens a dark one, and an unpinned test passes on one and fails on the other. Downloads land in a temporary folder that the tests read, and screenshots some tests take go to the system temp folder, never into the repository.
 
 | File | What it covers |
 | --- | --- |
