@@ -1,0 +1,92 @@
+Windows IP Configuration
+
+   Host Name . . . . . . . . . . . . : SRV02
+   Primary Dns Suffix  . . . . . . . : corp.example.com
+   Node Type . . . . . . . . . . . . : Hybrid
+   IP Routing Enabled. . . . . . . . : No
+   WINS Proxy Enabled. . . . . . . . : No
+   DNS Suffix Search List. . . . . . : corp.example.com
+
+Ethernet adapter Management:
+
+   Connection-specific DNS Suffix  . : corp.example.com
+   Description . . . . . . . . . . . : Broadcom NetXtreme Gigabit Ethernet
+   Physical Address. . . . . . . . . : 00-1B-21-AA-BB-01
+   DHCP Enabled. . . . . . . . . . . : No
+   Autoconfiguration Enabled . . . . : Yes
+   IPv4 Address. . . . . . . . . . . : 10.0.99.52(Preferred)
+   Subnet Mask . . . . . . . . . . . : 255.255.255.0
+   Default Gateway . . . . . . . . . : 10.0.99.1
+   DNS Servers . . . . . . . . . . . : 10.0.20.10
+                                       10.0.20.11
+   NetBIOS over Tcpip. . . . . . . . : Enabled
+
+Ethernet adapter Team1:
+
+   Connection-specific DNS Suffix  . : corp.example.com
+   Description . . . . . . . . . . . : Microsoft Network Adapter Multiplexor Driver
+   Physical Address. . . . . . . . . : 00-1B-21-AA-BB-CB
+   DHCP Enabled. . . . . . . . . . . : No
+   Autoconfiguration Enabled . . . . : Yes
+   Link-local IPv6 Address . . . . . : fe80::a1b2:c3d4:e5f6:1234%14(Preferred)
+   IPv4 Address. . . . . . . . . . . : 10.0.20.52(Preferred)
+   Subnet Mask . . . . . . . . . . . : 255.255.255.0
+   IPv4 Address. . . . . . . . . . . : 10.0.20.53(Preferred)
+   Subnet Mask . . . . . . . . . . . : 255.255.255.0
+   Default Gateway . . . . . . . . . : fe80::1%14
+                                       10.0.20.1
+   DNS Servers . . . . . . . . . . . : 10.0.20.10
+   NetBIOS over Tcpip. . . . . . . . : Enabled
+
+Ethernet adapter NIC1:
+
+   Connection-specific DNS Suffix  . :
+   Description . . . . . . . . . . . : Intel(R) Ethernet 10G 2P X520-k bNDC
+   Physical Address. . . . . . . . . : 00-1B-21-AA-BB-CB
+   DHCP Enabled. . . . . . . . . . . : Yes
+   Autoconfiguration Enabled . . . . : Yes
+
+Ethernet adapter NIC2:
+
+   Connection-specific DNS Suffix  . :
+   Description . . . . . . . . . . . : Intel(R) Ethernet 10G 2P X520-k bNDC #2
+   Physical Address. . . . . . . . . : 00-1B-21-AA-BB-CC
+   DHCP Enabled. . . . . . . . . . . : Yes
+   Autoconfiguration Enabled . . . . : Yes
+
+Ethernet adapter Ethernet 3:
+
+   Media State . . . . . . . . . . . : Media disconnected
+   Connection-specific DNS Suffix  . :
+   Description . . . . . . . . . . . : Intel(R) Ethernet 10G 2P X520-k bNDC #3
+   Physical Address. . . . . . . . . : 00-1B-21-AA-BB-03
+   DHCP Enabled. . . . . . . . . . . : Yes
+   Autoconfiguration Enabled . . . . : Yes
+
+Tunnel adapter isatap.{3F2A9C54-6B0E-4D5A-9C41-0123456789AB}:
+
+   Media State . . . . . . . . . . . : Media disconnected
+   Connection-specific DNS Suffix  . :
+   Description . . . . . . . . . . . : Microsoft ISATAP Adapter
+   Physical Address. . . . . . . . . : 00-00-00-00-00-00-00-E0
+   DHCP Enabled. . . . . . . . . . . : No
+   Autoconfiguration Enabled . . . . : Yes
+
+Name                      InterfaceDescription                    ifIndex Status       MacAddress            LinkSpeed
+----                      --------------------                    ------- ------       ----------            ---------
+Management                Broadcom NetXtreme Gigabit Ethernet          10 Up           00-1B-21-AA-BB-01        1 Gbps
+Team1                     Microsoft Network Adapter Multiplexor...     14 Up           00-1B-21-AA-BB-CB        2 Gbps
+NIC1                      Intel(R) Ethernet 10G 2P X520-k bNDC         12 Up           00-1B-21-AA-BB-CB        1 Gbps
+NIC2                      Intel(R) Ethernet 10G 2P X520-k bNDC #2      13 Up           00-1B-21-AA-BB-CC        1 Gbps
+Ethernet 3                Intel(R) Ethernet 10G 2P X520-k bNDC #3      15 Disconnected 00-1B-21-AA-BB-03         0 bps
+Ethernet 4                Intel(R) Ethernet 10G 2P X520-k bNDC #4      16 Disabled     00-1B-21-AA-BB-04         0 bps
+Ethernet 5                Intel(R) Ethernet 10G 2P X520-k bNDC #5      17 Not Present  00-1B-21-AA-BB-05         0 bps
+
+Admin State    State          Type             Interface Name
+-------------------------------------------------------------------------
+Enabled        Connected      Dedicated        Management
+Enabled        Connected      Dedicated        Team1
+Enabled        Connected      Dedicated        NIC1
+Enabled        Connected      Dedicated        NIC2
+Enabled        Disconnected   Dedicated        Ethernet 3
+Disabled       Disconnected   Dedicated        Ethernet 4

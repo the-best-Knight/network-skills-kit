@@ -1,0 +1,34 @@
+import { connect, topContext, goto, evalIn, setViewport, press, shot, close, logs } from './bidi.mjs';
+import { KIT, fxd, SC } from './topology-lib.mjs';
+const wait = (ms) => new Promise(r => setTimeout(r, ms));
+await connect(); const ctx = await topContext(); await setViewport(ctx, 1500, 950);
+let n = 0, bad = 0; const ok = (name, cond, extra) => { n++; if (!cond) bad++; console.log((cond ? 'PASS ' : 'FAIL ') + name + (cond ? '' : '  ' + JSON.stringify(extra).slice(0, 500))); };
+const fr = (expr) => evalIn(ctx, `(() => { const w = document.querySelector('iframe').contentWindow, d = w.document; return (async function(){ ${expr} })().then(JSON.stringify); })()`);
+const J = async (expr) => JSON.parse(await fr(expr));
+await goto(ctx, 'about:blank'); await goto(ctx, KIT + '#topology-builder'); await wait(3000); await (await import('./topology-lib.mjs')).clearSample(ctx);
+
+// ---- drop several files at once ----
+const files = ['sw-core1.cfg', 'sw-acc1.cfg', 'sw-acc2.cfg', 'dell-s1.cfg', 'fw1-config.set', 'core1-session.txt', 'acc1-session.txt', 'fw1-session.txt', 'esx01-session.txt', 'dell-s1-session.txt'].map(f => [f, fxd(f)]);
+files.push(['junk.bin.txt', 'hello world\nthis is nothing a device printed\n']);
+await fr(`d.getElementById('nm-import').click(); await new Promise(r => setTimeout(r, 300)); return 1;`);
+const dlg = await J(`return { open: d.getElementById('nmimp').open, read: d.getElementById('nmi-read').disabled };`);
+ok('the import dialog opens', dlg.open === true && dlg.read === true, dlg);
+await fr(`const dt = new w.DataTransfer(); for (const [name, text] of ${JSON.stringify(files)}) dt.items.add(new w.File([text], name, { type: 'text/plain' })); const ev = new w.DragEvent('drop', { dataTransfer: dt, bubbles: true, cancelable: true }); d.getElementById('nmi-drop').dispatchEvent(ev); await new Promise(r => setTimeout(r, 900)); return 1;`);
+const staged = await J(`return { names: [...d.querySelectorAll('#nmi-files .nmi-fn')].map(x => x.textContent), read: d.getElementById('nmi-read').disabled };`);
+ok('every dropped file is listed', staged.names.length === 11 && staged.read === false, staged);
+await fr(`d.getElementById('nmi-read').click(); for (let i = 0; i < 60 && !d.querySelector('#nmi-rows .nmi-row'); i++) await new Promise(r => setTimeout(r, 200)); await new Promise(r => setTimeout(r, 400)); return 1;`);
+const prev = await J(`return { sum: d.getElementById('nmi-sum').innerText, rows: d.querySelectorAll('#nmi-rows .nmi-row').length, tags: [...d.querySelectorAll('#nmi-rows .nmi-tag')].map(x => x.textContent), apply: d.getElementById('nmi-apply').disabled, groups: [...d.querySelectorAll('#nmi-rows .nmi-grp h3')].map(x => x.textContent) };`);
+console.log(prev.sum);
+ok('the preview reads every output and says what it would do', prev.rows >= 30 && /new device/.test(prev.sum) && prev.apply === false, prev);
+ok('the junk file is reported as not recognised, the rest is read', prev.tags.indexOf('Not recognised') >= 0 && prev.tags.filter(t => t === 'New device').length >= 4, prev.tags);
+ok('nothing changed before Apply', (await J(`return w.__nmx.counts();`)).nodes === 0, 0);
+await shot(ctx, SC + 'nm2-preview.png');
+await fr(`d.getElementById('nmi-apply').click(); await new Promise(r => setTimeout(r, 900)); return 1;`);
+const res = await J(`const x = w.__nmx; return { counts: x.counts(), devices: Object.keys(x.model().devices).length, done: d.getElementById('nmi-sum').innerText, overlay: x.ui.overlay, snaps: x.snaps().map(s => s.label + '|' + s.kind), imports: x.model().imports.length };`);
+console.log(res.done);
+ok('apply builds the diagram', res.counts.nodes >= 8 && res.devices >= 8 && res.counts.links >= 8, res);
+ok('an automatic snapshot was taken before the import', res.snaps.length === 1 && /^Before import/.test(res.snaps[0]) && /auto/.test(res.snaps[0]), res.snaps);
+await fr(`d.getElementById('nmi-close').click(); await new Promise(r => setTimeout(r, 400)); w.__nmx.fit(); await new Promise(r => setTimeout(r, 500)); return 1;`);
+await shot(ctx, SC + 'nm2-built.png');
+console.log(logs().filter(l => /error|warn/i.test(l)).slice(0, 10).join('\n') || 'no console errors');
+console.log(n - bad + '/' + n + ' passed'); close(); process.exit(bad ? 1 : 0);

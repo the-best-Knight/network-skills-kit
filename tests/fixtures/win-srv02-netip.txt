@@ -1,0 +1,48 @@
+PS C:\Users\Administrator> Get-NetIPConfiguration
+InterfaceAlias       : Management
+InterfaceIndex       : 10
+InterfaceDescription : Broadcom NetXtreme Gigabit Ethernet
+NetProfile.Name      : corp.example.com
+IPv4Address          : 10.0.99.52
+IPv6DefaultGateway   :
+IPv4DefaultGateway   : 10.0.99.1
+DNSServer            : 10.0.20.10
+                       10.0.20.11
+
+InterfaceAlias       : Team1
+InterfaceIndex       : 14
+InterfaceDescription : Microsoft Network Adapter Multiplexor Driver
+NetProfile.Name      : corp.example.com
+IPv4Address          : {10.0.20.52, 10.0.20.53}
+IPv6DefaultGateway   : fe80::1
+IPv4DefaultGateway   : 10.0.20.1
+DNSServer            : 10.0.20.10
+
+PS C:\Users\Administrator> Get-NetIPAddress
+IPAddress         : 10.0.20.52
+InterfaceIndex    : 14
+InterfaceAlias    : Team1
+AddressFamily     : IPv4
+Type              : Unicast
+PrefixLength      : 24
+PrefixOrigin      : Manual
+SuffixOrigin      : Manual
+AddressState      : Preferred
+ValidLifetime     : Infinite ([TimeSpan]::MaxValue)
+PreferredLifetime : Infinite ([TimeSpan]::MaxValue)
+SkipAsSource      : False
+PolicyStore       : ActiveStore
+
+IPAddress         : 127.0.0.1
+InterfaceIndex    : 1
+InterfaceAlias    : Loopback Pseudo-Interface 1
+AddressFamily     : IPv4
+Type              : Unicast
+PrefixLength      : 8
+PrefixOrigin      : WellKnown
+SuffixOrigin      : WellKnown
+AddressState      : Preferred
+ValidLifetime     : Infinite ([TimeSpan]::MaxValue)
+PreferredLifetime : Infinite ([TimeSpan]::MaxValue)
+SkipAsSource      : False
+PolicyStore       : ActiveStore

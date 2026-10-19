@@ -1,0 +1,25 @@
+admin@FW1(active)# show
+set deviceconfig system hostname FW1
+set deviceconfig system ip-address 10.0.99.5
+set deviceconfig system default-gateway 10.0.99.254
+set deviceconfig system permitted-ip 10.0.0.0/8
+set mgt-config users admin phash $5$abcdefgh$XYZXYZXYZXYZXYZXYZXYZXYZXYZXYZ
+set network interface ethernet ethernet1/1 layer3 ip 10.0.99.254/24
+set network interface ethernet ethernet1/1 comment "to SW-CORE1 Gi1/0/1"
+set network interface ethernet ethernet1/1 layer3 interface-management-profile ping
+set network interface ethernet ethernet1/2 layer3 units ethernet1/2.10 tag 10
+set network interface ethernet ethernet1/2 layer3 units ethernet1/2.10 ip 10.0.10.254/24
+set network interface ethernet ethernet1/2 layer3 units ethernet1/2.20 tag 20
+set network interface ethernet ethernet1/2 layer3 units ethernet1/2.20 ip 10.0.20.254/24
+set network interface ethernet ethernet1/3 aggregate-group ae1
+set network interface ethernet ethernet1/4 aggregate-group ae1
+set network interface aggregate-ethernet ae1 layer3 ip 172.16.0.1/24
+set network interface aggregate-ethernet ae1 comment "DMZ bundle"
+set network virtual-router default interface [ ethernet1/1 ethernet1/2.10 ethernet1/2.20 ae1 ]
+set network virtual-router default routing-table ip static-route default-route destination 0.0.0.0/0
+set network virtual-router default routing-table ip static-route default-route nexthop ip-address 203.0.113.1
+set network virtual-router default routing-table ip static-route default-route interface ethernet1/1
+set zone trust network layer3 ethernet1/1
+set zone users network layer3 ethernet1/2.10
+set zone servers network layer3 ethernet1/2.20
+set zone dmz network layer3 ae1

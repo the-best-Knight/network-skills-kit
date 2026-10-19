@@ -1,0 +1,63 @@
+admin@srv01:~$ ip -br link
+lo               UNKNOWN        00:00:00:00:00:00 <LOOPBACK,UP,LOWER_UP>
+eno1             UP             0a:1b:2c:3d:4e:01 <BROADCAST,MULTICAST,UP,LOWER_UP>
+eno2             UP             0a:1b:2c:3d:4e:02 <BROADCAST,MULTICAST,UP,LOWER_UP>
+eno3             DOWN           0a:1b:2c:3d:4e:03 <BROADCAST,MULTICAST>
+bond0            UP             0a:1b:2c:3d:4e:01 <BROADCAST,MULTICAST,MASTER,UP,LOWER_UP>
+docker0          DOWN           02:42:ac:11:00:01 <NO-CARRIER,BROADCAST,MULTICAST,UP>
+admin@srv01:~$ ip -br addr
+lo               UNKNOWN        127.0.0.1/8 ::1/128
+eno1             UP
+eno2             UP
+eno3             DOWN
+bond0            UP             10.0.20.40/24 fe80::81b:2cff:fe3d:4e01/64
+docker0          DOWN           172.17.0.1/16
+admin@srv01:~$ cat /proc/net/bonding/bond0
+Ethernet Channel Bonding Driver: v5.14.0
+
+Bonding Mode: IEEE 802.3ad Dynamic link aggregation
+Transmit Hash Policy: layer2 (0)
+MII Status: up
+MII Polling Interval (ms): 100
+
+Slave Interface: eno1
+MII Status: up
+Speed: 1000 Mbps
+Duplex: full
+Link Failure Count: 0
+Permanent HW addr: 0a:1b:2c:3d:4e:01
+Slave queue ID: 0
+
+Slave Interface: eno2
+MII Status: up
+Speed: 1000 Mbps
+Duplex: full
+Link Failure Count: 1
+Permanent HW addr: 0a:1b:2c:3d:4e:02
+Slave queue ID: 0
+admin@srv01:~$ lldpctl
+-------------------------------------------------------------------------------
+LLDP neighbors:
+-------------------------------------------------------------------------------
+Interface:    eno1, via: LLDP, RID: 1, Time: 0 day, 00:12:34
+  Chassis:     
+    ChassisID:    mac 00:aa:bb:cc:dd:01
+    SysName:      DELL-S1
+    SysDescr:     Dell EMC Networking OS10 Enterprise
+    MgmtIP:       10.0.99.31
+    Capability:   Bridge, on
+  Port:        
+    PortID:       ifname ethernet1/1/2
+    PortDescr:    SRV01 nic1
+-------------------------------------------------------------------------------
+Interface:    eno2, via: LLDP, RID: 2, Time: 0 day, 00:12:30
+  Chassis:     
+    ChassisID:    mac 00:aa:bb:cc:dd:01
+    SysName:      DELL-S1
+    SysDescr:     Dell EMC Networking OS10 Enterprise
+    MgmtIP:       10.0.99.31
+    Capability:   Bridge, on
+  Port:        
+    PortID:       ifname ethernet1/1/3
+    PortDescr:    SRV01 nic2
+-------------------------------------------------------------------------------

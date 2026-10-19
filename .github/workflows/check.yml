@@ -15,3 +15,7 @@ jobs:
           node-version: 22
       - name: Syntax-check every script in index.html
         run: node scripts/check-scripts.mjs
+      - name: Engine tests
+        run: node tests/engine/suite.mjs
+      - name: Engine fuzz run
+        run: node tests/engine/fuzz.mjs 400

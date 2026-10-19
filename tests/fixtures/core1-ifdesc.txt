@@ -1,0 +1,7 @@
+SW-CORE1#show interfaces description
+Interface                      Status         Protocol Description
+Gi1/0/1                        up             up       to FW1 ethernet1/1
+Gi1/0/10                       up             up       to SW-ACC2 Gi1/0/1
+Gi1/0/30                       admin down     down     spare
+Te1/1/1                        up             up       to DELL-S1 Eth1/1/1
+Po1                            up             up       Uplink to SW-ACC1 (LACP)

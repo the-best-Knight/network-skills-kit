@@ -1,0 +1,56 @@
+admin@FW1(active)> show system info
+
+hostname: FW1
+ip-address: 10.0.99.5
+public-ip-address: unknown
+netmask: 255.255.255.0
+default-gateway: 10.0.99.254
+ip-assignment: static
+mac-address: 00:1b:17:00:aa:00
+time: Mon Oct 12 10:00:00 2026
+uptime: 30 days, 3:04:05
+family: 3200
+model: PA-3220
+serial: 015351000012345
+sw-version: 10.1.9
+app-version: 8730-7600
+
+admin@FW1(active)> show interface all
+
+total configured hardware interfaces: 4
+name                    id    speed/duplex/state            mac address
+--------------------------------------------------------------------------------
+ethernet1/1             16    1000/full/up                  00:1b:17:00:aa:01
+ethernet1/2             17    1000/full/down                00:1b:17:00:aa:02
+ethernet1/3             18    1000/full/up                  00:1b:17:00:aa:03
+ethernet1/4             19    1000/full/up                  00:1b:17:00:aa:04
+
+aggregation groups: 1
+total configured logical interfaces: 5
+name                id    vsys zone             forwarding               tag    address
+------------------- ----- ---- ---------------- ------------------------ ------ ------------------
+ethernet1/1         16    1    trust            vr:default               0      10.0.99.254/24
+ethernet1/2.10      256   1    users            vr:default               10     10.0.10.254/24
+ethernet1/2.20      257   1    servers          vr:default               20     10.0.20.254/24
+ae1                 258   1    dmz              vr:default               0      172.16.0.1/24
+loopback            259   1                     vr:default               0      N/A
+admin@FW1(active)> show lldp neighbors all
+Interface: ethernet1/1
+  Neighbor Chassis ID: 00:11:22:33:44:55
+  Remote Port ID: GigabitEthernet1/0/1
+  Port Description: to FW1 ethernet1/1
+  System Name: SW-CORE1
+  Management Address: 10.0.99.1
+admin@FW1(active)> show routing route
+
+flags: A:active, ?:loose, C:connect, H:host, S:static, ~:internal, R:rip, O:ospf, B:bgp,
+       Oi:ospf intra-area, Oo:ospf inter-area, O1:ospf ext-type-1, O2:ospf ext-type-2, E:ecmp, M:multicast
+
+
+VIRTUAL ROUTER: default (id 1)
+  ==========
+destination                                 nexthop                                 metric flags      age   interface          next-AS
+0.0.0.0/0                                   203.0.113.1                             10     A S                  ethernet1/1
+10.0.10.0/24                                10.0.10.254                             0      A C                  ethernet1/2.10
+10.0.99.0/24                                10.0.99.254                             0      A C                  ethernet1/1
+total routes shown: 3

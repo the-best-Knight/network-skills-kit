@@ -1,0 +1,100 @@
+SW-ACC1#show interfaces status
+
+Port      Name               Status       Vlan       Duplex  Speed Type
+Gi1/0/1   user port          connected    10         a-full  a-100 10/100/1000BaseTX
+Gi1/0/2                      notconnect   10           auto   auto 10/100/1000BaseTX
+Gi1/0/5   esx01-idrac        connected    99         a-full a-1000 10/100/1000BaseTX
+Gi1/0/20  ESX01 vmnic1       connected    trunk      a-full a-1000 10/100/1000BaseTX
+Gi1/0/47  Po1 member         connected    trunk      a-full a-1000 10/100/1000BaseTX
+Gi1/0/48  Po1 member         connected    trunk      a-full a-1000 10/100/1000BaseTX
+Po1       Uplink to SW-CORE1 connected    trunk      a-full a-1000
+SW-ACC1#show cdp neighbors detail
+-------------------------
+Device ID: SW-CORE1.lab.local
+Entry address(es): 
+  IP address: 10.0.99.1
+Platform: cisco C9300-48P,  Capabilities: Router Switch IGMP 
+Interface: GigabitEthernet1/0/47,  Port ID (outgoing port): GigabitEthernet1/0/47
+Holdtime : 140 sec
+
+Version :
+Cisco IOS Software [Amsterdam], Catalyst L3 Switch Software (CAT9K_IOSXE), Version 17.3.4
+
+advertisement version: 2
+Duplex: full
+Management address(es):
+  IP address: 10.0.99.1
+
+-------------------------
+Device ID: SW-CORE1.lab.local
+Entry address(es): 
+  IP address: 10.0.99.1
+Platform: cisco C9300-48P,  Capabilities: Router Switch IGMP 
+Interface: GigabitEthernet1/0/48,  Port ID (outgoing port): GigabitEthernet1/0/48
+Holdtime : 140 sec
+
+Version :
+Cisco IOS Software [Amsterdam], Catalyst L3 Switch Software (CAT9K_IOSXE), Version 17.3.4
+
+advertisement version: 2
+Duplex: full
+
+-------------------------
+Device ID: esx01.lab.local
+Entry address(es): 
+  IP address: 10.0.99.21
+Platform: VMware ESX,  Capabilities: Switch 
+Interface: GigabitEthernet1/0/20,  Port ID (outgoing port): vmnic1
+Holdtime : 170 sec
+
+Version :
+VMware ESXi 7.0.3
+
+Total cdp entries displayed : 2
+SW-ACC1#show lldp neighbors detail
+------------------------------------------------
+Local Intf: Gi1/0/5
+Chassis id: 4c4c.4544.0050.3410
+Port id: 4c:d9:8f:aa:01:07
+Port Description: iDRAC
+System Name: esx01-idrac
+
+System Description: 
+Integrated Dell Remote Access Controller
+Time remaining: 101 seconds
+System Capabilities: B,W
+Enabled Capabilities: B,W
+Management Addresses:
+    IP: 10.0.99.121
+Auto Negotiation - supported, enabled
+Physical media capabilities:
+    1000baseT(FD)
+Media Attachment Unit type: 30
+Vlan ID: - not advertised
+
+Total entries displayed: 1
+SW-ACC1#show spanning-tree
+
+VLAN0010
+  Spanning tree enabled protocol rstp
+  Root ID    Priority    24586
+             Address     0011.2233.4400
+             Cost        4
+             Port        1 (Port-channel1)
+  Bridge ID  Priority    32778  (priority 32768 sys-id-ext 10)
+             Address     0011.2233.4411
+
+Interface           Role Sts Cost      Prio.Nbr Type
+------------------- ---- --- --------- -------- --------------------------------
+Gi1/0/1             Desg FWD 19        128.1    P2p
+Po1                 Root FWD 3         128.56   P2p
+SW-ACC1#show mac address-table
+          Mac Address Table
+-------------------------------------------
+
+Vlan    Mac Address       Type        Ports
+----    -----------       --------    -----
+  10    0050.56a1.2b3c    DYNAMIC     Gi1/0/1
+  99    4cd9.8faa.0107    DYNAMIC     Gi1/0/5
+  20    0050.56aa.bb01    DYNAMIC     Gi1/0/20
+Total Mac Addresses for this criterion: 3

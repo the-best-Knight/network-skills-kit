@@ -1,0 +1,15 @@
+DELL-S2# show interface status
+------------------------------------------------------------------------------------------
+Port         Description      Status Speed   Duplex Mode Vlan Tagged-Vlans
+------------------------------------------------------------------------------------------
+Eth 1/1/1    to SW-CORE1 Te1/1/2 up  10G     full   T    1    10,20
+Eth 1/1/5    SRV02 team nic1  up     1000M   full   T    1    20
+Eth 1/1/6    SRV02 team nic2  up     1000M   full   T    1    20
+Eth 1/1/7    SRV02 mgmt       up     1000M   full   A    99   -
+Eth 1/1/8                     down   0       auto   A    99   -
+DELL-S2# show lldp neighbors
+Loc PortID     Rem Host Name        Rem Port Id                Rem Chassis Id
+--------------------------------------------------------------------------------
+ethernet1/1/5  SRV02                00:1b:21:aa:bb:cb          00:1b:21:aa:bb:cb
+ethernet1/1/6  SRV02                00:1b:21:aa:bb:cc          00:1b:21:aa:bb:cc
+ethernet1/1/7  SRV02                00:1b:21:aa:bb:01          00:1b:21:aa:bb:01

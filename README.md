@@ -16,11 +16,11 @@ Offline networking and IT tools in a single HTML file. Twelve tools: seven for e
 | --- | --- |
 | Log Sanitizer | Hides IPs, passwords, usernames and other secrets in a log before you share it |
 | OSI & Network Reference | Layers, protocols and ports, plus a symptom-based guide to the likely cause of an outage |
-| Network Calculator | Subnet, VLSM, supernet, split and ACL wildcard math, bandwidth and hash calculators, converters |
+| Network Calculator | Subnet, IPv6, VLSM, supernet, split and ACL wildcard math, bandwidth and hash calculators, converters |
 | Cheat Sheet | Copy-ready switch and router commands (Cisco, Dell, Junos), ports, terms and error messages |
 | Config Diff | Compare two configs and see exactly what changed |
-| Ping / Traceroute Analyzer | Paste ping or traceroute output and spot loss and slow hops |
-| Network Topology Builder | Draw a network diagram, or build one from device configs, and export it as PNG, SVG, JSON or CSV |
+| Ping / Traceroute Analyzer | Paste ping, traceroute, mtr or pathping output and spot loss and slow hops. Also reads WinMTR, Test-NetConnection and Test-Connection |
+| Network Topology Builder | Draw a network diagram, or build one from device configs, and export it as PNG, SVG, draw.io, JSON or CSV |
 
 **Practice labs**
 
@@ -29,7 +29,7 @@ Offline networking and IT tools in a single HTML file. Twelve tools: seven for e
 | DNS Lab | Offline DNS simulator: dig-style queries, a zone database, broken-record scenarios |
 | Routing Lab | Longest-prefix match, live routing tables, packet path visualization |
 | Firewall Rules Lab | ACL simulator: ordered rules, a packet tester, implicit deny, policy scenarios |
-| Network Fault Lab | Diagnose-and-fix scenarios with a live topology and a practice switch or router console |
+| Network Fault Lab | Diagnose-and-fix scenarios with a live topology and a practice switch or router console (Dell OS10 or Cisco IOS), plus a free practice network with no goal |
 | vSphere Sandbox | Practice common vSphere tasks in a safe offline copy |
 
 ## Private by design
@@ -50,7 +50,7 @@ Paste a log, config dump, or command output and it redacts sensitive values as y
 
 ## Network Topology Builder
 
-Draw a diagram by hand, or import configs and show output from Cisco, Dell, Palo Alto and VMware ESXi and let it build the diagram. Links are only drawn when the data supports them.
+Draw a diagram by hand, or import configs and show output from Cisco, Dell, Palo Alto and VMware ESXi, plus the network commands of Linux and Windows servers, and let it build the diagram. Links are only drawn when the data supports them.
 
 ![The Network Topology Builder showing a sample network with a DMZ and a datacenter zone](docs/screenshots/topology-builder.png)
 
@@ -79,3 +79,7 @@ See [CHANGELOG.md](CHANGELOG.md).
 ---
 
 Built by [Ian Knight](https://ianknight.org).
+
+## Tests
+
+`sh tests/run.sh` runs the browser tests in headless Firefox, and `node tests/engine/suite.mjs` runs the engine tests. Both test `index.html` itself, and neither needs anything installed. See [`tests/README.md`](tests/README.md).

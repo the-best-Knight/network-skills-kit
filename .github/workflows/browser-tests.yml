@@ -1,0 +1,17 @@
+name: Browser tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  firefox:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Run the browser tests in headless Firefox
+        run: sh tests/run.sh
