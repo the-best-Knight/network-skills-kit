@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- Main menu: the arrow keys now follow the layout. Down and Up move between rows in the same column, Left and Right move along the row, and Up from the top row goes back to the search box. Before, Down and Right both stepped to the next card in list order, so Down jumped sideways first.
+
 ## 1.0.0 (2026-10-17)
 
 First tagged release.
